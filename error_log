@@ -233,3 +233,25 @@ Stack trace:
 [14-Jun-2021 22:44:01 UTC] PHP Warning:  extract() expects parameter 1 to be array, bool given in /home/ecemscoz/public_html/archiverepair.php on line 14
 [14-Jun-2021 22:58:10 UTC] PHP Fatal error:  Cannot use try without catch or finally in /home/ecemscoz/public_html/archiverepair.php on line 8
 [14-Jun-2021 22:58:54 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/ecemscoz/public_html/archiverepair.php on line 56
+[15-Jun-2021 06:40:56 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/ecemscoz/public_html/editrepairs.php on line 82
+[15-Jun-2021 06:40:56 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/editrepairs.php:19) in /home/ecemscoz/public_html/editrepairs.php on line 86
+[15-Jun-2021 06:41:41 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/ecemscoz/public_html/editrepairs.php on line 82
+[15-Jun-2021 06:41:41 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/editrepairs.php:19) in /home/ecemscoz/public_html/editrepairs.php on line 86
+[15-Jun-2021 06:41:46 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/ecemscoz/public_html/editrepairs.php on line 82
+[15-Jun-2021 06:41:46 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/editrepairs.php:19) in /home/ecemscoz/public_html/editrepairs.php on line 86
+[15-Jun-2021 09:19:42 UTC] PHP Fatal error:  Uncaught Error: Call to a member function lastInsertId() on null in /home/ecemscoz/public_html/addnewrepairprocess.php:55
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/addnewrepairprocess.php on line 55
+[15-Jun-2021 09:19:56 UTC] PHP Fatal error:  Uncaught Error: Call to a member function lastInsertId() on null in /home/ecemscoz/public_html/addnewrepairprocess.php:55
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/addnewrepairprocess.php on line 55
+[15-Jun-2021 10:49:08 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/ecemscoz/public_html/addnewrepairs.php on line 269
+[15-Jun-2021 10:49:08 UTC] PHP Warning:  mysqli_fetch_row() expects parameter 1 to be mysqli_result, null given in /home/ecemscoz/public_html/addnewrepairs.php on line 269
+[15-Jun-2021 10:49:08 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/ecemscoz/public_html/addnewrepairs.php on line 276
+[15-Jun-2021 10:49:08 UTC] PHP Warning:  mysqli_fetch_row() expects parameter 1 to be mysqli_result, null given in /home/ecemscoz/public_html/addnewrepairs.php on line 276
+[15-Jun-2021 10:58:49 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/addnewrepairs.php on line 439
+[15-Jun-2021 11:02:35 UTC] PHP Parse error:  syntax error, unexpected '$job_number' (T_VARIABLE), expecting ',' or ';' in /home/ecemscoz/public_html/addnewrepairs.php on line 274
+[15-Jun-2021 11:45:48 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/addnewrepairprocess.php:84) in /home/ecemscoz/public_html/addnewrepairprocess.php on line 85
+[15-Jun-2021 11:46:43 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/addnewrepairprocess.php:61) in /home/ecemscoz/public_html/addnewrepairprocess.php on line 84

@@ -46,7 +46,7 @@ if(isset($_REQUEST['btn_update']))
     if($update_stmt->execute())
     {
      $updateMsg="Record Update Successfully......."; 
-     header("refresh:3;index.php"); 
+     header("refresh:3;repairs.php"); 
     }
    } 
   }
