@@ -1,63 +1,4 @@
 <?php
-
-require_once "connection.php";
-
-if(isset($_REQUEST['update_id']))
-{
- try
- {
-  $job_number = $_REQUEST['update_id']; 
-  $select_stmt = $db->prepare('SELECT * FROM repairs WHERE job_number =:job_number'); 
-  $select_stmt->bindParam(':job_number',$job_number);
-  $select_stmt->execute(); 
-  $row = $select_stmt->fetch(PDO::FETCH_ASSOC);
-  extract($row);
- }
- catch(PDOException $e)
- {
-  $e->getMessage();
- }
- 
-}
-
-if(isset($_REQUEST['btn_update']))
-{
- 
- $job_number_up = $_REQUEST['job_number'];
- $client_full_name_up = $_REQUEST['client_full_name'];
-  
- if(empty($firstname_up)){
-  $errorMsg="Please Enter Firstname";
- }
- else if(empty($lastname_up)){
-  $errorMsg="Please Enter Lastname";
- } 
- else
- {
-  try
-  {
-   if(!isset($errorMsg))
-   {
-    $update_stmt=$db->prepare('UPDATE repairs SET firstname=:fname_up, lastname=:lname_up WHERE id=:id'); 
-    $update_stmt->bindParam(':fname_up',$firstname_up);
-    $update_stmt->bindParam(':lname_up',$lastname_up); 
-    $update_stmt->bindParam(':id',$id);
-     
-    if($update_stmt->execute())
-    {
-     $updateMsg="Record Update Successfully......."; 
-     header("refresh:3;repairs.php"); 
-    }
-   } 
-  }
-  catch(PDOException $e)
-  {
-   echo $e->getMessage();
-  } 
- } 
-}
-?>
-<?php
 require_once 'connection.php';
 
   session_start();
@@ -80,6 +21,84 @@ require_once 'connection.php';
   if(isset($_SESSION['admin_login']))
   {
   ?>
+<?php
+
+require_once "connection.php";
+
+if(isset($_REQUEST['update_id']))
+{
+ try
+ {
+  $job_number = $_REQUEST['update_id']; 
+  $select_stmt = $db->prepare('SELECT * FROM repairs WHERE job_number =:job_number'); 
+  $select_stmt->bindParam(':job_number',$job_number,PDO::PARAM_STR);
+  $select_stmt->execute(); 
+  $row = $select_stmt->fetch(PDO::FETCH_ASSOC);
+  extract($row);
+ }
+ catch(PDOException $e)
+ {
+  $e->getMessage();
+ }
+ 
+}
+
+if(isset($_REQUEST['btn_update']))
+{
+ 
+                $job_number = $_REQUEST['job_number'];
+                $date = $_REQUEST['date'];
+                $client_email = $_REQUEST['client_email'];
+                $client_phone = $_REQUEST['client_phone'];
+                $item_for_repair = $_REQUEST['item_for_repair'];
+                $repair_description = $_REQUEST['repair_description'];
+                $hardware_details = $_REQUEST['hardware_details'];
+                $diagnostic_fee = $_REQUEST['diagnostic_fee'];
+                $tech_assigned = $_REQUEST['tech_assigned'];
+                $current_status = $_REQUEST['current_status'];
+                $technician_notes = $_REQUEST['technician_notes'];
+                $admin_notes = $_REQUEST['admin_notes'];
+                $invoice_status = $_REQUEST['invoice_status'];
+                $invoice_number = $_REQUEST['invoice_number'];
+  
+  {
+  try
+  {
+      
+   if(!isset($errorMsg))
+   {
+       $update_stmt=$db->prepare('UPDATE repairs SET job_number=:job_number,date=:date,client_full_name=:client_full_name,client_email=:client_email,client_phone=:client_phone,item_for_repair=:item_for_repair,repair_description=:repair_description,hardware_details=:hardware_details,diagnostic_fee=:diagnostic_fee,tech_assigned=:tech_assigned,current_status=:current_status,technician_notes=:technician_notes,admin_notes=:admin_notes,invoice_status=:invoice_status,invoice_number=:invoice_number WHERE job_number=:job_number'); 
+
+                $update_stmt->bindParam(':job_number', $job_number);
+                $update_stmt->bindParam(':date', $date);
+                $update_stmt->bindParam(':client_full_name', $client_full_name);
+                $update_stmt->bindParam(':client_email', $client_email);
+                $update_stmt->bindParam(':client_phone', $client_phone);
+                $update_stmt->bindParam(':item_for_repair', $item_for_repair);
+                $update_stmt->bindParam(':repair_description',$repair_description);
+                $update_stmt->bindParam(':hardware_details', $hardware_details);
+                $update_stmt->bindParam(':diagnostic_fee', $diagnostic_fee);
+                $update_stmt->bindParam(':tech_assigned', $tech_assigned);
+                $update_stmt->bindParam(':current_status', $current_status);
+                $update_stmt->bindParam(':technician_notes', $technician_notes);
+                $update_stmt->bindParam(':admin_notes', $admin_notes);
+                $update_stmt->bindParam(':invoice_status', $invoice_status);
+                $update_stmt->bindParam(':invoice_number', $invoice_number);   
+     
+    if($update_stmt->execute())
+    {
+     $updateMsg="Record Update Successfully. Refreshing in 3 seconds."; 
+     header("refresh:1;repairs.php"); 
+    }
+   } 
+  }
+  catch(PDOException $e)
+  {
+   echo $e->getMessage();
+  } 
+ } 
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -102,7 +121,7 @@ require_once 'connection.php';
     <link rel="stylesheet" href="assets/css/demo_2/style.css" />
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="undefined" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     
   </head>
   <body>
@@ -303,30 +322,36 @@ require_once 'connection.php';
                 </div>
               </div>
             <!-- first row starts here -->
-            <div class="row table-responsive col-md-12">
+           
                 
            <?php
 if(isset($errorMsg)){
 ?>
     <div class="alert alert-danger">
-        <strong>WRONG ! <?php echo $errorMsg; ?></strong>
+        <strong>ERROR ! <?php echo $errorMsg; ?></strong>
     </div>
 <?php
 }
 if(isset($updateMsg)){
 ?>
  <div class="alert alert-success">
-  <strong>UPDATE ! <?php echo $updateMsg; ?></strong>
+  <strong>UPDATED ! <?php echo $updateMsg; ?></strong>
  </div>
 <?php
 }
 ?>
-<form method="post" class="form-horizontal">
+<form method="post" class="form-horizontal" action="">
      
  <div class="form-group">
  <label class="col-sm-3 control-label">Job Number</label>
  <div class="col-sm-12">
  <input type="text" name="job_number" class="form-control" value="<?php echo $job_number; ?>" readonly>
+ </div>
+ </div>
+  <div class="form-group">
+ <label class="col-sm-3 control-label">Date</label>
+ <div class="col-sm-12">
+ <input type="date" name="date" class="form-control" value="<?php echo $date; ?>" readonly>
  </div>
  </div>
      
@@ -351,9 +376,18 @@ if(isset($updateMsg)){
   <div class="form-group">
  <label class="col-sm-3 control-label">Item For Repair</label>
  <div class="col-sm-12">
- <input type="text" name="item_for_repair" class="form-control" value="<?php echo $item_for_repair; ?>">
+ <select>
+<?
+    $sql = 'SHOW COLUMNS FROM repairs WHERE field="item_for_repair"';
+    $row = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
+    foreach(explode("','",substr($row['Type'],6,-2)) as $option) {
+            print("<option>$option</option>");
+        }
+?>
+</select>
  </div>
  </div>
+
   <div class="form-group">
  <label class="col-sm-3 control-label">Repair Description</label>
  <div class="col-sm-12">
@@ -375,13 +409,30 @@ if(isset($updateMsg)){
   <div class="form-group">
  <label class="col-sm-3 control-label">Assigned Technician</label>
  <div class="col-sm-12">
- <input type="text" name="tech_assigned" class="form-control" value="<?php echo $tech_assigned; ?>" readonly>
+   <select>
+<?
+    $sql = 'SHOW COLUMNS FROM repairs WHERE field="tech_assigned"';
+    $row = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
+    foreach(explode("','",substr($row['Type'],6,-2)) as $option) {
+            print("<option>$option</option>");
+        }
+?>
+</select>
+
  </div>
  </div>
   <div class="form-group">
  <label class="col-sm-3 control-label">Current Status</label>
  <div class="col-sm-12">
- <input type="text" name="current_status" class="form-control" value="<?php echo $current_status; ?>" >
+ <select>
+<?
+    $sql = 'SHOW COLUMNS FROM repairs WHERE field="current_status"';
+    $row = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
+    foreach(explode("','",substr($row['Type'],6,-2)) as $option) {
+            print("<option>$option</option>");
+        }
+?>
+</select>
  </div>
  </div>
   <div class="form-group">
@@ -399,7 +450,15 @@ if(isset($updateMsg)){
   <div class="form-group">
  <label class="col-sm-3 control-label">Invoice Status</label>
  <div class="col-sm-12">
- <input type="text" name="invoice_status" class="form-control" value="<?php echo $invoice_status; ?>">
+ <select>
+<?
+    $sql = 'SHOW COLUMNS FROM repairs WHERE field="invoice_status"';
+    $row = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
+    foreach(explode("','",substr($row['Type'],6,-2)) as $option) {
+            print("<option>$option</option>");
+        }
+?>
+</select>
  </div>
  </div>
   <div class="form-group">
@@ -441,8 +500,9 @@ if(isset($updateMsg)){
       <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="undefined" crossorigin="anonymous"></script>
+      <!-- plugins:js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->

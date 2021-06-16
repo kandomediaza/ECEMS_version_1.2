@@ -255,3 +255,28 @@ Stack trace:
 [15-Jun-2021 11:02:35 UTC] PHP Parse error:  syntax error, unexpected '$job_number' (T_VARIABLE), expecting ',' or ';' in /home/ecemscoz/public_html/addnewrepairs.php on line 274
 [15-Jun-2021 11:45:48 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/addnewrepairprocess.php:84) in /home/ecemscoz/public_html/addnewrepairprocess.php on line 85
 [15-Jun-2021 11:46:43 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/addnewrepairprocess.php:61) in /home/ecemscoz/public_html/addnewrepairprocess.php on line 84
+[15-Jun-2021 18:17:49 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/addnewrepairprocess.php:78) in /home/ecemscoz/public_html/addnewrepairprocess.php on line 102
+[15-Jun-2021 18:18:21 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/addnewrepairprocess.php:78) in /home/ecemscoz/public_html/addnewrepairprocess.php on line 102
+[15-Jun-2021 18:23:31 UTC] PHP Warning:  Use of undefined constant FILTER_SANITIZE_DATE - assumed 'FILTER_SANITIZE_DATE' (this will throw an Error in a future version of PHP) in /home/ecemscoz/public_html/addnewrepairprocess.php on line 38
+[15-Jun-2021 18:23:31 UTC] PHP Warning:  filter_input() expects parameter 3 to be int, string given in /home/ecemscoz/public_html/addnewrepairprocess.php on line 38
+[15-Jun-2021 18:23:33 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/addnewrepairprocess.php:78) in /home/ecemscoz/public_html/addnewrepairprocess.php on line 102
+[15-Jun-2021 18:24:13 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/addnewrepairprocess.php:78) in /home/ecemscoz/public_html/addnewrepairprocess.php on line 102
+[15-Jun-2021 21:57:30 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/ecemscoz/public_html/editrepairs.php on line 160
+[15-Jun-2021 22:01:00 UTC] PHP Parse error:  syntax error, unexpected 'catch' (T_CATCH) in /home/ecemscoz/public_html/editrepairs.php on line 101
+[15-Jun-2021 22:01:24 UTC] PHP Parse error:  syntax error, unexpected 'catch' (T_CATCH) in /home/ecemscoz/public_html/editrepairs.php on line 102
+[15-Jun-2021 22:01:33 UTC] PHP Parse error:  syntax error, unexpected 'catch' (T_CATCH) in /home/ecemscoz/public_html/editrepairs.php on line 102
+[16-Jun-2021 09:00:06 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE field=""' at line 1 in /home/ecemscoz/public_html/editrepairs.php:419
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(419): PDO->query('SHOW COLUMNS FR...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 419
+[16-Jun-2021 09:05:07 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE field=""' at line 1 in /home/ecemscoz/public_html/editrepairs.php:419
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(419): PDO->query('SHOW COLUMNS FR...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 419
+[16-Jun-2021 10:13:03 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.daily_recyclables' doesn't exist in /home/ecemscoz/public_html/dailyrecyclables.php:290
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(290): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 290

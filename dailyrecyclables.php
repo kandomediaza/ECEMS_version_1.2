@@ -1,4 +1,27 @@
 <?php
+
+require_once "connection.php";
+ 
+if(isset($_REQUEST['delete_id']))
+{
+ // select record from db to delete
+ $id=$_REQUEST['delete_id']; //get delete_id and store in $id variable
+  
+ $select_stmt= $db->prepare('SELECT * FROM daily_recyclables WHERE id =:id'); //sql select query
+ $select_stmt->bindParam(':id',$id);
+ $select_stmt->execute();
+ $row=$select_stmt->fetch(PDO::FETCH_ASSOC);
+  
+ //delete an orignal record from db
+ $delete_stmt = $db->prepare('DELETE FROM daily_recyclables WHERE id =:id');
+ $delete_stmt->bindParam(':id',$id);
+ $delete_stmt->execute();
+  
+ header("Location:dailyrecyclables.php");
+}
+ 
+?>
+<?php
 require_once 'connection.php';
 
   session_start();
@@ -20,14 +43,10 @@ require_once 'connection.php';
   
   if(isset($_SESSION['admin_login']))
   {
-      $stmt = $db->prepare("SELECT MAX(job_number) AS max_id FROM repairs");
-  $stmt -> execute();
-  $job_number = $stmt -> fetch(PDO::FETCH_ASSOC);
-  $max_id = $job_number['max_id'];
   ?>
 <!DOCTYPE html>
 <html lang="en">
- <head>
+  <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -222,9 +241,7 @@ require_once 'connection.php';
           <div class="content-wrapper pb-0">
             <div class="page-header flex-wrap">
               <div class="header-left">
-                  <a href="repairs.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">View All Repairs</a>
-                <a href="addnewrepairs.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add New Repairs</a>
-               <a href="addnewrefurb.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add New Refurb</a>
+                
                 <a href="dailyrecyclables.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add Recyclables</a>
               </div>
                       </div>
@@ -236,8 +253,8 @@ require_once 'connection.php';
                      
                       <div>
                         <div class="d-flex flex-wrap pt-2 justify-content-between sales-header-right">
-                            <h3>Add New Repair to ECEMS</h3>
-                       <p>Please use the form below to generate a Job Card for a customer. Please make sure to capture the customers email address correctly as an email will be sent automatically to the customer with his/her job card number and an online link to track the status of his/her repair.
+                            <h3>Daily Recyclables</h3>
+                       <p>Welcome to the recyclables section. Here you will find a list of all Recyclables processed over time. Please try not delete the records, rather archive them using the archive button.
               </div>
             
             </div>
@@ -250,127 +267,57 @@ require_once 'connection.php';
             <!-- first row starts here -->
             <div class="row table-responsive col-md-12">
                
-            <form action="addnewrepairprocess.php" method="POST">
-         
-         
-        <div class="form-group">
-      <label for="job_number">Job Number</label>
-      <input type="job_number" name="job_number" id="job_number" class="form-control" value="<?php echo $max_id+1;?>" readonly>
-    </div> 
-         
-         
-         
-         
-         
-         <div class="form-group">
-      <label for="date">Date</label>
-      <input type="date" name="date" id="date" class="form-control" placeholder="Job Card Date">
-    </div>
+            <table class="table table-striped table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                                 
+    <thead>
+        <tr>
+            <th><b>ID</b></th>
+            <th><b>Date</b></th>
+            <th><b>Subgrade Metals</b></th>
+            <th><b>Cast Aluminium</b></th>
+            <th><b>Copper</b></th>
+            <th><b>Stainless Steel</b></th>
+            <th><b>Batteries</b></th>
+            <th><b>Low Grade PCB</b></th>
+            <th><b>Medium Grade PCB</b></th>
+            <th><b>High Grade PCB</b></th>
+            <th><b>View | Edit</b></th>
+            <th><b>Archive</b></th>
+            <th><b>Delete</b></th>
+        </tr>
+    </thead>
+    <tbody>
+ <?php
+ $select_stmt=$db->prepare("SELECT * FROM daily_recyclables"); //sql select query
+ $select_stmt->execute();
+ while($row=$select_stmt->fetch(PDO::FETCH_ASSOC))
+ {
+ ?>
 
-
-         <div class="form-group">
-      <label for="client_full_name">Client Full Name</label>
-      <input type="text" name="client_full_name" class="form-control" id="client_full_name" placeholder="Mr. Laptop Man">
-    </div>
-    
-     <div class="form-group">
-      <label for="client_email">Client Email Address</label>
-      <input type="email" name="client_email" class="form-control" id="client_email" placeholder="example@live.co.za">
-    </div>
-    
-    <div class="form-group">
-      <label for="client_phone">Client Phone Number</label>
-      <input type="text" name="client_phone" class="form-control" id="client_phone" placeholder="071 984 5522">
-    </div>
-    
-     <div class="form-group">
-     <label for="item_for_repair">Item For Repair</label>
-
-<select>
-<?
-    $sql = 'SHOW COLUMNS FROM repairs WHERE field="item_for_repair"';
-    $row = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
-    foreach(explode("','",substr($row['Type'],6,-2)) as $option) {
-            print("<option>$option</option>");
-        }
-?>
-</select>
-    </div>
-    
-      <div class="form-group">
-      <label for="repair_description">Repair Description</label>
-      <input type="text" name="repair_description" class="form-control" id="repair_description" placeholder="Laptop is dead...">
-    </div>
-    
-      <div class="form-group">
-      <label for="hardware_details">Hardware Details</label>
-      <input type="text" name="hardware_details" class="form-control" id="hardware_details" placeholder="Black Lenovo Laptop with Charger">
-    </div>
-    
-      <div class="form-group">
-      <label for="diagnostic_fee">Diagnostic Fee</label>
-      <input type="text" name="diagnostic_fee" class="form-control" id="diagnostic_fee">
-    </div>
-    
-     <div class="form-group">
-     <label for="tech_assigned">Technician Assigned</label>
-
-<select>
-<?
-    $sql = 'SHOW COLUMNS FROM repairs WHERE field="tech_assigned"';
-    $row = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
-    foreach(explode("','",substr($row['Type'],6,-2)) as $option) {
-            print("<option>$option</option>");
-        }
-?>
-</select>
-    </div>
-    
-     <div class="form-group">
-     <label for="current_status">Current Status</label>
-
-<select>
-<?
-    $sql = 'SHOW COLUMNS FROM repairs WHERE field="current_status"';
-    $row = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
-    foreach(explode("','",substr($row['Type'],6,-2)) as $option) {
-            print("<option>$option</option>");
-        }
-?>
-</select>
-    </div>
-    
-      <div class="form-group">
-      <label for="technician_notes">Technician Notes</label>
-      <input type="text" name="technician_notes" class="form-control" id="technician_notes">
-    </div>
-    
-       <div class="form-group">
-      <label for="admin_notes">Admin Notes</label>
-      <input type="text" name="admin_notes" class="form-control" id="admin_notes">
-          </div>
-          
-          <div class="form-group">
-     <label for="invoice_status">Invoice Status</label>
-
-<select>
-<?
-    $sql = 'SHOW COLUMNS FROM repairs WHERE field="invoice_status"';
-    $row = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
-    foreach(explode("','",substr($row['Type'],6,-2)) as $option) {
-            print("<option>$option</option>");
-        }
-?>
-</select>
-    </div>
-    
-     <div class="form-group">
-      <label for="invoice_number">Invoice Number</label>
-      <input type="text" name="invoice_number" class="form-control" id="invoice_number">
-          </div>
-<input type="submit" id="btn_create" name="btn_create" class="btn btn-primary" value="Create Job Card">
-
-    </form>
+        <tr>
+            <td><?php echo $row['id']; ?></td>
+             <td><?php echo $row['date']; ?></td>
+            <td><?php echo $row['subgrademetals']; ?>KG</td>
+             <td><?php echo $row['subgrademetals']; ?>KG</td>
+              <td><?php echo $row['subgrademetals']; ?>KG</td>
+               <td><?php echo $row['subgrademetals']; ?>KG</td>
+                <td><?php echo $row['subgrademetals']; ?>KG</td>
+                 <td><?php echo $row['lowgradepcb']; ?>KG</td>
+                  <td><?php echo $row['mediumgradepcb']; ?>KG</td>
+                   <td><?php echo $row['highgradepcb']; ?>KG</td>
+             
+              
+            <td><a href="editrecyclables.php?update_id=<?php echo $row['id']; ?>" class="btn btn-success" onclick="return confirm('Please be careful when editing this job card! Do not remove important information.. Click OK if you understand....');">View | Edit</a></td>
+             <td><a href="archiverecyclables.php?archive_id=<?php echo $row['id']; ?>" name="btn_archive" class="btn btn-warning" onclick="return confirm('You are about to send this Job Card to the Archive database. Please only press OK if you have invoiced this client, inserted the invoice number into ECEMS and the repair has been paid for and collected by the customer and is no longer with us....');">Archive</a></td>
+            <td><a href="?delete_id=<?php echo $row['id']; ?>" class="btn btn-danger" onclick="return confirm('Are you REALLY sure you want to delete this Job Card? Press Cancel if this was a mistake, or press OK to delete this record from ECEMS');">Delete</a></td>
+            
+        </tr>
+    <?php
+ }
+ ?>
+   </tbody>
+   
+</table> 
             
             </div>
 			 <!-- first row starts here -->
