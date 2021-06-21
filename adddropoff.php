@@ -20,11 +20,79 @@ require_once 'connection.php';
   
   if(isset($_SESSION['admin_login']))
   {
-      $stmt = $db->prepare("SELECT MAX(job_number) AS max_id FROM repairs");
+      $stmt = $db->prepare("SELECT MAX(tbl_image_id) AS max_id FROM dropoffs");
   $stmt -> execute();
-  $job_number = $stmt -> fetch(PDO::FETCH_ASSOC);
-  $max_id = $job_number['max_id'];
-  ?>
+  $tbl_image_id = $stmt -> fetch(PDO::FETCH_ASSOC);
+  $max_id = $tbl_image_id['max_id'];
+  
+      if (isset($_POST['submit'])) {
+        try {
+            $tbl_image_id = $_POST['tbl_image_id'];
+             $date = $_POST['date'];
+             $customer_name = $_POST['customer_name'];
+             $customer_phone = $_POST['customer_phone'];
+            $image_file = $_FILES['image_file']['name'];
+            $type = $_FILES['image_file']['type'];
+            $size = $_FILES['image_file']['size'];
+            $temp = $_FILES['image_file']['tmp_name'];
+
+            $path = "uploadedimages/" . $image_file; // set upload folder path
+
+            if (empty($customer_name)) {
+                $errorMsg = "Please enter customers name";
+            } else if (empty($image_file)) {
+                $errorMsg = "please Select Image";
+            } else if ($type == "image/jpg" || $type == 'image/jpeg' || $type == "image/png" || $type == "image/gif") {
+                if (!file_exists($path)) { // check file not exist in your upload folder path
+                    if ($size < 5000000) { // check file size 5MB
+                        move_uploaded_file($temp, 'uploadedimages/'.$image_file); // move upload file temperory directory to your upload folder
+                    } else {
+                        $errorMsg = "Your file too large please upload 5MB size"; // error message file size larger than 5mb
+                    }
+                } else {
+                    $errorMsg = "File already exists... Check upload folder"; // error message file not exists your upload folder path
+                }
+            } else {
+                $errorMsg = "Upload JPG, JPEG, PNG & GIF file formate...";
+            }
+
+            if (!isset($errorMsg)) {
+                $insert_stmt = $db->prepare('INSERT INTO dropoffs(tbl_image_id, date, customer_name, customer_phone, image_file) VALUES (:tbl_image_id, :date, :customer_name, :customer_number, :image_file)');
+                $insert_stmt->bindParam(':tbl_image_id', $tbl_image_id);
+                $insert_stmt->bindParam(':date', $date);
+                $insert_stmt->bindParam(':customer_name', $customer_name);
+                $insert_stmt->bindParam(':customer_phone', $customer_phone);
+                $insert_stmt->bindParam(':image_file', $image_file);
+
+                if ($insert_stmt->execute()) {
+                    $insertMsg = "File Uploaded successfully...";
+                    header('refresh:3;dropoffs.php');
+                }
+            }
+
+        } catch(PDOException $e) {
+            $e->getMessage();
+        }
+    }
+
+
+?>
+  <?php 
+            if(isset($errorMsg)) {
+        ?>
+            <div class="alert alert-danger">
+                <strong><?php echo $errorMsg; ?></strong>
+            </div>
+        <?php } ?>
+
+        <?php 
+            if(isset($insertMsg)) {
+        ?>
+            <div class="alert alert-success">
+                <strong><?php echo $insertMsg; ?></strong>
+            </div>
+        <?php } ?>
+
 <!DOCTYPE html>
 <html lang="en">
  <head>
@@ -222,10 +290,8 @@ require_once 'connection.php';
           <div class="content-wrapper pb-0">
             <div class="page-header flex-wrap">
               <div class="header-left">
-                  <a href="repairs.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">View All Repairs</a>
-                <a href="addnewrepairs.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add New Repairs</a>
-               <a href="addnewrefurb.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add New Refurb</a>
-                <a href="dailyrecyclables.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add Recyclables</a>
+                  <a href="dailyrecyclabes.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">View All Recyclables</a>
+               
               </div>
                       </div>
 			 <div class="row">
@@ -236,8 +302,8 @@ require_once 'connection.php';
                      
                       <div>
                         <div class="d-flex flex-wrap pt-2 justify-content-between sales-header-right">
-                            <h3>Add New Repair to ECEMS</h3>
-                       <p>Please use the form below to generate a Job Card for a customer. Please make sure to capture the customers email address correctly as an email will be sent automatically to the customer with his/her job card number and an online link to track the status of his/her repair.
+                            <h3>Add Dropoffs</h3>
+                       <p>Please enter the values (NUMBERS ONLY) of each material that was weighed and processed. If you do not have a certain material, please enter 0 (DO NOT LEAVE THE FIELD BLANK). Once done, please press Submit Values</p>
               </div>
             
             </div>
@@ -250,126 +316,41 @@ require_once 'connection.php';
             <!-- first row starts here -->
             <div class="row table-responsive col-md-12">
                
-            <form action="addnewrepairprocess.php" method="POST">
+            <form action="" method="POST" class="form-horizontal" enctype="multipart/form-data">
          
          
         <div class="form-group">
-      <label for="job_number">Job Number</label>
-      <input type="job_number" name="job_number" id="job_number" class="form-control" value="<?php echo $max_id+1;?>" readonly>
+      <label for="tbl_image_id">Dropoff (AUTO)</label>
+      <input type="tbl_image_id" name="tbl_image_id" id="tbl_image_id" class="form-control" value="<?php echo $max_id+1;?>" readonly>
     </div> 
          
-         
-         
-         
-         
-         <div class="form-group">
+      <div class="form-group">
       <label for="date">Date</label>
-      <input type="date" name="date" id="date" class="form-control" placeholder="Job Card Date">
+      <input type="date" name="date" id="date" class="form-control" placeholder="Enters Todays Date">
     </div>
 
 
          <div class="form-group">
-      <label for="client_full_name">Client Full Name</label>
-      <input type="text" name="client_full_name" class="form-control" id="client_full_name" placeholder="Mr. Laptop Man">
+      <label for="customer_name">Customer Name</label>
+      <input type="text" name="customer_name" class="form-control" id="customer_name" placeholder="John Doe">
     </div>
     
      <div class="form-group">
-      <label for="client_email">Client Email Address</label>
-      <input type="email" name="client_email" class="form-control" id="client_email" placeholder="example@live.co.za">
-    </div>
-    
-    <div class="form-group">
-      <label for="client_phone">Client Phone Number</label>
-      <input type="text" name="client_phone" class="form-control" id="client_phone" placeholder="071 984 5522">
+      <label for="customer_phone">Customer Phone Number</label>
+      <input type="text" name="customer_phone" class="form-control" id="customer_phone" placeholder="031 705 5555">
     </div>
     
      <div class="form-group">
-     <label for="item_for_repair">Item For Repair</label>
-
-<select class="form-select" aria-label="Default select example" name="item_for_repair">
-  <option selected>Open this select menu</option>
-  <option value="Laptop">Laptop</option>
-  <option value="Desktop">Desktop</option>
-  <option value="Television">Television</option>
-    <option value="Washing Machine">Washing Machine</option>
-      <option value="Tumble Dryer">Tumble Dryer</option>
-        <option value="Dishwasher">Dishwasher</option>
-          <option value="Microwave">Microwave</option>
-            <option value="Fridge">Fridge</option>
-            <option value="Printer">Printer</option>
-            <option value="Other">Other</option>
-</select>
+      <label for="image_file">Image of Drop-off</label>
+      <input type="file" name="image_file" class="form-control" id="image_file">
     </div>
     
-      <div class="form-group">
-      <label for="repair_description">Repair Description</label>
-      <input type="text" name="repair_description" class="form-control" id="repair_description" placeholder="Laptop is dead...">
-    </div>
-    
-      <div class="form-group">
-      <label for="hardware_details">Hardware Details</label>
-      <input type="text" name="hardware_details" class="form-control" id="hardware_details" placeholder="Black Lenovo Laptop with Charger">
-    </div>
-    
-      <div class="form-group">
-      <label for="diagnostic_fee">Diagnostic Fee</label>
-      <input type="text" name="diagnostic_fee" class="form-control" id="diagnostic_fee">
-    </div>
-    
-     <div class="form-group">
-     <label for="tech_assigned">Technician Assigned</label>
-
-<select class="form-select" aria-label="Default select example" name="tech_assigned">
-  <option selected>Open this select menu</option>
-  <option value="Not Assigned Yet" name="Not Assigned Yet">Not Assigned Yet</option>
-  <option value="Brendon" name="Brendon">Brendon</option>
-  <option value="Gabriel" name="Gabriel">Gabriel</option>
-    <option value="Jami" name="Jami">Jami</option>
-      <option value="Lee-Roy" name="Lee-Roy">Lee-Roy</option>
-        <option value="Conrad" name="Conrad">Conrad</option>
-          <option value="Tapiwa" name="Tapiwa">Tapiwa</option>
-          
-</select>
-    </div>
-    
-     <div class="form-group">
-     <label for="current_status">Current Status</label>
-
-<select class="form-select" aria-label="Default select example" name="current_status">
-  <option selected>Open this select menu</option>
-  <option value="Pending" name="Pending">Pending</option>
-  <option value="In Progress" name="In Progress">In Progress</option>
-  <option value="On Hold Spares Required" name="On Hold Spares Required">On Hold Spares Required</option>
-    <option value="On Hold Other Fault" name="On Hold Other Fault">On Hold Other Fault</option>
-      <option value="Repair Completed" name="Repair Completed">Repair Completed</option>
-       </select>
-    </div>
-    
-      <div class="form-group">
-      <label for="technician_notes">Technician Notes</label>
-      <input type="text" name="technician_notes" class="form-control" id="technician_notes">
-    </div>
-    
-       <div class="form-group">
-      <label for="admin_notes">Admin Notes</label>
-      <input type="text" name="admin_notes" class="form-control" id="admin_notes">
-          </div>
-          
-         <div class="form-group">
-     <label for="invoice_status">Invoice Status</label>
-
-<select class="form-select" aria-label="Default select example" name="invoice_status">
-  <option selected>Open this select menu</option>
-  <option value="Client Not Yet Invoiced" name="Client Not Yet Invoiced">Client Not Yet Invoiced</option>
-  <option value="Client Invoiced" name="Client Invoiced">Client Invoiced</option>
-        </select>
-    </div>
-    
-     <div class="form-group">
-      <label for="invoice_number">Invoice Number</label>
-      <input type="text" name="invoice_number" class="form-control" id="invoice_number">
-          </div>
-<input type="submit" id="btn_create" name="btn_create" class="btn btn-primary" value="Create Job Card">
+  <div class="form-group">
+            <div class="col-sm-12">
+                <input type="submit" name="submit" class="btn btn-success" value="Insert">
+               
+            </div>
+        </div>
 
     </form>
             

@@ -20,6 +20,7 @@ if(isset($_REQUEST['btn_login'])) //login button name is "btn_login" and set thi
 {
  $username  =$_REQUEST["txt_username"]; //textbox name "txt_email"
  $password =$_REQUEST["txt_password"]; //textbox name "txt_password"
+ 
  $role  =$_REQUEST["txt_role"];  //select option name "txt_role"
   
  if(empty($username)){      

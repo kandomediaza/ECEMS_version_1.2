@@ -20,11 +20,9 @@ require_once 'connection.php';
   
   if(isset($_SESSION['admin_login']))
   {
-  ?>
+?>
 <?php
-
-require_once "connection.php";
-
+require_once 'connection.php';
 if(isset($_REQUEST['update_id']))
 {
  try
@@ -48,18 +46,19 @@ if(isset($_REQUEST['btn_update']))
  
                 $job_number = $_REQUEST['job_number'];
                 $date = $_REQUEST['date'];
-                $client_email = $_REQUEST['client_email'];
-                $client_phone = $_REQUEST['client_phone'];
-                $item_for_repair = $_REQUEST['item_for_repair'];
-                $repair_description = $_REQUEST['repair_description'];
-                $hardware_details = $_REQUEST['hardware_details'];
-                $diagnostic_fee = $_REQUEST['diagnostic_fee'];
-                $tech_assigned = $_REQUEST['tech_assigned'];
-                $current_status = $_REQUEST['current_status'];
-                $technician_notes = $_REQUEST['technician_notes'];
-                $admin_notes = $_REQUEST['admin_notes'];
-                $invoice_status = $_REQUEST['invoice_status'];
-                $invoice_number = $_REQUEST['invoice_number'];
+                $client_full_name = filter_var($_REQUEST['client_full_name'], FILTER_SANITIZE_STRING);
+                $client_email = filter_var($_REQUEST['client_email'], FILTER_SANITIZE_EMAIL);
+               $client_phone = filter_var($_REQUEST['client_phone'], FILTER_SANITIZE_STRING);
+                $item_for_repair = filter_var($_REQUEST['item_for_repair'], FILTER_SANITIZE_STRING);
+                $repair_description = filter_var($_REQUEST['repair_description'], FILTER_SANITIZE_STRING);
+                $hardware_details = filter_var($_REQUEST['hardware_details'], FILTER_SANITIZE_STRING);
+                $diagnostic_fee = filter_var($_REQUEST['diagnostic_fee'], FILTER_SANITIZE_STRING);
+                $tech_assigned = filter_var($_REQUEST['tech_assigned'], FILTER_SANITIZE_STRING);
+                $current_status = filter_var($_REQUEST['current_status'], FILTER_SANITIZE_STRING);
+                $technician_notes = filter_var($_REQUEST['technician_notes'], FILTER_SANITIZE_STRING);
+                $admin_notes = filter_var($_REQUEST['admin_notes'], FILTER_SANITIZE_STRING);
+                $invoice_status = filter_var($_REQUEST['invoice_status'], FILTER_SANITIZE_STRING);
+                $invoice_number = filter_var($_REQUEST['invoice_number'], FILTER_SANITIZE_STRING);
   
   {
   try
@@ -67,28 +66,28 @@ if(isset($_REQUEST['btn_update']))
       
    if(!isset($errorMsg))
    {
-       $update_stmt=$db->prepare('UPDATE repairs SET job_number=:job_number,date=:date,client_full_name=:client_full_name,client_email=:client_email,client_phone=:client_phone,item_for_repair=:item_for_repair,repair_description=:repair_description,hardware_details=:hardware_details,diagnostic_fee=:diagnostic_fee,tech_assigned=:tech_assigned,current_status=:current_status,technician_notes=:technician_notes,admin_notes=:admin_notes,invoice_status=:invoice_status,invoice_number=:invoice_number WHERE job_number=:job_number'); 
+       $update_stmt=$db->prepare('UPDATE repairs SET job_number=:job_number, date=:date, client_full_name=:client_full_name, client_email=:client_email, client_phone=:client_phone, item_for_repair=:item_for_repair, repair_description=:repair_description, hardware_details=:hardware_details, diagnostic_fee=:diagnostic_fee, tech_assigned=:tech_assigned, current_status=:current_status, technician_notes=:technician_notes, admin_notes=:admin_notes, invoice_status=:invoice_status, invoice_number=:invoice_number WHERE job_number=:job_number'); 
 
-                $update_stmt->bindParam(':job_number', $job_number);
+                $update_stmt->bindParam(':job_number', $job_number, PDO::PARAM_INT);
                 $update_stmt->bindParam(':date', $date);
-                $update_stmt->bindParam(':client_full_name', $client_full_name);
-                $update_stmt->bindParam(':client_email', $client_email);
-                $update_stmt->bindParam(':client_phone', $client_phone);
-                $update_stmt->bindParam(':item_for_repair', $item_for_repair);
-                $update_stmt->bindParam(':repair_description',$repair_description);
-                $update_stmt->bindParam(':hardware_details', $hardware_details);
-                $update_stmt->bindParam(':diagnostic_fee', $diagnostic_fee);
-                $update_stmt->bindParam(':tech_assigned', $tech_assigned);
-                $update_stmt->bindParam(':current_status', $current_status);
-                $update_stmt->bindParam(':technician_notes', $technician_notes);
-                $update_stmt->bindParam(':admin_notes', $admin_notes);
-                $update_stmt->bindParam(':invoice_status', $invoice_status);
-                $update_stmt->bindParam(':invoice_number', $invoice_number);   
+                $update_stmt->bindParam(':client_full_name', $client_full_name, PDO::PARAM_STR);
+                $update_stmt->bindParam(':client_email', $client_email, PDO::PARAM_STR);
+                $update_stmt->bindParam(':client_phone', $client_phone, PDO::PARAM_STR);
+                $update_stmt->bindParam(':item_for_repair', $item_for_repair, PDO::PARAM_STR);
+                $update_stmt->bindParam(':repair_description',$repair_description, PDO::PARAM_STR);
+                $update_stmt->bindParam(':hardware_details', $hardware_details, PDO::PARAM_STR);
+                $update_stmt->bindParam(':diagnostic_fee', $diagnostic_fee, PDO::PARAM_STR);
+                $update_stmt->bindParam(':tech_assigned', $tech_assigned, PDO::PARAM_STR);
+                $update_stmt->bindParam(':current_status', $current_status, PDO::PARAM_STR);
+                $update_stmt->bindParam(':technician_notes', $technician_notes, PDO::PARAM_STR);
+                $update_stmt->bindParam(':admin_notes', $admin_notes, PDO::PARAM_STR);
+                $update_stmt->bindParam(':invoice_status', $invoice_status, PDO::PARAM_STR);
+                $update_stmt->bindParam(':invoice_number', $invoice_number, PDO::PARAM_STR);   
      
     if($update_stmt->execute())
     {
      $updateMsg="Record Update Successfully. Refreshing in 3 seconds."; 
-     header("refresh:1;repairs.php"); 
+     header("refresh:3;repairs.php"); 
     }
    } 
   }
@@ -296,10 +295,7 @@ if(isset($_REQUEST['btn_update']))
           <div class="content-wrapper pb-0">
             <div class="page-header flex-wrap">
               <div class="header-left">
-                  <a href="repairs.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">View All Repairs</a>
-                <a href="addnewrepairs.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add New Repairs</a>
-               <a href="addnewrefurb.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add New Refurb</a>
-                <a href="dailyrecyclables.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add Recyclables</a>
+                 
               </div>
                       </div>
 			 <div class="row">
@@ -322,9 +318,7 @@ if(isset($_REQUEST['btn_update']))
                 </div>
               </div>
             <!-- first row starts here -->
-           
-                
-           <?php
+                         <?php
 if(isset($errorMsg)){
 ?>
     <div class="alert alert-danger">
@@ -339,7 +333,7 @@ if(isset($updateMsg)){
  </div>
 <?php
 }
-?>
+?> 
 <form method="post" class="form-horizontal" action="">
      
  <div class="form-group">
@@ -349,12 +343,11 @@ if(isset($updateMsg)){
  </div>
  </div>
   <div class="form-group">
- <label class="col-sm-3 control-label">Date</label>
+ <label class="col-sm-3 control-label">Date Repair Booked in</label>
  <div class="col-sm-12">
  <input type="date" name="date" class="form-control" value="<?php echo $date; ?>" readonly>
  </div>
  </div>
-     
  <div class="form-group">
  <label class="col-sm-3 control-label">Client Full Name</label>
  <div class="col-sm-12">
@@ -373,20 +366,29 @@ if(isset($updateMsg)){
  <input type="text" name="client_phone" class="form-control" value="<?php echo $client_phone; ?>">
  </div>
  </div>
-  <div class="form-group">
- <label class="col-sm-3 control-label">Item For Repair</label>
- <div class="col-sm-12">
- <select>
-<?
-    $sql = 'SHOW COLUMNS FROM repairs WHERE field="item_for_repair"';
-    $row = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
-    foreach(explode("','",substr($row['Type'],6,-2)) as $option) {
-            print("<option>$option</option>");
-        }
+ <?php
+       //databse connection Sting
+  
+   
+
+    //insertion function
+    $smt = $db->prepare('select DISTINCT item_for_repair From repairs WHERE job_number=:job_number');
+      $smt->bindParam(':job_number',$job_number,PDO::PARAM_STR);
+$smt->execute();
+$data = $smt->fetchAll();
 ?>
+  <div class="form-group">
+     <label class="col-sm-3 control-label">Item For Repair</label>
+<div class="col-sm-12">
+<select name="item_for_repair" id="item_for_repair">
+<?php foreach ($data as $row): ?>
+    <option><?=$row["item_for_repair"]?></option>
+    
+<?php endforeach ?>
 </select>
- </div>
- </div>
+
+    </div>
+    </div>
 
   <div class="form-group">
  <label class="col-sm-3 control-label">Repair Description</label>
@@ -406,35 +408,50 @@ if(isset($updateMsg)){
  <input type="text" name="diagnostic_fee" class="form-control" value="<?php echo $diagnostic_fee; ?>">
  </div>
  </div>
-  <div class="form-group">
- <label class="col-sm-3 control-label">Assigned Technician</label>
- <div class="col-sm-12">
-   <select>
-<?
-    $sql = 'SHOW COLUMNS FROM repairs WHERE field="tech_assigned"';
-    $row = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
-    foreach(explode("','",substr($row['Type'],6,-2)) as $option) {
-            print("<option>$option</option>");
-        }
+<?php
+       //databse connection Sting
+   $db=new PDO("mysql:host={$db_host};dbname={$db_name}",$db_user,$db_password);
+   
+
+    //insertion function
+    $smt = $db->prepare('select DISTINCT tech_assigned From repairs WHERE job_number=:job_number');
+      $smt->bindParam(':job_number',$job_number,PDO::PARAM_STR);
+$smt->execute();
+$data = $smt->fetchAll();
 ?>
+  <div class="form-group">
+     <label class="col-sm-3 control-label">Technician Assigned</label>
+<div class="col-sm-12">
+<select name="tech_assigned" id="tech_assigned">
+<?php foreach ($data as $row): ?>
+    <option><?=$row["tech_assigned"]?></option>
+<?php endforeach ?>
 </select>
 
- </div>
- </div>
-  <div class="form-group">
- <label class="col-sm-3 control-label">Current Status</label>
- <div class="col-sm-12">
- <select>
-<?
-    $sql = 'SHOW COLUMNS FROM repairs WHERE field="current_status"';
-    $row = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
-    foreach(explode("','",substr($row['Type'],6,-2)) as $option) {
-            print("<option>$option</option>");
-        }
+    </div>
+    </div>
+<?php
+       //databse connection Sting
+   $db=new PDO("mysql:host={$db_host};dbname={$db_name}",$db_user,$db_password);
+   
+
+    //insertion function
+    $smt = $db->prepare('select DISTINCT current_status From repairs WHERE job_number=:job_number');
+      $smt->bindParam(':job_number',$job_number,PDO::PARAM_STR);
+$smt->execute();
+$data = $smt->fetchAll();
 ?>
+  <div class="form-group">
+     <label class="col-sm-3 control-label">Current Status</label>
+<div class="col-sm-12">
+<select name="current_status" id="current_status">
+<?php foreach ($data as $row): ?>
+    <option><?=$row["current_status"]?></option>
+<?php endforeach ?>
 </select>
- </div>
- </div>
+
+    </div>
+    </div>
   <div class="form-group">
  <label class="col-sm-3 control-label">Technician Notes</label>
  <div class="col-sm-12">
@@ -447,20 +464,28 @@ if(isset($updateMsg)){
  <input type="text" name="admin_notes" class="form-control" value="<?php echo $admin_notes; ?>">
  </div>
  </div>
-  <div class="form-group">
- <label class="col-sm-3 control-label">Invoice Status</label>
- <div class="col-sm-12">
- <select>
-<?
-    $sql = 'SHOW COLUMNS FROM repairs WHERE field="invoice_status"';
-    $row = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
-    foreach(explode("','",substr($row['Type'],6,-2)) as $option) {
-            print("<option>$option</option>");
-        }
+ <?php
+       //databse connection Sting
+   $db=new PDO("mysql:host={$db_host};dbname={$db_name}",$db_user,$db_password);
+   
+
+    //insertion function
+    $smt = $db->prepare('select DISTINCT invoice_status From repairs WHERE job_number=:job_number');
+      $smt->bindParam(':job_number',$job_number,PDO::PARAM_STR);
+$smt->execute();
+$data = $smt->fetchAll();
 ?>
+  <div class="form-group">
+     <label class="col-sm-3 control-label">Current Status</label>
+<div class="col-sm-12">
+<select name="invoice_status" id="invoice_status">
+<?php foreach ($data as $row): ?>
+    <option><?=$row["invoice_status"]?></option>
+<?php endforeach ?>
 </select>
- </div>
- </div>
+
+    </div>
+    </div>
   <div class="form-group">
  <label class="col-sm-3 control-label">Invoice Number</label>
  <div class="col-sm-12">
@@ -476,7 +501,7 @@ if(isset($updateMsg)){
  </div>
    
 </form>
-            
+
             </div>
 			 <!-- first row starts here -->
 			 

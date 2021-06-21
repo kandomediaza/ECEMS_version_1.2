@@ -280,3 +280,958 @@ Stack trace:
 #0 /home/ecemscoz/public_html/dailyrecyclables.php(290): PDOStatement->execute()
 #1 {main}
   thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 290
+[16-Jun-2021 14:18:44 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'subgrade' in 'field list' in /home/ecemscoz/public_html/admindashboard.php:402
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(402): PDO->prepare('SELECT COUNT(su...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 402
+[16-Jun-2021 14:18:50 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'subgrade' in 'field list' in /home/ecemscoz/public_html/admindashboard.php:402
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(402): PDO->prepare('SELECT COUNT(su...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 402
+[16-Jun-2021 14:20:57 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'subgrade' in 'where clause' in /home/ecemscoz/public_html/admindashboard.php:402
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(402): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 402
+[16-Jun-2021 14:21:08 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'subgrade' in 'where clause' in /home/ecemscoz/public_html/admindashboard.php:402
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(402): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 402
+[16-Jun-2021 14:23:29 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'subgrade' in 'where clause' in /home/ecemscoz/public_html/admindashboard.php:402
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(402): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 402
+[16-Jun-2021 14:23:48 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'subgrade' in 'where clause' in /home/ecemscoz/public_html/admindashboard.php:402
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(402): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 402
+[16-Jun-2021 14:26:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/admindashboard.php:399
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 399
+[16-Jun-2021 14:26:58 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/admindashboard.php:399
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 399
+[16-Jun-2021 14:27:36 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/admindashboard.php:399
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 399
+[16-Jun-2021 14:28:02 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/admindashboard.php:399
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 399
+[16-Jun-2021 14:34:24 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'ecemsapp'@'localhost' (using password: YES) in /home/ecemscoz/public_html/dailyrecyclables.php:290
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(290): PDO->__construct('mysql:host=loca...', 'ecemsapp', 'C3m3t3ry!@')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 290
+[16-Jun-2021 14:34:32 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'ecemsapp'@'localhost' (using password: YES) in /home/ecemscoz/public_html/dailyrecyclables.php:290
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(290): PDO->__construct('mysql:host=loca...', 'ecemsapp', 'C3m3t3ry!@')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 290
+[16-Jun-2021 14:34:49 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/dailyrecyclables.php:287
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 287
+[16-Jun-2021 14:35:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/dailyrecyclables.php:290
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 290
+[16-Jun-2021 20:26:46 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.daily_recyclables' doesn't exist in /home/ecemscoz/public_html/dailyrecyclables.php:294
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(294): PDO->prepare('SELECT COUNT('c...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 294
+[16-Jun-2021 20:56:13 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.daily_recyclables' doesn't exist in /home/ecemscoz/public_html/dailyrecyclables.php:294
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(294): PDO->prepare('SELECT COUNT('c...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 294
+[17-Jun-2021 05:25:02 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'weight' in 'field list' in /home/ecemscoz/public_html/dailyrecyclables.php:288
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(288): PDO->prepare('SELECT COUNT(we...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 288
+[17-Jun-2021 05:27:44 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 FUNCTION ecemscoz_ecemsapp.SUN does not exist in /home/ecemscoz/public_html/dailyrecyclables.php:288
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(288): PDO->prepare('SELECT SUN(weig...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 288
+[17-Jun-2021 05:28:03 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'weight' in 'field list' in /home/ecemscoz/public_html/dailyrecyclables.php:288
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(288): PDO->prepare('SELECT COUNT(we...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 288
+[17-Jun-2021 05:29:07 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'weight' in 'field list' in /home/ecemscoz/public_html/dailyrecyclables.php:288
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(288): PDO->prepare('SELECT COUNT(we...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 288
+[17-Jun-2021 05:29:22 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'weight' in 'field list' in /home/ecemscoz/public_html/dailyrecyclables.php:288
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(288): PDO->prepare('SELECT COUNT(we...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 288
+[17-Jun-2021 05:29:31 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'weight' in 'field list' in /home/ecemscoz/public_html/dailyrecyclables.php:288
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(288): PDO->prepare('SELECT COUNT(we...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 288
+[17-Jun-2021 05:40:30 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1040] Too many connections in /home/ecemscoz/public_html/dailyrecyclables.php:284
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(284): PDO->__construct('mysql:dbname=ec...', 'ecemscoz_ecemsa...', 'C3m3t3ry!@')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 284
+[17-Jun-2021 06:47:54 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'ecemsapp'@'localhost' (using password: YES) in /home/ecemscoz/public_html/dailyrecyclables.php:288
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(288): PDO->__construct('mysql:host=loca...', 'ecemsapp', 'C3m3t3ry!@')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 288
+[17-Jun-2021 06:48:06 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'ecemsapp'@'localhost' (using password: YES) in /home/ecemscoz/public_html/dailyrecyclables.php:288
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(288): PDO->__construct('mysql:host=loca...', 'ecemsapp', 'C3m3t3ry!@')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 288
+[17-Jun-2021 07:56:32 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'USERNAME'@'localhost' (using password: YES) in /home/ecemscoz/public_html/dailyrecyclables.php:288
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(288): PDO->__construct('mysql:host=loca...', 'USERNAME', 'PASSWORD')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 288
+[17-Jun-2021 07:56:42 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'USERNAME'@'localhost' (using password: YES) in /home/ecemscoz/public_html/dailyrecyclables.php:288
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(288): PDO->__construct('mysql:host=loca...', 'USERNAME', 'PASSWORD')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 288
+[17-Jun-2021 07:56:51 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'USERNAME'@'localhost' (using password: YES) in /home/ecemscoz/public_html/dailyrecyclables.php:288
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(288): PDO->__construct('mysql:host=loca...', 'USERNAME', 'PASSWORD')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 288
+[17-Jun-2021 07:57:33 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/dailyrecyclables.php on line 289
+[17-Jun-2021 07:57:33 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/ecemscoz/public_html/dailyrecyclables.php:439
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 439
+[17-Jun-2021 07:57:48 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/dailyrecyclables.php on line 289
+[17-Jun-2021 07:57:48 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/ecemscoz/public_html/dailyrecyclables.php:439
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 439
+[17-Jun-2021 07:58:14 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/dailyrecyclables.php on line 289
+[17-Jun-2021 07:58:14 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/ecemscoz/public_html/dailyrecyclables.php:439
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 439
+[17-Jun-2021 07:58:49 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/dailyrecyclables.php:285
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 285
+[17-Jun-2021 07:59:14 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/dailyrecyclables.php:285
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 285
+[17-Jun-2021 09:20:46 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/dailyrecyclables.php on line 289
+[17-Jun-2021 09:20:46 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/ecemscoz/public_html/dailyrecyclables.php:439
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 439
+[17-Jun-2021 09:21:15 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/dailyrecyclables.php on line 289
+[17-Jun-2021 09:21:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/ecemscoz/public_html/dailyrecyclables.php:439
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 439
+[17-Jun-2021 09:27:02 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/dailyrecyclables.php:284
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 284
+[17-Jun-2021 09:33:02 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/dailyrecyclables.php on line 289
+[17-Jun-2021 12:44:23 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/dailyrecyclables.php on line 289
+[17-Jun-2021 12:44:34 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/dailyrecyclables.php on line 289
+[17-Jun-2021 12:45:19 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/dailyrecyclables.php on line 289
+[17-Jun-2021 12:45:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/dailyrecyclables.php on line 289
+[17-Jun-2021 18:56:42 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/admindashboard.php on line 406
+[17-Jun-2021 18:56:56 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/admindashboard.php on line 406
+[17-Jun-2021 18:57:07 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/admindashboard.php on line 406
+[17-Jun-2021 18:58:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/admindashboard.php on line 406
+[17-Jun-2021 18:59:28 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/admindashboard.php on line 406
+[17-Jun-2021 18:59:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/admindashboard.php on line 406
+[17-Jun-2021 18:59:48 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/admindashboard.php on line 406
+[17-Jun-2021 19:00:08 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/admindashboard.php on line 406
+[17-Jun-2021 19:00:30 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/admindashboard.php on line 406
+[17-Jun-2021 19:00:45 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/admindashboard.php on line 406
+[17-Jun-2021 19:07:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/admindashboard.php on line 406
+[17-Jun-2021 19:11:30 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/ecemscoz/public_html/admindashboard.php:406
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 406
+[17-Jun-2021 19:13:35 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/ecemscoz/public_html/admindashboard.php:406
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 406
+[17-Jun-2021 19:16:03 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/ecemscoz/public_html/admindashboard.php:407
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 407
+[17-Jun-2021 19:16:50 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/ecemscoz/public_html/admindashboard.php:407
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 407
+[17-Jun-2021 19:36:57 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/ecemscoz/public_html/admindashboard.php:410
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 410
+[17-Jun-2021 19:37:00 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/ecemscoz/public_html/admindashboard.php:410
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 410
+[17-Jun-2021 19:37:02 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/ecemscoz/public_html/admindashboard.php:410
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 410
+[17-Jun-2021 19:39:58 UTC] PHP Warning:  Use of undefined constant m - assumed 'm' (this will throw an Error in a future version of PHP) in /home/ecemscoz/public_html/admindashboard.php on line 402
+[17-Jun-2021 19:39:58 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/ecemscoz/public_html/admindashboard.php:412
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 412
+[17-Jun-2021 19:40:16 UTC] PHP Warning:  Use of undefined constant m - assumed 'm' (this will throw an Error in a future version of PHP) in /home/ecemscoz/public_html/admindashboard.php on line 402
+[17-Jun-2021 19:41:58 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/ecemscoz/public_html/admindashboard.php:407
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 407
+[17-Jun-2021 19:42:22 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on string in /home/ecemscoz/public_html/admindashboard.php:407
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 407
+[17-Jun-2021 20:09:12 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'EXAMPLE'@'localhost' (using password: YES) in /home/ecemscoz/public_html/admindashboard.php:405
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(405): PDO->__construct('mysql:host=loca...', 'EXAMPLE', 'EXAMPLE')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 405
+[17-Jun-2021 20:09:35 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'EXAMPLE'@'localhost' (using password: YES) in /home/ecemscoz/public_html/admindashboard.php:405
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(405): PDO->__construct('mysql:host=loca...', 'EXAMPLE', 'EXAMPLE')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 405
+[17-Jun-2021 20:09:56 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1045] Access denied for user 'EXAMPLE'@'localhost' (using password: YES) in /home/ecemscoz/public_html/admindashboard.php:405
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(405): PDO->__construct('mysql:host=loca...', 'EXAMPLE', 'EXAMPLE')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 405
+[17-Jun-2021 20:10:36 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/admindashboard.php on line 406
+[17-Jun-2021 20:10:54 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/admindashboard.php on line 406
+[17-Jun-2021 20:14:15 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/admindashboard.php on line 406
+[17-Jun-2021 20:46:26 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/admindashboard.php on line 406
+[17-Jun-2021 20:47:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/admindashboard.php on line 406
+[17-Jun-2021 20:47:27 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/admindashboard.php:401
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 401
+[18-Jun-2021 06:13:35 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/admindashboard.php:401
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 401
+[18-Jun-2021 06:50:34 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/admindashboard.php:401
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 401
+[18-Jun-2021 06:59:12 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/admindashboard.php:401
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 401
+[18-Jun-2021 06:59:18 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/admindashboard.php:401
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 401
+[18-Jun-2021 06:59:40 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/admindashboard.php:401
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 401
+[18-Jun-2021 06:59:47 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/admindashboard.php:401
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 401
+[18-Jun-2021 07:08:26 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'stainless_steel' in 'field list' in /home/ecemscoz/public_html/admindashboard.php:511
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(511): PDO->prepare('SELECT SUM(stai...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 511
+[18-Jun-2021 08:08:29 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '5774' for key 'PRIMARY' in /home/ecemscoz/public_html/archiverepair.php:45
+Stack trace:
+#0 /home/ecemscoz/public_html/archiverepair.php(45): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/archiverepair.php on line 45
+[18-Jun-2021 08:19:51 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 08:42:31 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 09:27:52 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 09:36:51 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 09:44:35 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 09:44:38 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 09:45:53 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 09:45:53 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 09:49:26 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 10:00:08 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 10:05:13 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 10:29:38 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/addnewrepairprocess.php:63) in /home/ecemscoz/public_html/addnewrepairprocess.php on line 88
+[18-Jun-2021 10:52:59 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 10:55:31 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/addnewrepairprocess.php:63) in /home/ecemscoz/public_html/addnewrepairprocess.php on line 88
+[18-Jun-2021 10:55:48 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 10:55:48 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 10:58:13 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 11:16:43 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 11:18:05 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/addnewrepairprocess.php:63) in /home/ecemscoz/public_html/addnewrepairprocess.php on line 88
+[18-Jun-2021 11:18:19 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 11:32:01 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 11:32:23 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:15:34 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:15:41 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:17:05 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:17:15 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:17:28 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' date = 18/06/2021' at line 1 in /home/ecemscoz/public_html/admindashboard.php:266
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(266): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 266
+[18-Jun-2021 12:17:47 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:724
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(724): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 724
+[18-Jun-2021 12:17:56 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:724
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(724): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 724
+[18-Jun-2021 12:18:06 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:18:42 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:19:01 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:19:02 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:19:21 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:21:59 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:22:53 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:24:25 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:25:00 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:25:49 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' INTERVAL 1 MONTH' at line 1 in /home/ecemscoz/public_html/admindashboard.php:409
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(409): PDO->prepare('SELECT SUM(subg...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 409
+[18-Jun-2021 12:26:08 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:26:21 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:26:27 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:26:36 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:26:58 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:29:01 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 in /home/ecemscoz/public_html/admindashboard.php:409
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(409): PDO->prepare('SELECT SUM(subg...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 409
+[18-Jun-2021 12:29:26 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 in /home/ecemscoz/public_html/admindashboard.php:409
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(409): PDO->prepare('SELECT SUM(subg...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 409
+[18-Jun-2021 12:32:20 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:32:27 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:38:08 UTC] PHP Parse error:  syntax error, unexpected 'num' (T_STRING) in /home/ecemscoz/public_html/admindashboard.php on line 417
+[18-Jun-2021 12:40:47 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:42:27 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:51:58 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:52:16 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:52:43 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:52:53 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:52:55 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:53:09 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:54:19 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:54:23 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:54:49 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:55:03 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:56:33 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE date =(curdate())' at line 1 in /home/ecemscoz/public_html/admindashboard.php:266
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(266): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 266
+[18-Jun-2021 12:56:36 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE date =(curdate())' at line 1 in /home/ecemscoz/public_html/admindashboard.php:266
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(266): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 266
+[18-Jun-2021 12:56:42 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 12:57:57 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 16:06:31 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 16:06:48 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 17:47:38 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 18:03:31 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 18:05:20 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 18:09:11 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/dailyrecyclables.php:608
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(608): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 608
+[18-Jun-2021 18:10:12 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 18:12:55 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 18:13:49 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:728
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(728): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 728
+[18-Jun-2021 18:17:29 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:702
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(702): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 702
+[18-Jun-2021 18:17:45 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:702
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(702): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 702
+[18-Jun-2021 18:17:46 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:702
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(702): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 702
+[18-Jun-2021 18:17:55 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 18:26:25 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:702
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(702): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 702
+[18-Jun-2021 18:26:31 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:702
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(702): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 702
+[18-Jun-2021 18:28:45 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:703
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(703): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 703
+[18-Jun-2021 18:29:21 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:704
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(704): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 704
+[18-Jun-2021 18:29:52 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:706
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(706): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 706
+[18-Jun-2021 18:30:11 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:706
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(706): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 706
+[18-Jun-2021 18:30:51 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 18:33:02 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:728
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(728): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 728
+[18-Jun-2021 18:33:33 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:728
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(728): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 728
+[18-Jun-2021 18:34:39 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:728
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(728): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 728
+[18-Jun-2021 18:35:09 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 18:35:22 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 18:36:36 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 18:37:02 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 19:23:03 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/dailyrecyclables.php:608
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(608): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 608
+[18-Jun-2021 19:28:18 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.collections' doesn't exist in /home/ecemscoz/public_html/dailyrecyclables.php:639
+Stack trace:
+#0 /home/ecemscoz/public_html/dailyrecyclables.php(639): PDO->prepare('SELECT SUM(weig...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/dailyrecyclables.php on line 639
+[18-Jun-2021 20:23:01 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[18-Jun-2021 20:23:20 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[19-Jun-2021 05:53:14 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[19-Jun-2021 05:53:26 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[19-Jun-2021 05:54:07 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:725
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(725): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 725
+[19-Jun-2021 06:01:20 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1 in /home/ecemscoz/public_html/admindashboard.php:409
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(409): PDO->prepare('SELECT SUM(subg...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 409
+[19-Jun-2021 06:02:37 UTC] PHP Parse error:  syntax error, unexpected 'num' (T_STRING) in /home/ecemscoz/public_html/admindashboard.php on line 417
+[19-Jun-2021 06:02:52 UTC] PHP Parse error:  syntax error, unexpected 'num' (T_STRING) in /home/ecemscoz/public_html/admindashboard.php on line 417
+[19-Jun-2021 06:05:09 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:726
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(726): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 726
+[19-Jun-2021 06:11:32 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BETWEEN DATE_FORMAT(curdate() ,'%Y-%m-01') AND curdate()' at line 1 in /home/ecemscoz/public_html/admindashboard.php:444
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(444): PDO->prepare('SELECT SUM(cast...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 444
+[19-Jun-2021 06:12:16 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BETWEEN DATE_FORMAT(curdate() ,'%Y-%m-01') AND curdate()' at line 1 in /home/ecemscoz/public_html/admindashboard.php:444
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(444): PDO->prepare('SELECT SUM(cast...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 444
+[19-Jun-2021 06:12:54 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BETWEEN DATE_FORMAT(curdate() ,'%Y-%m-01') AND curdate()' at line 1 in /home/ecemscoz/public_html/admindashboard.php:512
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(512): PDO->prepare('SELECT SUM(stai...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 512
+[19-Jun-2021 06:13:14 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BETWEEN DATE_FORMAT(curdate() ,'%Y-%m-01') AND curdate()' at line 1 in /home/ecemscoz/public_html/admindashboard.php:512
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(512): PDO->prepare('SELECT SUM(stai...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 512
+[19-Jun-2021 06:13:29 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:726
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(726): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 726
+[19-Jun-2021 06:15:10 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.droppoffs' doesn't exist in /home/ecemscoz/public_html/admindashboard.php:726
+Stack trace:
+#0 /home/ecemscoz/public_html/admindashboard.php(726): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/admindashboard.php on line 726
+[19-Jun-2021 07:03:32 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/dropoffs.php on line 368
+[19-Jun-2021 09:07:34 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'dropoffID' in 'field list' in /home/ecemscoz/public_html/adddropoff.php:24
+Stack trace:
+#0 /home/ecemscoz/public_html/adddropoff.php(24): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/adddropoff.php on line 24
+[19-Jun-2021 09:08:00 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'dropoffID' in 'field list' in /home/ecemscoz/public_html/adddropoff.php:24
+Stack trace:
+#0 /home/ecemscoz/public_html/adddropoff.php(24): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/adddropoff.php on line 24
+[19-Jun-2021 09:08:27 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'dropoffID' in 'field list' in /home/ecemscoz/public_html/adddropoff.php:24
+Stack trace:
+#0 /home/ecemscoz/public_html/adddropoff.php(24): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/adddropoff.php on line 24
+[19-Jun-2021 09:08:48 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'dropoffID' in 'field list' in /home/ecemscoz/public_html/adddropoff.php:24
+Stack trace:
+#0 /home/ecemscoz/public_html/adddropoff.php(24): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/adddropoff.php on line 24
+[19-Jun-2021 09:09:10 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'dropoffID' in 'field list' in /home/ecemscoz/public_html/adddropoff.php:24
+Stack trace:
+#0 /home/ecemscoz/public_html/adddropoff.php(24): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/adddropoff.php on line 24
+[19-Jun-2021 09:12:36 UTC] PHP Parse error:  syntax error, unexpected '$tbl_image_id' (T_VARIABLE), expecting ')' in /home/ecemscoz/public_html/addnewdopoffprocess.php on line 27
+[19-Jun-2021 09:13:01 UTC] PHP Parse error:  syntax error, unexpected '$tbl_image_id' (T_VARIABLE), expecting ')' in /home/ecemscoz/public_html/addnewdopoffprocess.php on line 27
+[20-Jun-2021 21:03:51 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/addnewrepairprocess.php on line 92
+[20-Jun-2021 21:44:44 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DEC' at line 1 in /home/ecemscoz/public_html/repairs.php:286
+Stack trace:
+#0 /home/ecemscoz/public_html/repairs.php(286): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/repairs.php on line 286
+[20-Jun-2021 21:44:52 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'order clause' in /home/ecemscoz/public_html/repairs.php:286
+Stack trace:
+#0 /home/ecemscoz/public_html/repairs.php(286): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/repairs.php on line 286
+[20-Jun-2021 21:45:52 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DEC' at line 1 in /home/ecemscoz/public_html/repairs.php:286
+Stack trace:
+#0 /home/ecemscoz/public_html/repairs.php(286): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/repairs.php on line 286
+[21-Jun-2021 10:03:30 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/editrepairs.php:379
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 379
+[21-Jun-2021 10:03:41 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/editrepairs.php:379
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 379
+[21-Jun-2021 10:04:01 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'item_for_repair' in 'where clause' in /home/ecemscoz/public_html/editrepairs.php:379
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(379): PDO->query('SHOW COLUMNS FR...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 379
+[21-Jun-2021 10:04:50 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'item_for_repair' in 'where clause' in /home/ecemscoz/public_html/editrepairs.php:379
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(379): PDO->query('SHOW COLUMNS FR...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 379
+[21-Jun-2021 10:16:27 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM repairs WHERE item_for_repair="item_for_repair"' at line 1 in /home/ecemscoz/public_html/editrepairs.php:379
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(379): PDO->query('SELECT FROM rep...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 379
+[21-Jun-2021 10:17:16 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/editrepairs.php on line 377
+[21-Jun-2021 10:18:11 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/editrepairs.php:374
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 374
+[21-Jun-2021 10:19:04 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/editrepairs.php:375
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 375
+[21-Jun-2021 10:42:20 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: no parameters were bound in /home/ecemscoz/public_html/editrepairs.php on line 379
+[21-Jun-2021 10:42:52 UTC] PHP Fatal error:  Uncaught Error: Call to a member function execute() on null in /home/ecemscoz/public_html/editrepairs.php:380
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 380
+[21-Jun-2021 10:43:13 UTC] PHP Fatal error:  Uncaught Error: Call to a member function execute() on null in /home/ecemscoz/public_html/editrepairs.php:380
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 380
+[21-Jun-2021 10:43:49 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetchAll() on null in /home/ecemscoz/public_html/editrepairs.php:381
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 381
+[21-Jun-2021 10:44:14 UTC] PHP Fatal error:  Uncaught Error: Call to a member function execute() on null in /home/ecemscoz/public_html/editrepairs.php:380
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 380
+[21-Jun-2021 10:44:35 UTC] PHP Fatal error:  Uncaught Error: Call to a member function execute() on null in /home/ecemscoz/public_html/editrepairs.php:380
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 380
+[21-Jun-2021 10:45:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function execute() on null in /home/ecemscoz/public_html/editrepairs.php:379
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 379
+[21-Jun-2021 10:45:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function execute() on null in /home/ecemscoz/public_html/editrepairs.php:379
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 379
+[21-Jun-2021 10:45:51 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: no parameters were bound in /home/ecemscoz/public_html/editrepairs.php on line 379
+[21-Jun-2021 10:46:05 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: no parameters were bound in /home/ecemscoz/public_html/editrepairs.php on line 379
+[21-Jun-2021 11:06:02 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/editrepairs.php on line 534
+[21-Jun-2021 11:09:37 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/editrepairs.php on line 537
+[21-Jun-2021 13:46:50 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/editrepairs.php:24) in /home/ecemscoz/public_html/editrepairs.php on line 91
+[21-Jun-2021 13:47:29 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/editrepairs.php:24) in /home/ecemscoz/public_html/editrepairs.php on line 91
+[21-Jun-2021 13:47:37 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/editrepairs.php:24) in /home/ecemscoz/public_html/editrepairs.php on line 91
+[21-Jun-2021 14:10:09 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/editrepairs.php:24) in /home/ecemscoz/public_html/editrepairs.php on line 91
+[21-Jun-2021 14:11:15 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/editrepairs.php:24) in /home/ecemscoz/public_html/editrepairs.php on line 89
+[21-Jun-2021 14:12:39 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/editrepairs.php:24) in /home/ecemscoz/public_html/editrepairs.php on line 89
+[21-Jun-2021 14:14:17 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/editrepairs.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 8
+[21-Jun-2021 14:14:56 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/ecemscoz/public_html/editrepairs.php on line 78
+[21-Jun-2021 14:14:56 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/editrepairs.php:1) in /home/ecemscoz/public_html/editrepairs.php on line 82
+[21-Jun-2021 14:17:09 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/editrepairs.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 8
+[21-Jun-2021 14:17:35 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/editrepairs.php:1) in /home/ecemscoz/public_html/editrepairs.php on line 66
+[21-Jun-2021 14:17:35 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/ecemscoz/public_html/editrepairs.php on line 80
+[21-Jun-2021 14:17:35 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/editrepairs.php:1) in /home/ecemscoz/public_html/editrepairs.php on line 84
+[21-Jun-2021 14:17:42 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/ecemscoz/public_html/editrepairs.php on line 80
+[21-Jun-2021 14:17:42 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/editrepairs.php:76) in /home/ecemscoz/public_html/editrepairs.php on line 84
+[21-Jun-2021 14:30:38 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/editrepairs.php:96) in /home/ecemscoz/public_html/editrepairs.php on line 128
+[21-Jun-2021 14:32:01 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/editrepairs.php:96) in /home/ecemscoz/public_html/editrepairs.php on line 128
+[21-Jun-2021 14:32:09 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/editrepairs.php:96) in /home/ecemscoz/public_html/editrepairs.php on line 128
+[21-Jun-2021 14:37:08 UTC] PHP Warning:  extract() expects parameter 1 to be array, bool given in /home/ecemscoz/public_html/editrepairs.php on line 35
+[21-Jun-2021 15:14:55 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/editrepairs.php:52) in /home/ecemscoz/public_html/editrepairs.php on line 95
+[21-Jun-2021 15:18:11 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/editrepairs.php:52) in /home/ecemscoz/public_html/editrepairs.php on line 95
+[21-Jun-2021 15:54:16 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ecemscoz/public_html/editrepairs.php on line 384
+[21-Jun-2021 16:10:17 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'subgrade_bin' in 'where clause' in /home/ecemscoz/public_html/employeedashboard.php:193
+Stack trace:
+#0 /home/ecemscoz/public_html/employeedashboard.php(193): PDO->prepare('SELECT COUNT(*)...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/employeedashboard.php on line 193
+[21-Jun-2021 19:33:50 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/employeedashboard.php on line 198
+[21-Jun-2021 19:34:47 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/employeedashboard.php on line 198
+[21-Jun-2021 19:35:59 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/employeedashboard.php on line 193
+[21-Jun-2021 19:38:03 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/employeedashboard.php on line 206
+[21-Jun-2021 19:38:38 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/employeedashboard.php on line 188

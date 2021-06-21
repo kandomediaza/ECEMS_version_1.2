@@ -1,39 +1,17 @@
 <?php
 
 require_once "connection.php";
- 
-if(isset($_REQUEST['delete_id']))
-{
- // select record from db to delete
- $recID=$_REQUEST['delete_id']; //get delete_id and store in $recID variable
-  
- $select_stmt= $db->prepare('SELECT * FROM daily_recyclables WHERE recID =:recID'); //sql select query
- $select_stmt->bindParam(':recID',$recID);
- $select_stmt->execute();
- $row=$select_stmt->fetch(PDO::FETCH_ASSOC);
-  
- //delete an orignal record from db
- $delete_stmt = $db->prepare('DELETE FROM daily_recyclables WHERE recID =:recID');
- $delete_stmt->bindParam(':recID',$recID);
- $delete_stmt->execute();
-  
- header("Location:dailyrecyclables.php");
-}
- 
-?>
-<?php
-require_once 'connection.php';
 
-  session_start();
+ session_start();
 
-  if(!isset($_SESSION['admin_login'])) //check unauthorize user not direct access in "admindashboard.php" page
+  if(!isset($_SESSION['employee_login'])) //check unauthorize user not direct access in "admindashboard.php" page
   {
    header("location: index.php");  
   }
 
-  if(isset($_SESSION['employee_login'])) //check employee login user not access in "admin_home.php" page
+  if(isset($_SESSION['admin_login'])) //check employee login user not access in "admin_home.php" page
   {
-   header("location: employeedashboard.php"); 
+   header("location:admindashboard.php"); 
   }
 
   if(isset($_SESSION['tech_login'])) //check user login user not access in "admin_home.php" page
@@ -41,17 +19,19 @@ require_once 'connection.php';
    header("location: techdashboard.php");
   }
   
-  if(isset($_SESSION['admin_login']))
+  if(isset($_SESSION['employee_login']))
   {
-  ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>ECEMS Management System | Dashboard</title>
+    <title>ECEMS v1.2 - Waste Management System | Employee Dashboard</title>
     <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
@@ -70,9 +50,7 @@ require_once 'connection.php';
     <link rel="stylesheet" href="assets/css/demo_2/style.css" />
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    
-  </head>
+      </head>
   <body>
     <div class="container-scroller">
       <!-- partial:partials/_horizontal-navbar.html -->
@@ -89,15 +67,7 @@ require_once 'connection.php';
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
               <ul class="navbar-nav mr-lg-2">
                 <li class="nav-item nav-search d-none d-lg-block">
-                  <div class="input-group">
-                    <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
-                      <span class="input-group-text" id="search">
-                        <i class="mdi mdi-magnify"></i>
-                      </span>
-                    </div>
-                    <input type="text" class="form-control" id="navbar-search-input" placeholder="Search" aria-label="search" aria-describedby="search" />
-                  </div>
-                </li>
+                                </li>
               </ul>
               <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item nav-profile dropdown">
@@ -105,17 +75,13 @@ require_once 'connection.php';
                    
                     <div class="nav-profile-text">
                       <p class="text-black font-weight-semibold m-0"><?php
-   echo $_SESSION['admin_login'];
+   echo $_SESSION['employee_login'];
   }
   ?></p>
-                      <span class="font-13 online-color">online <i class="mdi mdi-chevron-down"></i></span>
+                      <span class="font-13 online-color">Status: online</span>
                     </div>
                   </a>
-                  <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                                      <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="logout.php">
-                      <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
-                  </div>
+                  
                 </li>
               </ul>
               <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
@@ -133,37 +99,7 @@ require_once 'connection.php';
                   <span class="menu-title">Dashboard</span>
                 </a>
               </li>
-			  <!-- REPAIRS AND REFURBS MENU -->
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="mdi mdi-monitor-dashboard menu-icon"></i>
-                  <span class="menu-title">Repairs / Refurbs</span>
-                  <i class="menu-arrow"></i>
-                </a>
-                <div class="submenu">
-                  <ul class="submenu-item">
-                    <li class="nav-item">
-                      <a class="nav-link" href="repairs.php">View Repairs</a>
-                    </li>
-                     <li class="nav-item">
-                      <a class="nav-link" href="viewarchivedrepairs.php">View Archived Repairs</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="addnewrepair.php">Add New Repairs</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="refurbs.php">View Refurbs</a>
-                    </li>
-					 <li class="nav-item">
-                      <a class="nav-link" href="addnewrefurb.php">Add Refurb</a>
-                    </li>
-					 <li class="nav-item">
-                      <a class="nav-link" href="tapiwarefurbs.php">Tapiwa Refurbs</a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-			  <!-- END REPAIRS AND REFURBS MENU -->
+			 
              <!-- WASTE MANAGEMENT MENU -->
               <li class="nav-item">
                 <a href="#" class="nav-link">
@@ -174,67 +110,33 @@ require_once 'connection.php';
                 <div class="submenu">
                   <ul class="submenu-item">
                     <li class="nav-item">
-                      <a class="nav-link" href="dailyrecyclables.php">Daily Recyclables</a>
+                      <a class="nav-link" href="dailyrecyclables_employee.php">Daily Recyclables</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Collections</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Drop Offs</a>
-                    </li>
-					 <li class="nav-item">
-                      <a class="nav-link" href="#">Safe Disposal Cert.</a>
-                    </li>
-					
-                  </ul>
+                                    </ul>
                 </div>
               </li>
              <!-- END WASTE MANAGEMENT MENU -->
-			 <!-- VENDOR MANAGEMENT MENU -->
+              <!-- PROFILE SETTINGS MENU -->
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="mdi mdi-monitor-dashboard menu-icon"></i>
-                  <span class="menu-title">Vendor Management</span>
+                  <span class="menu-title"><?php
+   echo $_SESSION['employee_login']
+  ?> Settings</span>
                   <i class="menu-arrow"></i>
                 </a>
                 <div class="submenu">
                   <ul class="submenu-item">
-                    <li class="nav-item">
-                      <a class="nav-link" href="vendors.php">Vendor Registration</a>
+                       <li class="nav-item">
+                      <a class="nav-link" href="#">Manage Profile</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="access-register.php">Access Register</a>
+                      <a class="nav-link" href="logout.php">Logout</a>
                     </li>
-                   
-					
-                  </ul>
+                                     </ul>
                 </div>
               </li>
-             <!-- END VENDOR MANAGEMENT MENU -->
-			  <!-- SYSTEM SETTINGS MENU -->
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="mdi mdi-monitor-dashboard menu-icon"></i>
-                  <span class="menu-title">System Settings</span>
-                  <i class="menu-arrow"></i>
-                </a>
-                <div class="submenu">
-                  <ul class="submenu-item">
-                    <li class="nav-item">
-                      <a class="nav-link" href="viewusers.php">View System Users</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="addnewuser.php">Add New User</a>
-                    </li>
-                   
-					
-                  </ul>
-                </div>
-              </li>
-             <!-- END SYSTEM SETTINGS MENU -->
-             
-             
-             
+             <!-- END PROFILE SETTINGS MENU -->
             </ul>
           </div>
         </nav>
@@ -246,7 +148,7 @@ require_once 'connection.php';
             <div class="page-header flex-wrap">
               <div class="header-left">
                 
-                <a href="adddailyrecyclables.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add Recyclables</a>
+                <a href="adddailyrecyclables_employee.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add Recyclables</a>
               </div>
                       </div>
                       
@@ -259,7 +161,7 @@ require_once 'connection.php';
                       <div>
                         <div class="d-flex flex-wrap pt-2 justify-content-between sales-header-right">
                             <h3>Daily Recyclables</h3>
-                       <p>Welcome to the recyclables section. Here you will find a list of all Recyclables processed over time. Please try not delete the records, rather archive them using the archive button. The Stats shown below are based on the current month <b><?php echo date('F, Y'); ?></b>. The table below it consists of ALL entries ever recorded and can be viewed, edited, deleted or archived.
+                       <p>Welcome to the recyclables section. The Stats shown below are based on the current month <b><?php echo date('F, Y'); ?></b>. To add new entries, simply click the ADD RECYCLABLES button.</p>
               </div>
             
             </div>
@@ -626,70 +528,6 @@ echo $row['num'];
     </div>
   </section>
 </div> 
-            <div class="row table-responsive col-md-12">
-               
-            <table class="table table-striped table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
-                                 
-    <thead>
-        <tr>
-           <th><b>recID</b></th>
-<th><b>date</b></th>
-<th><b>Subgrade</b></th>
-<th><b>Cast Aluminium</b></th>
-<th><b>Copper</b></th>
-<th><b>Stainless Steel</b></th>
-<th><b>Plastic</b></th>
-<th><b>Batteries</b></th>
-<th><b>Brass</b></th>
-<th><b>Cables</b></th>
-<th><b>Low Grade PCB</b></th>
-<th><b>Medium Grade PCB</b></th>
-<th><b>High Grade PCB</b></th>
-            <th><b>View | Edit</b></th>
-            <th><b>Archive</b></th>
-            <th><b>Delete</b></th>
-        </tr>
-    </thead>
-    <tbody>
- <?php
- $select_stmt=$db->prepare("SELECT * FROM daily_recyclables"); //sql select query
- $select_stmt->execute();
- while($row=$select_stmt->fetch(PDO::FETCH_ASSOC))
- {
- ?>
-
-        <tr>
-            <td><?php echo $row['recID']; ?></td>
-             <td><?php echo $row['date']; ?></td>
-            <td><?php echo $row['subgrade']; ?> KG</td>
-             <td><?php echo $row['castaluminium']; ?> KG</td>
-              <td><?php echo $row['copper']; ?> KG</td>
-               <td><?php echo $row['stainlesssteel']; ?> KG</td>
-                <td><?php echo $row['plastic']; ?> KG</td>
-                <td><?php echo $row['batteries']; ?> KG</td>
-                <td><?php echo $row['brass']; ?> KG</td>
-                 <td><?php echo $row['cables']; ?> KG</td>
-                 <td><?php echo $row['lowgradePCB']; ?> KG</td>
-                  <td><?php echo $row['mediumgradePCB']; ?> KG</td>
-                   <td><?php echo $row['highgradePCB']; ?> KG</td>
-             
-              
-            <td><a href="editrecyclables.php?update_id=<?php echo $row['recID']; ?>" class="btn btn-success" onclick="return confirm('WARNING!! Please note that editing of these values will be recorded and Master of Matrix will be notified that these records are being modified by the logged in user. Please use this function with caution!');">View | Edit</a></td>
-             <td><a href="archiverecyclables.php?archive_id=<?php echo $row['recID']; ?>" name="btn_archive" class="btn btn-warning" onclick="return confirm('You are about to remove this entry from the current table view and store it in the archive database. Are you sure you want to do this?');">Archive</a></td>
-            <td><a href="?delete_id=<?php echo $row['recID']; ?>" class="btn btn-danger" onclick="return confirm('PLEASE REFRAIN FROM DELETING RECORDS - If you have made a mistake, please rather edit the record instead of deleting it. If you would like to continue with the deletion of this entry please press OK.');">Delete</a></td>
-            
-        </tr>
-    <?php
- }
- ?>
-   </tbody>
-   
-</table> 
-            
-            </div>
-			 <!-- first row starts here -->
-			 
-           
             </div>
           </div>
           <!-- content-wrapper ends -->
@@ -702,7 +540,7 @@ echo $row['num'];
               </div>
             </div>
           </footer>
-          <!-- partial -->
+           <!-- partial -->
         </div>
         <!-- main-panel ends -->
       </div>
@@ -710,9 +548,12 @@ echo $row['num'];
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+   
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+ 
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <script src="assets/vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
@@ -724,14 +565,14 @@ echo $row['num'];
     <script src="assets/vendors/flot/jquery.flot.stack.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="assets/js/off-canvas.js"></script>
-    <script src="assets/js/hoverable-collapse.js"></script>
-    <script src="assets/js/misc.js"></script>
-    <script src="assets/js/settings.js"></script>
-    <script src="assets/js/todolist.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="assets/js/dashboard.js"></script>
     <!-- End custom js for this page -->
+     <script type="text/javascript">
+        jQuery(document).ready(function($){
+    $('#DataTable').DataTable();
+} );
+    </script>
   </body>
 </html>

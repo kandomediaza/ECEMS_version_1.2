@@ -21,6 +21,10 @@ require_once "connection.php";
   
   if(isset($_SESSION['employee_login']))
   {
+       $stmt = $db->prepare("SELECT MAX(recID) AS max_id FROM daily_recyclables");
+  $stmt -> execute();
+  $recID = $stmt -> fetch(PDO::FETCH_ASSOC);
+  $max_id = $recID['max_id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,10 +32,14 @@ require_once "connection.php";
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>ECEMS Management System | Employee Dashboard</title>
-    <!-- plugins:css -->
+    <title>ECEMS v1.2 - Waste Management System | Employee Dashboard</title>
+    <!-- Font Awesome -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- plugins:css -->
     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
@@ -46,9 +54,7 @@ require_once "connection.php";
     <link rel="stylesheet" href="assets/css/demo_2/style.css" />
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
-    
-
-  </head>
+      </head>
   <body>
     <div class="container-scroller">
       <!-- partial:partials/_horizontal-navbar.html -->
@@ -62,9 +68,11 @@ require_once "connection.php";
               </a>
               <a class="navbar-brand brand-logo-mini" href="index.php"><img src="ecemslogo.png" alt="logo" /></a>
             </div>
-            
-                        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-             
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+              <ul class="navbar-nav mr-lg-2">
+                <li class="nav-item nav-search d-none d-lg-block">
+                                </li>
+              </ul>
               <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item nav-profile dropdown">
                   <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
@@ -77,7 +85,7 @@ require_once "connection.php";
                       <span class="font-13 online-color">Status: online</span>
                     </div>
                   </a>
-                
+                  
                 </li>
               </ul>
               <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
@@ -95,7 +103,8 @@ require_once "connection.php";
                   <span class="menu-title">Dashboard</span>
                 </a>
               </li>
-			              <!-- WASTE MANAGEMENT MENU -->
+			 
+             <!-- WASTE MANAGEMENT MENU -->
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="mdi mdi-monitor-dashboard menu-icon"></i>
@@ -107,7 +116,7 @@ require_once "connection.php";
                     <li class="nav-item">
                       <a class="nav-link" href="dailyrecyclables_employee.php">Daily Recyclables</a>
                     </li>
-                             </ul>
+                                    </ul>
                 </div>
               </li>
              <!-- END WASTE MANAGEMENT MENU -->
@@ -155,12 +164,80 @@ require_once "connection.php";
                      
                       <div>
                         <div class="d-flex flex-wrap pt-2 justify-content-between sales-header-right">
-                            <h3>Warehouse Staff Dashboard</h3>
-                     <p>Welcome to the recyclables section. You are currently processing recyclables for <b><?php echo date('F, Y'); ?></b>. To add new entries, simply click the <b>ADD RECYCLABLES</b> button.</p>
-              </div>
+                            <h3>Add Daily Recyclables</h3>
+                       <p><b>IMPORTANT NOTICE:</b> If not capturing a specific material, please enter "<b>0</b>". <b>DO NOT LEAVE THE FIELD BLANK</b>. Simply choose the date below, and enter the values omitting the KG symbols. Just enter a number for example: copper: 100.</p>
+                       </div>
             
             </div>
-           
+               <!-- first row starts here -->
+            <div class="row table-responsive col-md-12">
+               
+            <form action="addrecyclablesprocess.php" method="POST">
+         
+         
+        <div class="form-group">
+      <label for="recID">Entry ID (AUTO)</label>
+      <input type="recID" name="recID" id="recID" class="form-control" value="<?php echo $max_id+1;?>" readonly>
+    </div> 
+         
+      <div class="form-group">
+      <label for="date">Date</label>
+      <input type="date" name="date" id="date" class="form-control" placeholder="Enters Todays Date">
+    </div>
+
+
+         <div class="form-group">
+      <label for="subgrade">Subgrade</label>
+      <input type="text" name="subgrade" class="form-control" id="subgrade" placeholder="Example 100">
+    </div>
+    
+     <div class="form-group">
+      <label for="castaluminium">Cast Aluminium</label>
+      <input type="text" name="castaluminium" class="form-control" id="castaluminium" placeholder="Example 100">
+    </div>
+    
+    <div class="form-group">
+      <label for="copper">Copper</label>
+      <input type="text" name="copper" class="form-control" id="copper" placeholder="Example 100">
+    </div>
+      <div class="form-group">
+      <label for="stainlesssteel">Stainless Steel</label>
+      <input type="text" name="stainlesssteel" class="form-control" id="stainlesssteel" placeholder="Example 100">
+    </div>
+      <div class="form-group">
+      <label for="plastic">Plastic</label>
+      <input type="text" name="plastic" class="form-control" id="plastic" placeholder="Example 100">
+    </div>
+      <div class="form-group">
+      <label for="batteries">Batteries</label>
+      <input type="text" name="batteries" class="form-control" id="batteries" placeholder="Example 100">
+    </div>
+      <div class="form-group">
+      <label for="brass">Brass</label>
+      <input type="text" name="brass" class="form-control" id="brass" placeholder="Example 100">
+    </div>
+     <div class="form-group">
+      <label for="cables">Cables</label>
+      <input type="text" name="cables" class="form-control" id="cables" placeholder="Example 100">
+    </div>
+      <div class="form-group">
+      <label for="lowgradePCB">Low Grade PCB</label>
+      <input type="text" name="lowgradePCB" class="form-control" id="lowgradePCB" placeholder="Example 100">
+    </div>
+      <div class="form-group">
+      <label for="mediumgradePCB">Medium Grade PCB</label>
+      <input type="text" name="mediumgradePCB" class="form-control" id="mediumgradePCB" placeholder="Example 100">
+    </div>
+      <div class="form-group">
+      <label for="highgradePCB">High Grade PCB</label>
+      <input type="text" name="highgradePCB" class="form-control" id="highgradePCB" placeholder="Example 100">
+    </div>
+    
+<input type="submit" id="btn_create" name="btn_create" class="btn btn-primary" value="Submit Values">
+
+    </form>
+            
+            </div>
                       </div>
                     </div>
                   </div>
@@ -192,7 +269,7 @@ require_once "connection.php";
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
    
-   <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
  
     <!-- endinject -->

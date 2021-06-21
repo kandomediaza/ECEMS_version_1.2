@@ -1,4 +1,27 @@
 <?php
+
+require_once "connection.php";
+ 
+if(isset($_REQUEST['delete_id']))
+{
+ // select record from db to delete
+ $id=$_REQUEST['delete_id']; //get delete_id and store in $id variable
+  
+ $select_stmt= $db->prepare('SELECT * FROM access_register WHERE id =:id'); //sql select query
+ $select_stmt->bindParam(':id',$id);
+ $select_stmt->execute();
+ $row=$select_stmt->fetch(PDO::FETCH_ASSOC);
+  
+ //delete an orignal record from db
+ $delete_stmt = $db->prepare('DELETE FROM access_register WHERE id =:id');
+ $delete_stmt->bindParam(':id',$id);
+ $delete_stmt->execute();
+  
+ header("Location:access-register.php");
+}
+ 
+?>
+<?php
 require_once 'connection.php';
 
   session_start();
@@ -20,14 +43,10 @@ require_once 'connection.php';
   
   if(isset($_SESSION['admin_login']))
   {
-      $stmt = $db->prepare("SELECT MAX(job_number) AS max_id FROM repairs");
-  $stmt -> execute();
-  $job_number = $stmt -> fetch(PDO::FETCH_ASSOC);
-  $max_id = $job_number['max_id'];
   ?>
 <!DOCTYPE html>
 <html lang="en">
- <head>
+  <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -236,8 +255,8 @@ require_once 'connection.php';
                      
                       <div>
                         <div class="d-flex flex-wrap pt-2 justify-content-between sales-header-right">
-                            <h3>Add New Repair to ECEMS</h3>
-                       <p>Please use the form below to generate a Job Card for a customer. Please make sure to capture the customers email address correctly as an email will be sent automatically to the customer with his/her job card number and an online link to track the status of his/her repair.
+                            <h3>Vendor Access Register</h3>
+                       <p>Here you can add access information of all vendors/visitors that have entered and made a purchase at Electronic Cemetery.
               </div>
             
             </div>
@@ -250,128 +269,47 @@ require_once 'connection.php';
             <!-- first row starts here -->
             <div class="row table-responsive col-md-12">
                
-            <form action="addnewrepairprocess.php" method="POST">
-         
-         
-        <div class="form-group">
-      <label for="job_number">Job Number</label>
-      <input type="job_number" name="job_number" id="job_number" class="form-control" value="<?php echo $max_id+1;?>" readonly>
-    </div> 
-         
-         
-         
-         
-         
-         <div class="form-group">
-      <label for="date">Date</label>
-      <input type="date" name="date" id="date" class="form-control" placeholder="Job Card Date">
-    </div>
+            <table class="table table-striped table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                                 
+    <thead>
+        <tr>
+            <th><b>Vendor ID</b></th>
+            <th><b>Name</b></th>
+            <th><b>Access Date</b></th>
+            <th><b>Time In</b></th>
+            <th><b>Time Out</b></th>
+            <th><b>View | Edit</b></th>
+            <th><b>Archive</b></th>
+            <th><b>Delete</b></th>
+        </tr>
+    </thead>
+    <tbody>
+ <?php
+ $select_stmt=$db->prepare("SELECT * FROM access_register"); //sql select query
+ $select_stmt->execute();
+ while($row=$select_stmt->fetch(PDO::FETCH_ASSOC))
+ {
+ ?>
 
-
-         <div class="form-group">
-      <label for="client_full_name">Client Full Name</label>
-      <input type="text" name="client_full_name" class="form-control" id="client_full_name" placeholder="Mr. Laptop Man">
-    </div>
-    
-     <div class="form-group">
-      <label for="client_email">Client Email Address</label>
-      <input type="email" name="client_email" class="form-control" id="client_email" placeholder="example@live.co.za">
-    </div>
-    
-    <div class="form-group">
-      <label for="client_phone">Client Phone Number</label>
-      <input type="text" name="client_phone" class="form-control" id="client_phone" placeholder="071 984 5522">
-    </div>
-    
-     <div class="form-group">
-     <label for="item_for_repair">Item For Repair</label>
-
-<select class="form-select" aria-label="Default select example" name="item_for_repair">
-  <option selected>Open this select menu</option>
-  <option value="Laptop">Laptop</option>
-  <option value="Desktop">Desktop</option>
-  <option value="Television">Television</option>
-    <option value="Washing Machine">Washing Machine</option>
-      <option value="Tumble Dryer">Tumble Dryer</option>
-        <option value="Dishwasher">Dishwasher</option>
-          <option value="Microwave">Microwave</option>
-            <option value="Fridge">Fridge</option>
-            <option value="Printer">Printer</option>
-            <option value="Other">Other</option>
-</select>
-    </div>
-    
-      <div class="form-group">
-      <label for="repair_description">Repair Description</label>
-      <input type="text" name="repair_description" class="form-control" id="repair_description" placeholder="Laptop is dead...">
-    </div>
-    
-      <div class="form-group">
-      <label for="hardware_details">Hardware Details</label>
-      <input type="text" name="hardware_details" class="form-control" id="hardware_details" placeholder="Black Lenovo Laptop with Charger">
-    </div>
-    
-      <div class="form-group">
-      <label for="diagnostic_fee">Diagnostic Fee</label>
-      <input type="text" name="diagnostic_fee" class="form-control" id="diagnostic_fee">
-    </div>
-    
-     <div class="form-group">
-     <label for="tech_assigned">Technician Assigned</label>
-
-<select class="form-select" aria-label="Default select example" name="tech_assigned">
-  <option selected>Open this select menu</option>
-  <option value="Not Assigned Yet" name="Not Assigned Yet">Not Assigned Yet</option>
-  <option value="Brendon" name="Brendon">Brendon</option>
-  <option value="Gabriel" name="Gabriel">Gabriel</option>
-    <option value="Jami" name="Jami">Jami</option>
-      <option value="Lee-Roy" name="Lee-Roy">Lee-Roy</option>
-        <option value="Conrad" name="Conrad">Conrad</option>
-          <option value="Tapiwa" name="Tapiwa">Tapiwa</option>
-          
-</select>
-    </div>
-    
-     <div class="form-group">
-     <label for="current_status">Current Status</label>
-
-<select class="form-select" aria-label="Default select example" name="current_status">
-  <option selected>Open this select menu</option>
-  <option value="Pending" name="Pending">Pending</option>
-  <option value="In Progress" name="In Progress">In Progress</option>
-  <option value="On Hold Spares Required" name="On Hold Spares Required">On Hold Spares Required</option>
-    <option value="On Hold Other Fault" name="On Hold Other Fault">On Hold Other Fault</option>
-      <option value="Repair Completed" name="Repair Completed">Repair Completed</option>
-       </select>
-    </div>
-    
-      <div class="form-group">
-      <label for="technician_notes">Technician Notes</label>
-      <input type="text" name="technician_notes" class="form-control" id="technician_notes">
-    </div>
-    
-       <div class="form-group">
-      <label for="admin_notes">Admin Notes</label>
-      <input type="text" name="admin_notes" class="form-control" id="admin_notes">
-          </div>
-          
-         <div class="form-group">
-     <label for="invoice_status">Invoice Status</label>
-
-<select class="form-select" aria-label="Default select example" name="invoice_status">
-  <option selected>Open this select menu</option>
-  <option value="Client Not Yet Invoiced" name="Client Not Yet Invoiced">Client Not Yet Invoiced</option>
-  <option value="Client Invoiced" name="Client Invoiced">Client Invoiced</option>
-        </select>
-    </div>
-    
-     <div class="form-group">
-      <label for="invoice_number">Invoice Number</label>
-      <input type="text" name="invoice_number" class="form-control" id="invoice_number">
-          </div>
-<input type="submit" id="btn_create" name="btn_create" class="btn btn-primary" value="Create Job Card">
-
-    </form>
+        <tr>
+            <td><?php echo $row['Vendor_ID']; ?></td>
+             <td><?php echo $row['Name']; ?></td>
+             <td><?php echo $row['date']; ?></td>
+             <td><?php echo $row['Time_In']; ?></td>
+             <td><?php echo $row['Time_Out']; ?></td>
+             
+              
+            <td><a href="editvendorsaccess.php?update_id=<?php echo $row['id']; ?>" class="btn btn-success" onclick="return confirm('Please be careful when editing this Vendor Access Log. Do not remove important information.. Click OK if you understand....');">View | Edit</a></td>
+             <td><a href="archivevendoraccess.php?archive_id=<?php echo $row['id']; ?>" name="btn_archive" class="btn btn-warning" onclick="return confirm('You are about to send this Vendor Access Log to the Archive database. Please only press OK if you understand that this cannot be undone.');">Archive</a></td>
+            <td><a href="?delete_id=<?php echo $row['id']; ?>" class="btn btn-danger" onclick="return confirm('Are you REALLY sure you want to delete this Vendor Access Log? Press Cancel if this was a mistake, or press OK to delete this record from ECEMS');">Delete</a></td>
+            
+        </tr>
+    <?php
+ }
+ ?>
+   </tbody>
+   
+</table> 
             
             </div>
 			 <!-- first row starts here -->

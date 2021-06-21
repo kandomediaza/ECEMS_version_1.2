@@ -20,10 +20,6 @@ if(isset($_REQUEST['delete_id']))
  header("Location:repairs.php");
 }
  
-?>
-<?php
-require_once 'connection.php';
-
   session_start();
 
   if(!isset($_SESSION['admin_login'])) //check unauthorize user not direct access in "admindashboard.php" page
@@ -67,7 +63,8 @@ require_once 'connection.php';
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
+
   </head>
   <body>
     <div class="container-scroller">
@@ -173,13 +170,13 @@ require_once 'connection.php';
                       <a class="nav-link" href="dailyrecyclables.php">Daily Recyclables</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Collections</a>
+                      <a class="nav-link" href="collections.php">Collections</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Drop Offs</a>
+                      <a class="nav-link" href="dropoffs.php">Drop Offs</a>
                     </li>
 					 <li class="nav-item">
-                      <a class="nav-link" href="#">Safe Disposal Cert.</a>
+                      <a class="nav-link" href="sdc.php">Safe Disposal Cert.</a>
                     </li>
 					
                   </ul>
@@ -241,10 +238,10 @@ require_once 'connection.php';
           <div class="content-wrapper pb-0">
             <div class="page-header flex-wrap">
               <div class="header-left">
-                  <a href="repairs.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">View All Repairs</a>
+                  
                 <a href="addnewrepairs.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add New Repairs</a>
-               <a href="addnewrefurb.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add New Refurb</a>
-                <a href="dailyrecyclables.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add Recyclables</a>
+               <a href="refurbs.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">View Refurbs</a>
+                <a href="dailyrecyclables.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">View Recyclables</a>
               </div>
                       </div>
 			 <div class="row">
@@ -269,7 +266,7 @@ require_once 'connection.php';
             <!-- first row starts here -->
             <div class="row table-responsive col-md-12">
                
-            <table class="table table-striped table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-striped table-bordered table-hover" id="DataTable" name="DataTable" width="100%" cellspacing="0">
                                  
     <thead>
         <tr>
@@ -334,9 +331,12 @@ require_once 'connection.php';
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+   
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+ 
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <script src="assets/vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
@@ -348,14 +348,14 @@ require_once 'connection.php';
     <script src="assets/vendors/flot/jquery.flot.stack.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="assets/js/off-canvas.js"></script>
-    <script src="assets/js/hoverable-collapse.js"></script>
-    <script src="assets/js/misc.js"></script>
-    <script src="assets/js/settings.js"></script>
-    <script src="assets/js/todolist.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="assets/js/dashboard.js"></script>
     <!-- End custom js for this page -->
+     <script type="text/javascript">
+        jQuery(document).ready(function($){
+    $('#DataTable').DataTable();
+} );
+    </script>
   </body>
 </html>

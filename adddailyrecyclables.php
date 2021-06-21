@@ -20,10 +20,10 @@ require_once 'connection.php';
   
   if(isset($_SESSION['admin_login']))
   {
-      $stmt = $db->prepare("SELECT MAX(job_number) AS max_id FROM repairs");
+      $stmt = $db->prepare("SELECT MAX(recID) AS max_id FROM daily_recyclables");
   $stmt -> execute();
-  $job_number = $stmt -> fetch(PDO::FETCH_ASSOC);
-  $max_id = $job_number['max_id'];
+  $recID = $stmt -> fetch(PDO::FETCH_ASSOC);
+  $max_id = $recID['max_id'];
   ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -222,10 +222,8 @@ require_once 'connection.php';
           <div class="content-wrapper pb-0">
             <div class="page-header flex-wrap">
               <div class="header-left">
-                  <a href="repairs.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">View All Repairs</a>
-                <a href="addnewrepairs.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add New Repairs</a>
-               <a href="addnewrefurb.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add New Refurb</a>
-                <a href="dailyrecyclables.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add Recyclables</a>
+                  <a href="dailyrecyclabes.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">View All Recyclables</a>
+               
               </div>
                       </div>
 			 <div class="row">
@@ -236,8 +234,8 @@ require_once 'connection.php';
                      
                       <div>
                         <div class="d-flex flex-wrap pt-2 justify-content-between sales-header-right">
-                            <h3>Add New Repair to ECEMS</h3>
-                       <p>Please use the form below to generate a Job Card for a customer. Please make sure to capture the customers email address correctly as an email will be sent automatically to the customer with his/her job card number and an online link to track the status of his/her repair.
+                            <h3>Add Recyclables</h3>
+                       <p>Please enter the values (NUMBERS ONLY) of each material that was weighed and processed. If you do not have a certain material, please enter 0 (DO NOT LEAVE THE FIELD BLANK). Once done, please press Submit Values</p>
               </div>
             
             </div>
@@ -250,126 +248,64 @@ require_once 'connection.php';
             <!-- first row starts here -->
             <div class="row table-responsive col-md-12">
                
-            <form action="addnewrepairprocess.php" method="POST">
+            <form action="addrecyclablesprocess.php" method="POST">
          
          
         <div class="form-group">
-      <label for="job_number">Job Number</label>
-      <input type="job_number" name="job_number" id="job_number" class="form-control" value="<?php echo $max_id+1;?>" readonly>
+      <label for="recID">Entry ID (AUTO)</label>
+      <input type="recID" name="recID" id="recID" class="form-control" value="<?php echo $max_id+1;?>" readonly>
     </div> 
          
-         
-         
-         
-         
-         <div class="form-group">
+      <div class="form-group">
       <label for="date">Date</label>
-      <input type="date" name="date" id="date" class="form-control" placeholder="Job Card Date">
+      <input type="date" name="date" id="date" class="form-control" placeholder="Enters Todays Date">
     </div>
 
 
          <div class="form-group">
-      <label for="client_full_name">Client Full Name</label>
-      <input type="text" name="client_full_name" class="form-control" id="client_full_name" placeholder="Mr. Laptop Man">
+      <label for="subgrade">Subgrade</label>
+      <input type="text" name="subgrade" class="form-control" id="subgrade" placeholder="Example 100KG">
     </div>
     
      <div class="form-group">
-      <label for="client_email">Client Email Address</label>
-      <input type="email" name="client_email" class="form-control" id="client_email" placeholder="example@live.co.za">
+      <label for="castaluminium">Cast Aluminium</label>
+      <input type="text" name="castaluminium" class="form-control" id="castaluminium" placeholder="Example 100KG">
     </div>
     
     <div class="form-group">
-      <label for="client_phone">Client Phone Number</label>
-      <input type="text" name="client_phone" class="form-control" id="client_phone" placeholder="071 984 5522">
+      <label for="copper">Copper</label>
+      <input type="text" name="copper" class="form-control" id="copper" placeholder="Example 100KG">
     </div>
-    
-     <div class="form-group">
-     <label for="item_for_repair">Item For Repair</label>
-
-<select class="form-select" aria-label="Default select example" name="item_for_repair">
-  <option selected>Open this select menu</option>
-  <option value="Laptop">Laptop</option>
-  <option value="Desktop">Desktop</option>
-  <option value="Television">Television</option>
-    <option value="Washing Machine">Washing Machine</option>
-      <option value="Tumble Dryer">Tumble Dryer</option>
-        <option value="Dishwasher">Dishwasher</option>
-          <option value="Microwave">Microwave</option>
-            <option value="Fridge">Fridge</option>
-            <option value="Printer">Printer</option>
-            <option value="Other">Other</option>
-</select>
-    </div>
-    
       <div class="form-group">
-      <label for="repair_description">Repair Description</label>
-      <input type="text" name="repair_description" class="form-control" id="repair_description" placeholder="Laptop is dead...">
+      <label for="stainlesssteel">Stainless Steel</label>
+      <input type="text" name="stainlesssteel" class="form-control" id="stainlesssteel" placeholder="Example 100KG">
     </div>
-    
       <div class="form-group">
-      <label for="hardware_details">Hardware Details</label>
-      <input type="text" name="hardware_details" class="form-control" id="hardware_details" placeholder="Black Lenovo Laptop with Charger">
+      <label for="plastic">Plastic</label>
+      <input type="text" name="plastic" class="form-control" id="plastic" placeholder="Example 100KG">
     </div>
-    
       <div class="form-group">
-      <label for="diagnostic_fee">Diagnostic Fee</label>
-      <input type="text" name="diagnostic_fee" class="form-control" id="diagnostic_fee">
+      <label for="batteries">Batteriesr</label>
+      <input type="text" name="batteries" class="form-control" id="batteries" placeholder="Example 100KG">
     </div>
-    
-     <div class="form-group">
-     <label for="tech_assigned">Technician Assigned</label>
-
-<select class="form-select" aria-label="Default select example" name="tech_assigned">
-  <option selected>Open this select menu</option>
-  <option value="Not Assigned Yet" name="Not Assigned Yet">Not Assigned Yet</option>
-  <option value="Brendon" name="Brendon">Brendon</option>
-  <option value="Gabriel" name="Gabriel">Gabriel</option>
-    <option value="Jami" name="Jami">Jami</option>
-      <option value="Lee-Roy" name="Lee-Roy">Lee-Roy</option>
-        <option value="Conrad" name="Conrad">Conrad</option>
-          <option value="Tapiwa" name="Tapiwa">Tapiwa</option>
-          
-</select>
-    </div>
-    
-     <div class="form-group">
-     <label for="current_status">Current Status</label>
-
-<select class="form-select" aria-label="Default select example" name="current_status">
-  <option selected>Open this select menu</option>
-  <option value="Pending" name="Pending">Pending</option>
-  <option value="In Progress" name="In Progress">In Progress</option>
-  <option value="On Hold Spares Required" name="On Hold Spares Required">On Hold Spares Required</option>
-    <option value="On Hold Other Fault" name="On Hold Other Fault">On Hold Other Fault</option>
-      <option value="Repair Completed" name="Repair Completed">Repair Completed</option>
-       </select>
-    </div>
-    
       <div class="form-group">
-      <label for="technician_notes">Technician Notes</label>
-      <input type="text" name="technician_notes" class="form-control" id="technician_notes">
+      <label for="brass">Brass</label>
+      <input type="text" name="brass" class="form-control" id="brass" placeholder="Example 100KG">
+    </div>
+      <div class="form-group">
+      <label for="lowgradePCB">Low Grade PCB</label>
+      <input type="text" name="lowgradePCB" class="form-control" id="lowgradePCB" placeholder="Example 100KG">
+    </div>
+      <div class="form-group">
+      <label for="mediumgradePCB">Medium Grader PCB</label>
+      <input type="text" name="mediumgradePCB" class="form-control" id="mediumgradePCB" placeholder="Example 100KG">
+    </div>
+      <div class="form-group">
+      <label for="highgradePCB">High Grade PCB</label>
+      <input type="text" name="highgradePCB" class="form-control" id="highgradePCB" placeholder="Example 100KG">
     </div>
     
-       <div class="form-group">
-      <label for="admin_notes">Admin Notes</label>
-      <input type="text" name="admin_notes" class="form-control" id="admin_notes">
-          </div>
-          
-         <div class="form-group">
-     <label for="invoice_status">Invoice Status</label>
-
-<select class="form-select" aria-label="Default select example" name="invoice_status">
-  <option selected>Open this select menu</option>
-  <option value="Client Not Yet Invoiced" name="Client Not Yet Invoiced">Client Not Yet Invoiced</option>
-  <option value="Client Invoiced" name="Client Invoiced">Client Invoiced</option>
-        </select>
-    </div>
-    
-     <div class="form-group">
-      <label for="invoice_number">Invoice Number</label>
-      <input type="text" name="invoice_number" class="form-control" id="invoice_number">
-          </div>
-<input type="submit" id="btn_create" name="btn_create" class="btn btn-primary" value="Create Job Card">
+<input type="submit" id="btn_create" name="btn_create" class="btn btn-primary" value="Submit Values">
 
     </form>
             

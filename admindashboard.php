@@ -19,13 +19,17 @@
   if(isset($_SESSION['admin_login']))
   {
   ?>
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Plus Admin</title>
+    <title>ECEMS v1.2 - Waste Management System | Admin Dashboard</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
     <!-- plugins:css -->
     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
@@ -119,7 +123,7 @@
                       <a class="nav-link" href="viewarchivedrepairs.php">View Archived Repairs</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="addnewrepair.php">Add New Repair</a>
+                      <a class="nav-link" href="addnewrepairs.php">Add New Repair</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="refurbs.php">View Refurbs</a>
@@ -215,10 +219,10 @@
           <div class="content-wrapper pb-0">
             <div class="page-header flex-wrap">
               <div class="header-left">
-                  <a href="repairs.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">View All Repairs</a>
-                <a href="addnewrepairs.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add New Repair</a>
+                  <a href="addnewrepairs.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add New Repair</a>
                <a href="addnewrefurb.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add New Refurb</a>
-                <a href="dailyrecyclables.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add Recyclables</a>
+                <a href="adddailyrecyclables.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add Recyclables</a>
+                <a href="addvendors.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add Vendors</a>
               </div>
                       </div>
 			 <div class="row">
@@ -229,7 +233,7 @@
                      
                       <div>
                         <div class="d-flex flex-wrap pt-2 justify-content-between sales-header-right">
-                       <p> Welcome to ECEMS v1.2 BETA, If you need help with navigating your way around ECEMS, please whatsapp Lee-Roy for assistance on 071 984 5522.
+                       <p> Welcome to ECEMS v1.2 BETA, If you need help with navigating your way around ECEMS, please whatsapp Lee-Roy for assistance on 071 984 5522. The Stats shown below (except the repairs stats) are based on the current month <b><?php echo date('F, Y'); ?></b>.
               </div>
             
             </div>
@@ -239,24 +243,18 @@
                   </div>
                 </div>
               </div>
-            <!-- first row starts here -->
-            <div class="row">
-              <div class="col-md-12 stretch-card grid-margin">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between flex-wrap">
-                      <div>
-                        <div class="card-title mb-0">Repairs Overview</div>
-                       
-                      </div>
-                      <div>
-                        <div class="d-flex flex-wrap pt-2 justify-content-between sales-header-right">
-                        <div class="d-flex mr-3 mt-2 mt-sm-0">
-                            <button type="button" class="btn btn-social-icon btn-outline-sales">
-                              <i class="mdi mdi-notification-clear-all"></i>
-                            </button>
-                            <div class="pl-2">
-                              <h4 class="mb-0 font-weight-semibold head-count">  <?php
+              <div class="container-fluid">
+  <section>
+       <div class="row">
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                <i class="fas fa-question-circle text-warning fa-3x"></i>
+              </div>
+              <div class="text-end">
+                <h3> <?php
 $dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
 $dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -275,44 +273,22 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 //The $row array will contain "num". Print it out.
 echo $row['num'];
-?> </h4>
-                              <span class="font-10 font-weight-semibold text-muted">PENDING</span>
-                            </div>
-                          </div>
-                          <div class="d-flex mr-3 mt-2 mt-sm-0">
-                            <button type="button" class="btn btn-social-icon btn-outline-sales profit">
-                              <i class="mdi mdi-notification-clear-all"></i>
-                            </button>
-                            <div class="pl-2">
-                              <h4 class="mb-0 font-weight-semibold head-count"> <?php
-$dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
-$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-//The COUNT SQL statement that we will use.
-$sql = "SELECT COUNT(*) AS num FROM repairs WHERE current_status = 'In Progress'";
-
-//Prepare the COUNT SQL statement.
-$stmt = $dbConnection->prepare($sql);
-
-//Execute the COUNT statement.
-$stmt->execute();
-
-//Fetch the row that MySQL returned.
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-//The $row array will contain "num". Print it out.
-echo $row['num'];
-?> </h4>
-                              <span class="font-10 font-weight-semibold text-muted">IN PROGRESS</span>
-                            </div>
-                          </div>
-						   <div class="d-flex mr-3 mt-2 mt-sm-0">
-                            <button type="button" class="btn btn-social-icon btn-outline-sales profit">
-                              <i class="mdi mdi-notification-clear-all"></i>
-                            </button>
-                            <div class="pl-2">
-                              <h4 class="mb-0 font-weight-semibold head-count"> <?php
+?></h3>
+                <p class="mb-0">Pending Repairs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                <i class="fas fa-stop-circle text-danger fa-3x"></i>
+              </div>
+              <div class="text-end">
+                <h3> <?php
 $dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
 $dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -332,16 +308,22 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 //The $row array will contain "num". Print it out.
 echo $row['num'];
-?> </h4>
-                              <span class="font-10 font-weight-semibold text-muted">ON HOLD</span>
-                            </div>
-                          </div>
-                           <div class="d-flex mr-3 mt-2 mt-sm-0">
-                            <button type="button" class="btn btn-social-icon btn-outline-sales profit">
-                              <i class="mdi mdi-notification-clear-all"></i>
-                            </button>
-                            <div class="pl-2">
-                              <h4 class="mb-0 font-weight-semibold head-count"> <?php
+?></h3>
+                <p class="mb-0">On Hold Repairs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                <i class="fas fa-handshake text-success fa-3x"></i>
+              </div>
+              <div class="text-end">
+                <h3><?php
 $dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
 $dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -360,20 +342,442 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 //The $row array will contain "num". Print it out.
 echo $row['num'];
-?> </h4>
-                              <span class="font-10 font-weight-semibold text-muted">COMPLETED</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+?></h3>
+                <p class="mb-0">Completed Repairs</p>
               </div>
-            
             </div>
-			 <!-- first row starts here -->
-			 
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                <i class="fas fa-history text-warning fa-3x"></i>
+              </div>
+              <div class="text-end">
+                <h3><?php
+$dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
+$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//The COUNT SQL statement that we will use.
+$sql = "SELECT COUNT(*) AS num FROM archived_repairs";
+
+//Prepare the COUNT SQL statement.
+$stmt = $dbConnection->prepare($sql);
+
+//Execute the COUNT statement.
+$stmt->execute();
+
+//Fetch the row that MySQL returned.
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+//The $row array will contain "num". Print it out.
+echo $row['num'];
+?></h3>
+                <p class="mb-0">Archived Repairs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+    <div class="container-fluid">
+  <section>
+       <div class="row">
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                 <i class="fas fa-weight text-success fa-3x"></i>
+              </div>
+              <div class="text-end">
+                <h3> <?php
+$dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
+$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//The COUNT SQL statement that we will use.
+$sql = "SELECT SUM(subgrade) AS num FROM daily_recyclables WHERE date BETWEEN DATE_FORMAT(curdate() ,'%Y-%m-01') AND curdate()";
+
+
+//Prepare the COUNT SQL statement.
+$stmt = $dbConnection->prepare($sql);
+
+//Execute the COUNT statement.
+$stmt->execute();
+
+//Fetch the row that MySQL returned.
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+//The $row array will contain "num". Print it out.
+echo $row['num'];
+?> KG</h3>
+                <p class="mb-0">Subgrade Metals</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                  <i class="fas fa-weight text-success fa-3x"></i>
+              </div>
+              <div class="text-end">
+                <h3><?php
+$dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
+$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//The COUNT SQL statement that we will use.
+$sql = "SELECT SUM(castaluminium) AS num FROM daily_recyclables WHERE date BETWEEN DATE_FORMAT(curdate() ,'%Y-%m-01') AND curdate()";
+ 
+//Prepare the COUNT SQL statement.
+$stmt = $dbConnection->prepare($sql);
+
+//Execute the COUNT statement.
+$stmt->execute();
+
+//Fetch the row that MySQL returned.
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+//The $row array will contain "num". Print it out.
+echo $row['num'];
+?> KG</h3>
+                <p class="mb-0">Cast Aluminium</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                 <i class="fas fa-weight text-success fa-3x"></i>
+              </div>
+              <div class="text-end">
+                <h3><?php
+$dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
+$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//The COUNT SQL statement that we will use.
+$sql = "SELECT SUM(copper) AS num FROM daily_recyclables WHERE date BETWEEN DATE_FORMAT(curdate() ,'%Y-%m-01') AND curdate()";
+
+//Prepare the COUNT SQL statement.
+$stmt = $dbConnection->prepare($sql);
+
+//Execute the COUNT statement.
+$stmt->execute();
+
+//Fetch the row that MySQL returned.
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+//The $row array will contain "num". Print it out.
+echo $row['num'];
+?> KG</h3>
+                <p class="mb-0">Copper</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                 <i class="fas fa-weight text-success fa-3x"></i>
+              </div>
+              <div class="text-end">
+                <h3><?php
+$dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
+$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//The COUNT SQL statement that we will use.
+$sql = "SELECT SUM(stainlesssteel) AS num FROM daily_recyclables WHERE date BETWEEN DATE_FORMAT(curdate() ,'%Y-%m-01') AND curdate()";
+
+//Prepare the COUNT SQL statement.
+$stmt = $dbConnection->prepare($sql);
+
+//Execute the COUNT statement.
+$stmt->execute();
+
+//Fetch the row that MySQL returned.
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+//The $row array will contain "num". Print it out.
+echo $row['num'];
+?> KG</h3>
+                <p class="mb-0">Stainless Steel</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section>
+       <div class="row">
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                  <i class="fas fa-weight text-success fa-3x"></i>
+              </div>
+              <div class="text-end">
+                <h3><?php
+$dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
+$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//The COUNT SQL statement that we will use.
+$sql = "SELECT SUM(brass) AS num FROM daily_recyclables WHERE date BETWEEN DATE_FORMAT(curdate() ,'%Y-%m-01') AND curdate()";
+
+//Prepare the COUNT SQL statement.
+$stmt = $dbConnection->prepare($sql);
+
+//Execute the COUNT statement.
+$stmt->execute();
+
+//Fetch the row that MySQL returned.
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+//The $row array will contain "num". Print it out.
+echo $row['num'];
+?> KG</h3>
+                <p class="mb-0">Brass</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                 <i class="fas fa-weight text-success fa-3x"></i>
+              </div>
+              <div class="text-end">
+                <h3><?php
+$dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
+$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//The COUNT SQL statement that we will use.
+$sql = "SELECT SUM(lowgradePCB) AS num FROM daily_recyclables WHERE date BETWEEN DATE_FORMAT(curdate() ,'%Y-%m-01') AND curdate()";
+
+//Prepare the COUNT SQL statement.
+$stmt = $dbConnection->prepare($sql);
+
+//Execute the COUNT statement.
+$stmt->execute();
+
+//Fetch the row that MySQL returned.
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+//The $row array will contain "num". Print it out.
+echo $row['num'];
+?> KG</h3>
+                <p class="mb-0">Low Grade PCB</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                  <i class="fas fa-weight text-success fa-3x"></i>
+              </div>
+              <div class="text-end">
+                <h3><?php
+$dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
+$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//The COUNT SQL statement that we will use.
+$sql = "SELECT SUM(mediumgradePCB) AS num FROM daily_recyclables WHERE date BETWEEN DATE_FORMAT(curdate() ,'%Y-%m-01') AND curdate()";
+
+//Prepare the COUNT SQL statement.
+$stmt = $dbConnection->prepare($sql);
+
+//Execute the COUNT statement.
+$stmt->execute();
+
+//Fetch the row that MySQL returned.
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+//The $row array will contain "num". Print it out.
+echo $row['num'];
+?> KG</h3>
+                <p class="mb-0">Medium Grade PCB</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                <i class="fas fa-weight text-success fa-3x"></i>
+              </div>
+              <div class="text-end">
+                <h3><?php
+$dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
+$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//The COUNT SQL statement that we will use.
+$sql = "SELECT SUM(highgradePCB) AS num FROM daily_recyclables WHERE date BETWEEN DATE_FORMAT(curdate() ,'%Y-%m-01') AND curdate()";
+
+//Prepare the COUNT SQL statement.
+$stmt = $dbConnection->prepare($sql);
+
+//Execute the COUNT statement.
+$stmt->execute();
+
+//Fetch the row that MySQL returned.
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+//The $row array will contain "num". Print it out.
+echo $row['num'];
+?> KG</h3>
+                <p class="mb-0">High Grade PCB</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>        
+			<div class="container-fluid">
+  <section>
+       <div class="row">
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                <i class="fas fa-weight text-success fa-3x"></i>
+              </div>
+              <div class="text-end">
+                <h3> <?php
+$dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
+$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//The COUNT SQL statement that we will use.
+$sql = "SELECT SUM(plastic) AS num FROM daily_recyclables WHERE date BETWEEN DATE_FORMAT(curdate() ,'%Y-%m-01') AND curdate()";
+
+//Prepare the COUNT SQL statement.
+$stmt = $dbConnection->prepare($sql);
+
+//Execute the COUNT statement.
+$stmt->execute();
+
+//Fetch the row that MySQL returned.
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+//The $row array will contain "num". Print it out.
+echo $row['num'];
+?> KG</h3>
+                <p class="mb-0">Plastic</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+         <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                  <i class="fas fa-weight text-success fa-3x"></i>
+              </div>
+              <div class="text-end">
+                <h3><?php
+$dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
+$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//The COUNT SQL statement that we will use.
+$sql = "SELECT SUM(cables) AS num FROM daily_recyclables WHERE date BETWEEN DATE_FORMAT(curdate() ,'%Y-%m-01') AND curdate()";
+
+//Prepare the COUNT SQL statement.
+$stmt = $dbConnection->prepare($sql);
+
+//Execute the COUNT statement.
+$stmt->execute();
+
+//Fetch the row that MySQL returned.
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+//The $row array will contain "num". Print it out.
+echo $row['num'];
+?> KG</h3>
+                <p class="mb-0">Cables</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between px-md-1">
+              <div class="align-self-center">
+                <i class="fas fa-weight text-success fa-3x"></i>
+              </div>
+              <div class="text-end">
+                <h3> <?php
+$dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
+$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//The COUNT SQL statement that we will use.
+$sql = "SELECT COUNT(*) AS num FROM dropoffs WHERE date BETWEEN DATE_FORMAT(curdate() ,'%Y-%m-01') AND curdate()";
+
+//Prepare the COUNT SQL statement.
+$stmt = $dbConnection->prepare($sql);
+
+//Execute the COUNT statement.
+$stmt->execute();
+
+//Fetch the row that MySQL returned.
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+//The $row array will contain "num". Print it out.
+echo $row['num'];
+?></h3>
+                <p class="mb-0">Drop-Offs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div> 
            
             </div>
           </div>
