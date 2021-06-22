@@ -3,7 +3,7 @@ require_once 'connection.php';
 
   session_start();
 
-  if(!isset($_SESSION['admin_login'])) //check unauthorize user not direct access in "admindashboard.php" page
+  if(!isset($_SESSION['tech_login'])) //check unauthorize user not direct access in "admindashboard.php" page
   {
    header("location: index.php");  
   }
@@ -13,26 +13,126 @@ require_once 'connection.php';
    header("location: employeedashboard.php"); 
   }
 
-  if(isset($_SESSION['tech_login'])) //check user login user not access in "admin_home.php" page
+  if(isset($_SESSION['admin_login'])) //check user login user not access in "admin_home.php" page
   {
-   header("location: techdashboard.php");
+   header("location: admindashboard.php");
   }
   
-  if(isset($_SESSION['admin_login']))
+  if(isset($_SESSION['tech_login']))
   {
-      $stmt = $db->prepare("SELECT MAX(job_number) AS max_id FROM repairs");
-  $stmt -> execute();
-  $job_number = $stmt -> fetch(PDO::FETCH_ASSOC);
-  $max_id = $job_number['max_id'];
-  ?>
+?>
+<?php
+if(isset($_REQUEST['update_id']))
+{
+ try
+ {
+  $job_number = $_REQUEST['update_id']; 
+  $select_stmt = $db->prepare('SELECT * FROM repairs WHERE job_number =:job_number'); 
+  $select_stmt->bindParam(':job_number',$job_number,PDO::PARAM_STR);
+  $select_stmt->execute(); 
+  $row = $select_stmt->fetch(PDO::FETCH_ASSOC);
+  extract($row);
+ }
+ catch(PDOException $e)
+ {
+  $e->getMessage();
+ }
+ 
+}
+
+if(isset($_REQUEST['btn_update']))
+{
+ 
+                $job_number = $_REQUEST['job_number'];
+                $date = $_REQUEST['date'];
+                $client_full_name = filter_var($_REQUEST['client_full_name'], FILTER_SANITIZE_STRING);
+                $item_for_repair = filter_var($_REQUEST['item_for_repair'], FILTER_SANITIZE_STRING);
+                $repair_description = filter_var($_REQUEST['repair_description'], FILTER_SANITIZE_STRING);
+                $hardware_details = filter_var($_REQUEST['hardware_details'], FILTER_SANITIZE_STRING);
+                $tech_assigned = filter_var($_REQUEST['tech_assigned'], FILTER_SANITIZE_STRING);
+                $current_status = filter_var($_REQUEST['current_status'], FILTER_SANITIZE_STRING);
+                $technician_notes = filter_var($_REQUEST['technician_notes'], FILTER_SANITIZE_STRING);
+                $admin_notes = filter_var($_REQUEST['admin_notes'], FILTER_SANITIZE_STRING);
+      
+  
+  {
+  try
+  {
+      
+   if(!isset($errorMsg))
+   {
+       $update_stmt=$db->prepare('UPDATE repairs SET job_number=:job_number, date=:date, item_for_repair=:item_for_repair, repair_description=:repair_description, hardware_details=:hardware_details, tech_assigned=:tech_assigned, current_status=:current_status, technician_notes=:technician_notes, admin_notes=:admin_notes WHERE job_number=:job_number'); 
+
+                $update_stmt->bindParam(':job_number', $job_number, PDO::PARAM_INT);
+                $update_stmt->bindParam(':date', $date);
+                $update_stmt->bindParam(':client_full_name', $client_full_name, PDO::PARAM_STR);
+                $update_stmt->bindParam(':item_for_repair', $item_for_repair, PDO::PARAM_STR);
+                $update_stmt->bindParam(':repair_description',$repair_description, PDO::PARAM_STR);
+                $update_stmt->bindParam(':hardware_details', $hardware_details, PDO::PARAM_STR);
+                $update_stmt->bindParam(':tech_assigned', $tech_assigned, PDO::PARAM_STR);
+                $update_stmt->bindParam(':current_status', $current_status, PDO::PARAM_STR);
+                $update_stmt->bindParam(':technician_notes', $technician_notes, PDO::PARAM_STR);
+                $update_stmt->bindParam(':admin_notes', $admin_notes, PDO::PARAM_STR);
+                
+    if($update_stmt->execute())
+    {
+     $updateMsg="Record Update Successful. Refreshing in 3 seconds."; 
+     header("refresh:3;repairs_tech.php"); 
+    }
+   } 
+  }
+  catch(PDOException $e)
+  {
+   echo $e->getMessage();
+  } 
+ } 
+}
+?>
+<?php 
+if(isset($_REQUEST['btn_update'])){
+   $to = "info@refurbsa.com"; // this is your Email address
+    $from_mail = "notifications@ecems.co.za"; // this is the sender's Email address 
+    $from_name = "ECEMS System"; // this is the sender's Name
+    $job_number = $_POST['job_number'];
+    $item_for_repair = $_POST['item_for_repair'];
+    $current_status = $_POST['current_status'];
+    $technician_notes = $_POST['technician_notes'];
+    $client_full_name = $_POST['client_full_name'];
+    $tech_assigned = $_POST['tech_assigned'];
+    $subject = "$tech_assigned has updated JC$job_number for $client_full_name";
+    $message = "Hi Jami, Natalie and Lee-Roy. $tech_assigned has updated JC$job_number for $client_full_name's $item_for_repair. The new status is $current_status. Technician Notes are: $technician_notes. Log into www.ecems.co.za to view more info.";
+   $headers .= "From: ".$from_name." <".$from_mail."> \r\n";
+   $headers .= 'Cc: admin@ecems.co.za' . "\r\n";
+    mail($to,$subject,$message,$headers);
+   
+    header("refresh:3;repairs.php"); 
+    }
+?>
+ <?php
+if(isset($errorMsg)){
+?>
+    <div class="alert alert-danger">
+        <strong>ERROR ! <?php echo $errorMsg; ?></strong>
+    </div>
+<?php
+}
+if(isset($updateMsg)){
+?>
+ <div class="alert alert-success">
+  <strong>DONE!! <?php echo $updateMsg; ?></strong>
+ </div>
+<?php
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
- <head>
+  <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>ECEMS Management System | Dashboard</title>
     <!-- plugins:css -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
@@ -47,8 +147,7 @@ require_once 'connection.php';
     <link rel="stylesheet" href="assets/css/demo_2/style.css" />
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    
+   
   </head>
   <body>
     <div class="container-scroller">
@@ -64,24 +163,20 @@ require_once 'connection.php';
               <a class="navbar-brand brand-logo-mini" href="index.php"><img src="ecemslogo.png" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-              
+             
               <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item nav-profile dropdown">
                   <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                    
                     <div class="nav-profile-text">
                       <p class="text-black font-weight-semibold m-0"><?php
-   echo $_SESSION['admin_login'];
+   echo $_SESSION['tech_login'];
   }
   ?></p>
-                      <span class="font-13 online-color">online <i class="mdi mdi-chevron-down"></i></span>
+                      <span class="font-13 online-color">Status: online</span>
                     </div>
                   </a>
-                  <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                                      <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="logout.php">
-                      <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
-                  </div>
+                
                 </li>
               </ul>
               <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
@@ -109,98 +204,37 @@ require_once 'connection.php';
                 <div class="submenu">
                   <ul class="submenu-item">
                     <li class="nav-item">
-                      <a class="nav-link" href="repairs.php">View Repairs</a>
+                      <a class="nav-link" href="repairs_tech.php">View Repairs</a>
                     </li>
-                     <li class="nav-item">
-                      <a class="nav-link" href="viewarchivedrepairs.php">View Archived Repairs</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="addnewrepair.php">Add New Repairs</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="refurbs.php">View Refurbs</a>
+                   <li class="nav-item">
+                      <a class="nav-link" href="refurbs_tech.php">View Refurbs</a>
                     </li>
 					 <li class="nav-item">
-                      <a class="nav-link" href="addnewrefurb.php">Add Refurb</a>
+                      <a class="nav-link" href="addnewrefurb_tech.php">Add Refurb</a>
                     </li>
-					 <li class="nav-item">
-                      <a class="nav-link" href="tapiwarefurbs.php">Tapiwa Refurbs</a>
-                    </li>
-                  </ul>
+				                  </ul>
                 </div>
               </li>
 			  <!-- END REPAIRS AND REFURBS MENU -->
-             <!-- WASTE MANAGEMENT MENU -->
+              <!-- PROFILE SETTINGS MENU -->
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="mdi mdi-monitor-dashboard menu-icon"></i>
-                  <span class="menu-title">Waste Management</span>
+                  <span class="menu-title">Settings</span>
                   <i class="menu-arrow"></i>
                 </a>
                 <div class="submenu">
                   <ul class="submenu-item">
-                    <li class="nav-item">
-                      <a class="nav-link" href="dailyrecyclables.php">Daily Recyclables</a>
+                       <li class="nav-item">
+                      <a class="nav-link" href="#">Manage Profile</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Collections</a>
+                      <a class="nav-link" href="logout.php">Logout</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Drop Offs</a>
-                    </li>
-					 <li class="nav-item">
-                      <a class="nav-link" href="#">Safe Disposal Cert.</a>
-                    </li>
-					
-                  </ul>
+                                     </ul>
                 </div>
               </li>
-             <!-- END WASTE MANAGEMENT MENU -->
-			 <!-- VENDOR MANAGEMENT MENU -->
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="mdi mdi-monitor-dashboard menu-icon"></i>
-                  <span class="menu-title">Vendor Management</span>
-                  <i class="menu-arrow"></i>
-                </a>
-                <div class="submenu">
-                  <ul class="submenu-item">
-                    <li class="nav-item">
-                      <a class="nav-link" href="vendors.php">Vendor Registration</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="access-register.php">Access Register</a>
-                    </li>
-                   
-					
-                  </ul>
-                </div>
-              </li>
-             <!-- END VENDOR MANAGEMENT MENU -->
-			  <!-- SYSTEM SETTINGS MENU -->
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="mdi mdi-monitor-dashboard menu-icon"></i>
-                  <span class="menu-title">System Settings</span>
-                  <i class="menu-arrow"></i>
-                </a>
-                <div class="submenu">
-                  <ul class="submenu-item">
-                    <li class="nav-item">
-                      <a class="nav-link" href="viewusers.php">View System Users</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="addnewuser.php">Add New User</a>
-                    </li>
-                   
-					
-                  </ul>
-                </div>
-              </li>
-             <!-- END SYSTEM SETTINGS MENU -->
-             
-             
-             
+             <!-- END PROFILE SETTINGS MENU -->
             </ul>
           </div>
         </nav>
@@ -211,10 +245,7 @@ require_once 'connection.php';
           <div class="content-wrapper pb-0">
             <div class="page-header flex-wrap">
               <div class="header-left">
-                  <a href="repairs.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">View All Repairs</a>
-                <a href="addnewrepairs.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add New Repairs</a>
-               <a href="addnewrefurb.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add New Refurb</a>
-                <a href="dailyrecyclables.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add Recyclables</a>
+                 
               </div>
                       </div>
 			 <div class="row">
@@ -225,8 +256,8 @@ require_once 'connection.php';
                      
                       <div>
                         <div class="d-flex flex-wrap pt-2 justify-content-between sales-header-right">
-                            <h3>Add New Repair to ECEMS</h3>
-                       <p>Please use the form below to generate a Job Card for a customer. Please make sure to capture the customers email address correctly as an email will be sent automatically to the customer with his/her job card number and an online link to track the status of his/her repair.
+                            <h3>View | Edit Repair <b>JC<?php echo $row['job_number']; ?></b> for <b><?php echo $row['client_full_name']; ?></b></h3>
+                       <p>This section allows you to view and update repair details for <b>JC<?php echo $row['job_number']; ?> </b> for client  <b><?php echo $row['client_full_name']; ?></b>. Please note that you cannot change the job number as this is automatically assigned during the adding of this job card. You cannot edit the date either.. Once you have updated the details you need to update, please press the <b>UPDATE</b> button once to update the record into the ECEMS database. If you want to go back to the repairs page, simply press the <b>CANCEL</b> button below, otherwise you will be redirected after pressing the update button.
               </div>
             
             </div>
@@ -237,40 +268,43 @@ require_once 'connection.php';
                 </div>
               </div>
             <!-- first row starts here -->
-            <div class="row table-responsive col-md-12">
-               <form method="post" name="form" id="form" class="form form-horizontal" action="addnewrepairprocess.php">
-   <div class="form-group">
-      <label for="job_number">Job Number</label>
-      <input type="job_number" name="job_number" id="job_number" class="form-control" value="<?php echo $max_id+1;?>" readonly>
+                         <?php
+if(isset($errorMsg)){
+?>
+    <div class="alert alert-danger">
+        <strong>ERROR ! <?php echo $errorMsg; ?></strong>
     </div>
+<?php
+}
+if(isset($updateMsg)){
+?>
+ <div class="alert alert-success">
+  <strong>UPDATED ! <?php echo $updateMsg; ?></strong>
+ </div>
+<?php
+}
+?> 
+<form method="post" class="form-horizontal" action="">
+     
+ <div class="form-group">
+ <label class="col-sm-3 control-label">Job Number</label>
+ <div class="col-sm-12">
+ <input type="text" name="job_number" class="form-control" value="<?php echo htmlspecialchars($job_number, ENT_QUOTES); ?>" readonly>
+ </div>
+ </div>
   <div class="form-group">
  <label class="col-sm-3 control-label">Date Repair Booked in</label>
  <div class="col-sm-12">
- <input type="date" name="date" class="form-control">
+ <input type="date" name="date" class="form-control" value="<?php echo htmlspecialchars($date, ENT_QUOTES); ?>" readonly>
  </div>
  </div>
  <div class="form-group">
  <label class="col-sm-3 control-label">Client Full Name</label>
  <div class="col-sm-12">
- <input type="text" name="client_full_name" class="form-control">
+ <input type="text" name="client_full_name" class="form-control" value="<?php echo htmlspecialchars($client_full_name, ENT_QUOTES); ?>" readonly>
  </div>
  </div>
-  <div class="form-group">
- <label class="col-sm-3 control-label">Client Email</label>
- <div class="col-sm-12">
- <input type="text" name="client_email" class="form-control">
- </div>
- </div>
-  <div class="form-group">
- <label class="col-sm-3 control-label">Client Phone Number</label>
- <div class="col-sm-12">
- <input type="text" name="client_phone" class="form-control">
- </div>
- </div>
-  <div class="form-group">
-      <?php
-      $item_for_repair = "Laptop"
-      ?>
+ <div class="form-group">
      <label class="col-sm-3 control-label">Item For Repair</label>
 <div class="col-sm-12">
 <select name="item_for_repair" id="item_for_repair">
@@ -287,28 +321,20 @@ require_once 'connection.php';
 </select>
     </div>
     </div>
+
   <div class="form-group">
  <label class="col-sm-3 control-label">Repair Description</label>
  <div class="col-sm-12">
- <input type="text" name="repair_description" class="form-control" value="<?php echo $repair_description; ?>">
+ <input type="text" name="repair_description" class="form-control" value="<?php echo htmlspecialchars($repair_description, ENT_QUOTES); ?>" readonly>
  </div>
  </div>
   <div class="form-group">
  <label class="col-sm-3 control-label">Hardware Details</label>
  <div class="col-sm-12">
- <input type="text" name="hardware_details" class="form-control" value="<?php echo $hardware_details; ?>">
+ <input type="text" name="hardware_details" class="form-control" value="<?php echo htmlspecialchars($hardware_details, ENT_QUOTES); ?>" readonly>
  </div>
  </div>
-  <div class="form-group">
- <label class="col-sm-3 control-label">Diagnostic Fee</label>
- <div class="col-sm-12">
- <input type="text" name="diagnostic_fee" class="form-control" value="<?php echo $diagnostic_fee; ?>">
- </div>
- </div>
-  <div class="form-group">
-       <?php
-      $tech_assigned = "Not Assigned Yet"
-      ?>
+<div class="form-group">
      <label class="col-sm-3 control-label">Technician Assigned</label>
 <div class="col-sm-12">
 <select name="tech_assigned" id="tech_assigned">
@@ -322,11 +348,7 @@ require_once 'connection.php';
     </select>
     </div>
     </div>
-
-  <div class="form-group">
-       <?php
-      $current_status = "Pending"
-      ?>
+ <div class="form-group">
      <label class="col-sm-3 control-label">Current Status</label>
 <div class="col-sm-12">
 <select name="current_status" id="current_status">
@@ -342,42 +364,23 @@ require_once 'connection.php';
   <div class="form-group">
  <label class="col-sm-3 control-label">Technician Notes</label>
  <div class="col-sm-12">
- <input type="text" name="technician_notes" class="form-control" value="<?php echo $technician_notes; ?>">
+ <input type="text" name="technician_notes" class="form-control" value="<?php echo htmlspecialchars($technician_notes, ENT_QUOTES); ?>">
  </div>
  </div>
   <div class="form-group">
  <label class="col-sm-3 control-label">Admin Notes</label>
  <div class="col-sm-12">
- <input type="text" name="admin_notes" class="form-control" value="<?php echo $admin_notes; ?>">
+ <input type="text" name="admin_notes" class="form-control" value="<?php echo htmlspecialchars($admin_notes,ENT_QUOTES); ?>" readonly>
  </div>
  </div>
   <div class="form-group">
-       <?php
-      $invoice_status = "Client Not Invoiced Yet<"
-      ?>
-     <label class="col-sm-3 control-label">Invoice Status</label>
-<div class="col-sm-12">
-<select name="invoice_status" id="invoice_status">
-    <option value="Client Not Invoiced Yet" <?= $invoice_status === 'Client Not Invoiced Yet' ? 'selected' : '' ?>>Client Not Invoiced Yet</option>
-    <option value="Client Invoiced" <?= $invoice_status === 'Client Invoiced' ? 'selected' : '' ?>>Client Invoiced</option>
-   </select>
-
-    </div>
-    </div>
-  <div class="form-group">
- <label class="col-sm-3 control-label">Invoice Number</label>
- <div class="col-sm-12">
- <input type="text" name="invoice_number" class="form-control" value="<?php echo $invoice_number; ?>">
- </div>
- </div>
-      
- <div class="form-group">
  <div class="col-sm-offset-3 col-sm-9 m-t-15">
  <input type="submit" name="btn_update" class="btn btn-primary" value="Update">
-  <a href="repairs.php" class="btn btn-danger">Cancel</a>
+  <a href="repairs_tech.php" class="btn btn-danger">Cancel</a>
  </div>
  </div>
-   </form>
+</form>
+
             </div>
 			 <!-- first row starts here -->
 			 
@@ -401,7 +404,7 @@ require_once 'connection.php';
       <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
-    <!-- plugins:js -->
+      <!-- plugins:js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>

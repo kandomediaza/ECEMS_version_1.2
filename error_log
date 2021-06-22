@@ -1235,3 +1235,137 @@ Stack trace:
 [21-Jun-2021 19:35:59 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/employeedashboard.php on line 193
 [21-Jun-2021 19:38:03 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/employeedashboard.php on line 206
 [21-Jun-2021 19:38:38 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/employeedashboard.php on line 188
+[21-Jun-2021 21:56:07 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs_tech.php:298
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs_tech.php(298): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs_tech.php on line 298
+[21-Jun-2021 23:05:35 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/addnewrefurb_tech.php:28) in /home/ecemscoz/public_html/addnewrefurb_tech.php on line 105
+[21-Jun-2021 23:07:43 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/addnewrefurb_tech.php:28) in /home/ecemscoz/public_html/addnewrefurb_tech.php on line 385
+[21-Jun-2021 23:12:14 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/addnewrefurb_tech.php:28) in /home/ecemscoz/public_html/addnewrefurb_tech.php on line 44
+[21-Jun-2021 23:32:01 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/addnewrefurb_tech.php on line 394
+[21-Jun-2021 23:32:28 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/addnewrefurb_tech.php on line 391
+[21-Jun-2021 23:32:56 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/addnewrefurb_tech.php on line 391
+[21-Jun-2021 23:33:46 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/addnewrefurb_tech.php on line 391
+[21-Jun-2021 23:34:00 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/addnewrefurb_tech.php on line 394
+[21-Jun-2021 23:34:09 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/addnewrefurb_tech.php on line 394
+[21-Jun-2021 23:39:21 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/addnewrefurb_tech.php:28) in /home/ecemscoz/public_html/addnewrefurb_tech.php on line 94
+[21-Jun-2021 23:40:57 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/ecemscoz/public_html/addnewrefurb_tech.php on line 83
+[21-Jun-2021 23:40:57 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/addnewrefurb_tech.php:57) in /home/ecemscoz/public_html/addnewrefurb_tech.php on line 87
+[22-Jun-2021 17:48:37 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/editrepairs.php:386
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 386
+[22-Jun-2021 17:50:43 UTC] PHP Parse error:  syntax error, unexpected '"', expecting ',' or ';' in /home/ecemscoz/public_html/editrepairs.php on line 392
+[22-Jun-2021 18:23:58 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ecemscoz_ecemsapp.signings' doesn't exist in /home/ecemscoz/public_html/editrepairs.php:383
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(383): PDO->query('SELECT * FROM s...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 383
+[22-Jun-2021 18:41:11 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[]: <<Unknown error>> in /home/ecemscoz/public_html/editrepairs.php:383
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 383
+[22-Jun-2021 19:04:55 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method PDO::fetchColumn() in /home/ecemscoz/public_html/editrepairs.php:371
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 371
+[22-Jun-2021 19:07:16 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 474
+[22-Jun-2021 19:08:06 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 474
+[22-Jun-2021 19:10:21 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 474
+[22-Jun-2021 19:12:20 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 474
+[22-Jun-2021 19:13:23 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 470
+[22-Jun-2021 19:17:52 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 474
+[22-Jun-2021 19:18:03 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 474
+[22-Jun-2021 19:23:02 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 436
+[22-Jun-2021 19:23:02 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 467
+[22-Jun-2021 19:27:24 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php:412
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(412): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 412
+[22-Jun-2021 19:28:40 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php:412
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(412): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 412
+[22-Jun-2021 19:29:26 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php:414
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(414): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 414
+[22-Jun-2021 19:29:29 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php:414
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(414): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 414
+[22-Jun-2021 19:29:33 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php:414
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(414): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 414
+[22-Jun-2021 19:29:58 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php:414
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(414): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 414
+[22-Jun-2021 19:30:23 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php:412
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(412): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 412
+[22-Jun-2021 19:30:43 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php:412
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(412): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 412
+[22-Jun-2021 19:30:57 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php:412
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(412): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 412
+[22-Jun-2021 19:31:08 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php:412
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(412): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 412
+[22-Jun-2021 19:31:22 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 436
+[22-Jun-2021 19:31:22 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 467
+[22-Jun-2021 19:32:29 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php:373
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(373): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 373
+[22-Jun-2021 19:32:56 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php:373
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(373): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 373
+[22-Jun-2021 19:33:21 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php:373
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(373): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 373
+[22-Jun-2021 19:34:03 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php:373
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(373): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 373
+[22-Jun-2021 19:34:14 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 430
+[22-Jun-2021 19:34:14 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 461
+[22-Jun-2021 19:35:30 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 430
+[22-Jun-2021 19:35:30 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 461
+[22-Jun-2021 19:37:08 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 430
+[22-Jun-2021 19:37:08 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 461
+[22-Jun-2021 19:39:27 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 435
+[22-Jun-2021 19:39:27 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php on line 466
+[22-Jun-2021 19:43:14 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php:421
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(421): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 421
+[22-Jun-2021 19:43:32 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in /home/ecemscoz/public_html/editrepairs.php:446
+Stack trace:
+#0 /home/ecemscoz/public_html/editrepairs.php(446): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/editrepairs.php on line 446

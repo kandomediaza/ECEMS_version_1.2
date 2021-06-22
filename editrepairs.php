@@ -22,7 +22,7 @@ require_once 'connection.php';
   {
 ?>
 <?php
-require_once 'connection.php';
+
 if(isset($_REQUEST['update_id']))
 {
  try
@@ -97,6 +97,25 @@ if(isset($_REQUEST['btn_update']))
   } 
  } 
 }
+?>
+<?php 
+if(isset($_REQUEST['btn_update'])){
+    $to = "info@refurbsa.com"; // this is your Email address
+    $from_mail = "notifications@ecems.co.za"; // this is the sender's Email address 
+    $from_name = "ECEMS System"; // this is the sender's Name
+    $job_number = $_POST['job_number'];
+    $item_for_repair = $_POST['item_for_repair'];
+    $current_status = $_POST['current_status'];
+    $technician_notes = $_POST['technician_notes'];
+    $client_full_name = $_POST['client_full_name'];
+    $tech_assigned = $_POST['tech_assigned'];
+    $subject = "$tech_assigned has updated JC$job_number for $client_full_name";
+    $message = "Hi Jami, Natalie and Lee-Roy. $tech_assigned has updated JC$job_number for $client_full_name's $item_for_repair. The new status is $current_status. Technician Notes are: $technician_notes. Log into www.ecems.co.za to view more info.";
+   $headers .= "From: ".$from_name." <".$from_mail."> \r\n";
+   $headers .= 'Cc: admin@ecems.co.za' . "\r\n";
+    mail($to,$subject,$message,$headers);
+
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -317,6 +336,7 @@ if(isset($_REQUEST['btn_update']))
                   </div>
                 </div>
               </div>
+            
             <!-- first row starts here -->
                          <?php
 if(isset($errorMsg)){
@@ -334,8 +354,7 @@ if(isset($updateMsg)){
 <?php
 }
 ?> 
-<form method="post" class="form-horizontal" action="">
-     
+<form method="post" name="form" id="form" class="form form-horizontal" action="">
  <div class="form-group">
  <label class="col-sm-3 control-label">Job Number</label>
  <div class="col-sm-12">
@@ -366,30 +385,23 @@ if(isset($updateMsg)){
  <input type="text" name="client_phone" class="form-control" value="<?php echo $client_phone; ?>">
  </div>
  </div>
- <?php
-       //databse connection Sting
-  
-   
-
-    //insertion function
-    $smt = $db->prepare('select DISTINCT item_for_repair From repairs WHERE job_number=:job_number');
-      $smt->bindParam(':job_number',$job_number,PDO::PARAM_STR);
-$smt->execute();
-$data = $smt->fetchAll();
-?>
   <div class="form-group">
      <label class="col-sm-3 control-label">Item For Repair</label>
 <div class="col-sm-12">
 <select name="item_for_repair" id="item_for_repair">
-<?php foreach ($data as $row): ?>
-    <option><?=$row["item_for_repair"]?></option>
-    
-<?php endforeach ?>
+    <option value="Laptop" <?= $item_for_repair === 'Laptop' ? 'selected' : '' ?>>Laptop</option>
+    <option value="Deesktop" <?= $item_for_repair === 'Desktop' ? 'selected' : '' ?>>Desktop</option>
+    <option value="Television" <?= $item_for_repair === 'Television' ? 'selected' : '' ?>>Television</option>
+    <option value="Washing Machine" <?= $item_for_repair === 'Washing Machine' ? 'selected' : '' ?>>Washing Machine</option>
+    <option value="Tumble Dryer" <?= $item_for_repair === 'Tumble Dryer' ? 'selected' : '' ?>>Tumble Dryer</option>
+    <option value="Dishwasher" <?= $item_for_repair === 'Dishwasher' ? 'selected' : '' ?>>Dishwasher</option>
+    <option value="Microwave" <?= $item_for_repair === 'Microwave' ? 'selected' : '' ?>>Microwave</option>
+    <option value="Fridge" <?= $item_for_repair === 'Fridge' ? 'selected' : '' ?>>Fridge</option>
+    <option value="Printer" <?= $item_for_repair === 'Printer' ? 'selected' : '' ?>>Printer</option>
+    <option value="Other" <?= $item_for_repair === 'Other' ? 'selected' : '' ?>>Other</option>
 </select>
-
     </div>
     </div>
-
   <div class="form-group">
  <label class="col-sm-3 control-label">Repair Description</label>
  <div class="col-sm-12">
@@ -408,47 +420,31 @@ $data = $smt->fetchAll();
  <input type="text" name="diagnostic_fee" class="form-control" value="<?php echo $diagnostic_fee; ?>">
  </div>
  </div>
-<?php
-       //databse connection Sting
-   $db=new PDO("mysql:host={$db_host};dbname={$db_name}",$db_user,$db_password);
-   
-
-    //insertion function
-    $smt = $db->prepare('select DISTINCT tech_assigned From repairs WHERE job_number=:job_number');
-      $smt->bindParam(':job_number',$job_number,PDO::PARAM_STR);
-$smt->execute();
-$data = $smt->fetchAll();
-?>
   <div class="form-group">
      <label class="col-sm-3 control-label">Technician Assigned</label>
 <div class="col-sm-12">
 <select name="tech_assigned" id="tech_assigned">
-<?php foreach ($data as $row): ?>
-    <option><?=$row["tech_assigned"]?></option>
-<?php endforeach ?>
-</select>
-
+    <option value="Not Assigned Yet" <?= $tech_assigned === 'Not Assigned Yet' ? 'selected' : '' ?>>Not Assigned Yet</option>
+    <option value="Brendon" <?= $tech_assigned === 'Brendon' ? 'selected' : '' ?>>Brendon</option>
+    <option value="Gabriel" <?= $tech_assigned === 'Gabriel' ? 'selected' : '' ?>>Gabriel</option>
+    <option value="Jami" <?= $tech_assigned === 'Jami' ? 'selected' : '' ?>>Jami</option>
+    <option value="Lee-Roy" <?= $tech_assigned === 'Lee-Roy' ? 'selected' : '' ?>>Lee-Roy</option>
+    <option value="Conrad" <?= $tech_assigned === 'Conrad' ? 'selected' : '' ?>>Conrad</option>
+    <option value="Tapiwa" <?= $tech_assigned === 'Tapiwa' ? 'selected' : '' ?>>Tapiwa</option>
+    </select>
     </div>
     </div>
-<?php
-       //databse connection Sting
-   $db=new PDO("mysql:host={$db_host};dbname={$db_name}",$db_user,$db_password);
-   
 
-    //insertion function
-    $smt = $db->prepare('select DISTINCT current_status From repairs WHERE job_number=:job_number');
-      $smt->bindParam(':job_number',$job_number,PDO::PARAM_STR);
-$smt->execute();
-$data = $smt->fetchAll();
-?>
   <div class="form-group">
      <label class="col-sm-3 control-label">Current Status</label>
 <div class="col-sm-12">
 <select name="current_status" id="current_status">
-<?php foreach ($data as $row): ?>
-    <option><?=$row["current_status"]?></option>
-<?php endforeach ?>
-</select>
+    <option value="Pending" <?= $current_status === 'Pending' ? 'selected' : '' ?>>Pending</option>
+    <option value="In Progress" <?= $current_status === 'In Progress' ? 'selected' : '' ?>>In Progress</option>
+      <option value="On Hold Spares Required" <?= $current_status === 'On Hold Spares Required' ? 'selected' : '' ?>>On Hold Spares Required</option>
+       <option value="On Hold Other Fault" <?= $current_status === 'On Hold Other Fault' ? 'selected' : '' ?>>On Hold Other Fault</option>
+         <option value="Repair Completed" <?= $current_status === 'Repair Completed' ? 'selected' : '' ?>>Repair Completed</option>
+   </select>
 
     </div>
     </div>
@@ -464,25 +460,13 @@ $data = $smt->fetchAll();
  <input type="text" name="admin_notes" class="form-control" value="<?php echo $admin_notes; ?>">
  </div>
  </div>
- <?php
-       //databse connection Sting
-   $db=new PDO("mysql:host={$db_host};dbname={$db_name}",$db_user,$db_password);
-   
-
-    //insertion function
-    $smt = $db->prepare('select DISTINCT invoice_status From repairs WHERE job_number=:job_number');
-      $smt->bindParam(':job_number',$job_number,PDO::PARAM_STR);
-$smt->execute();
-$data = $smt->fetchAll();
-?>
   <div class="form-group">
-     <label class="col-sm-3 control-label">Current Status</label>
+     <label class="col-sm-3 control-label">Invoice Status</label>
 <div class="col-sm-12">
 <select name="invoice_status" id="invoice_status">
-<?php foreach ($data as $row): ?>
-    <option><?=$row["invoice_status"]?></option>
-<?php endforeach ?>
-</select>
+    <option value="Client Not Invoiced Yet" <?= $invoice_status === 'Client Not Invoiced Yet' ? 'selected' : '' ?>>Client Not Invoiced Yet</option>
+    <option value="Client Invoiced" <?= $invoice_status === 'Client Invoiced' ? 'selected' : '' ?>>Client Invoiced</option>
+   </select>
 
     </div>
     </div>
@@ -499,8 +483,7 @@ $data = $smt->fetchAll();
   <a href="repairs.php" class="btn btn-danger">Cancel</a>
  </div>
  </div>
-   
-</form>
+   </form>
 
             </div>
 			 <!-- first row starts here -->
@@ -526,6 +509,7 @@ $data = $smt->fetchAll();
     </div>
     <!-- container-scroller -->
       <!-- plugins:js -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>

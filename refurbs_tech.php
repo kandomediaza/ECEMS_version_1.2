@@ -1,39 +1,55 @@
 <?php
 
 require_once "connection.php";
-
- session_start();
+ 
+if(isset($_REQUEST['delete_id']))
+{
+ // select record from db to delete
+ $job_number=$_REQUEST['delete_id']; //get delete_id and store in $id variable
+  
+ $select_stmt= $db->prepare('SELECT * FROM refurbs WHERE job_number =:job_number'); //sql select query
+ $select_stmt->bindParam(':job_number',$job_number);
+ $select_stmt->execute();
+ $row=$select_stmt->fetch(PDO::FETCH_ASSOC);
+  
+ //delete an orignal record from db
+ $delete_stmt = $db->prepare('DELETE FROM refurbs WHERE job_number =:job_number');
+ $delete_stmt->bindParam(':job_number',$job_number);
+ $delete_stmt->execute();
+  
+ header("Location:refurbs_tech.php");
+}
+ 
+  session_start();
 
   if(!isset($_SESSION['tech_login'])) //check unauthorize user not direct access in "admindashboard.php" page
   {
    header("location: index.php");  
   }
 
-  if(isset($_SESSION['admin_login'])) //check employee login user not access in "admin_home.php" page
+  if(isset($_SESSION['employee_login'])) //check employee login user not access in "admin_home.php" page
   {
-   header("location:admindashboard.php"); 
+   header("location: employeedashboard.php"); 
   }
 
-  if(isset($_SESSION['employee_login'])) //check user login user not access in "admin_home.php" page
+  if(isset($_SESSION['admin_login'])) //check user login user not access in "admin_home.php" page
   {
-   header("location: techdashboard.php");
+   header("location: admindashboard.php");
   }
   
   if(isset($_SESSION['tech_login']))
   {
-?>
+  ?>
 <!DOCTYPE html>
 <html lang="en">
-   <head>
+  <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>ECEMS v1.2 - Waste Management System | Technician Dashboard</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
-    <!-- Google Fonts Roboto -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <title>ECEMS Management System | Dashboard</title>
     <!-- plugins:css -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
@@ -48,7 +64,6 @@ require_once "connection.php";
     <link rel="stylesheet" href="assets/css/demo_2/style.css" />
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.png" />
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" integrity="undefined" crossorigin="anonymous">
   </head>
   <body>
     <div class="container-scroller">
@@ -64,7 +79,7 @@ require_once "connection.php";
               <a class="navbar-brand brand-logo-mini" href="index.php"><img src="ecemslogo.png" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-              
+             
               <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item nav-profile dropdown">
                   <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
@@ -95,15 +110,14 @@ require_once "connection.php";
                   <span class="menu-title">Dashboard</span>
                 </a>
               </li>
-			 
-            <!-- REPAIRS AND REFURBS MENU -->
+			  <!-- REPAIRS AND REFURBS MENU -->
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="mdi mdi-monitor-dashboard menu-icon"></i>
                   <span class="menu-title">Repairs / Refurbs</span>
                   <i class="menu-arrow"></i>
                 </a>
-               <div class="submenu">
+                <div class="submenu">
                   <ul class="submenu-item">
                     <li class="nav-item">
                       <a class="nav-link" href="repairs_tech.php">View Repairs</a>
@@ -118,12 +132,12 @@ require_once "connection.php";
                 </div>
               </li>
 			  <!-- END REPAIRS AND REFURBS MENU -->
-			    <!-- PROFILE SETTINGS MENU -->
+              <!-- PROFILE SETTINGS MENU -->
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="mdi mdi-monitor-dashboard menu-icon"></i>
                   <span class="menu-title"><?php
-   echo $_SESSION['employee_login']
+   echo $_SESSION['tech_login']
   ?> Settings</span>
                   <i class="menu-arrow"></i>
                 </a>
@@ -149,12 +163,11 @@ require_once "connection.php";
           <div class="content-wrapper pb-0">
             <div class="page-header flex-wrap">
               <div class="header-left">
-                 <a href="repairs_tech.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">View Repairs</a>
-                <a href="refurbs_tech.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">View Refurbs</a>
-                 <a href="addnewrefurb_tech.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add New Refurb</a>
+                  
+                 <a href="refurbs_tech.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">View Refurbs</a>
+                <a href="addnewrefurb_tech.php" class="btn btn-outline-primary mb-2 mb-md-0" role="button">Add New Refurb</a>
               </div>
                       </div>
-                      
 			 <div class="row">
               <div class="col-md-12 stretch-card grid-margin">
                 <div class="card">
@@ -163,8 +176,8 @@ require_once "connection.php";
                      
                       <div>
                         <div class="d-flex flex-wrap pt-2 justify-content-between sales-header-right">
-                            <h3>Technician Dashboard</h3>
-                       <p>Welcome to the Technician dashboard. Below is an overview of repairs and refurbs currently listed on the ECEMS system. To get started, please use the menu above.</p>
+                            <h3>Repairs Dashboard</h3>
+                       <p>Welcome to the repairs dashboard. Below is a list of all repairs pending, on hold and complete. Please note that each time a repair status is updated, the client will be informed automatically if their email address is correctly captured during the "Add New Repairs" section.
               </div>
             
             </div>
@@ -174,183 +187,47 @@ require_once "connection.php";
                   </div>
                 </div>
               </div>
-   <div class="container-fluid">
-  <section>
-       <div class="row">
-      <div class="col-xl-3 col-sm-6 col-12 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex justify-content-between px-md-1">
-              <div class="align-self-center">
-                <i class="fas fa-question-circle text-warning fa-3x"></i>
-              </div>
-              <div class="text-end">
-                <h3> <?php
-$dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
-$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            <!-- first row starts here -->
+            <div class="row table-responsive col-md-12">
+               
+            <table class="table table-striped table-bordered table-hover" id="DataTable" name="DataTable" width="100%" cellspacing="0">
+                                 
+    <thead>
+        <tr>
+            <th><b>Job Number</b></th>
+            <th><b>Date</b></th>
+              <th><b>Refurb Type</b></th>
+              <th><b>Technician Name</b></th>
+              <th><b>View | Edit</b></th>
+                <th><b>Delete</b></th>
+                   </tr>
+    </thead>
+    <tbody>
+ <?php
+ $select_stmt=$db->prepare("SELECT * FROM refurbs"); //sql select query
+ $select_stmt->execute();
+ while($row=$select_stmt->fetch(PDO::FETCH_ASSOC))
+ {
+ ?>
 
-//The COUNT SQL statement that we will use.
-$sql = "SELECT COUNT(*) AS num FROM repairs WHERE current_status = 'Pending'";
-
-//Prepare the COUNT SQL statement.
-$stmt = $dbConnection->prepare($sql);
-
-//Execute the COUNT statement.
-$stmt->execute();
-
-//Fetch the row that MySQL returned.
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-//The $row array will contain "num". Print it out.
-echo $row['num'];
-?></h3>
-                <p class="mb-0">Pending Repairs</p>
-              </div>
+        <tr>
+            <td>RFB<?php echo $row['job_number']; ?></td>
+             <td><?php echo $row['date']; ?></td>
+             <td><?php echo $row['Refurb_Type']; ?></td>
+             <td><?php echo $row['Tech_Assigned']; ?></td>
+               <td><a href="editrefurbs_tech.php?update_id=<?php echo $row['job_number']; ?>" class="btn btn-success" onclick="return confirm('Please be careful when editing this Refurb! Do not remove important information.. Click OK if you understand....');">View | Edit</a></td>
+               <td><a href="?delete_id=<?php echo $row['job_number']; ?>" class="btn btn-danger" onclick="return confirm('Are you REALLY sure you want to delete this Refurb? Press Cancel if this was a mistake, or press OK to delete this record from ECEMS');">Delete</a></td>
+           
+                </tr>
+    <?php
+ }
+ ?>
+   </tbody>
+   
+</table> 
+            
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-sm-6 col-12 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex justify-content-between px-md-1">
-              <div class="align-self-center">
-                <i class="fas fa-stop-circle text-danger fa-3x"></i>
-              </div>
-              <div class="text-end">
-                <h3> <?php
-$dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
-$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-//The COUNT SQL statement that we will use.
-$sql = "SELECT COUNT(*) AS num FROM repairs WHERE current_status = 'On Hold Spares Required'";
-$sql = "SELECT COUNT(*) AS num FROM repairs WHERE current_status = 'On Hold Other Fault'";
-
-//Prepare the COUNT SQL statement.
-$stmt = $dbConnection->prepare($sql);
-
-//Execute the COUNT statement.
-$stmt->execute();
-
-//Fetch the row that MySQL returned.
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-//The $row array will contain "num". Print it out.
-echo $row['num'];
-?></h3>
-                <p class="mb-0">On Hold Repairs</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-sm-6 col-12 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex justify-content-between px-md-1">
-              <div class="align-self-center">
-                <i class="fas fa-handshake text-success fa-3x"></i>
-              </div>
-              <div class="text-end">
-                <h3><?php
-$dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
-$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-//The COUNT SQL statement that we will use.
-$sql = "SELECT COUNT(*) AS num FROM repairs WHERE current_status = 'Repair Completed'";
-
-//Prepare the COUNT SQL statement.
-$stmt = $dbConnection->prepare($sql);
-
-//Execute the COUNT statement.
-$stmt->execute();
-
-//Fetch the row that MySQL returned.
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-//The $row array will contain "num". Print it out.
-echo $row['num'];
-?></h3>
-                <p class="mb-0">Completed Repairs</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-sm-6 col-12 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex justify-content-between px-md-1">
-              <div class="align-self-center">
-                <i class="fas fa-history text-warning fa-3x"></i>
-              </div>
-              <div class="text-end">
-                <h3><?php
-$dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
-$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-//The COUNT SQL statement that we will use.
-$sql = "SELECT COUNT(*) AS num FROM archived_repairs";
-
-//Prepare the COUNT SQL statement.
-$stmt = $dbConnection->prepare($sql);
-
-//Execute the COUNT statement.
-$stmt->execute();
-
-//Fetch the row that MySQL returned.
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-//The $row array will contain "num". Print it out.
-echo $row['num'];
-?></h3>
-                <p class="mb-0">Archived Repairs</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-            <div class="col-xl-3 col-sm-6 col-12 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex justify-content-between px-md-1">
-              <div class="align-self-center">
-                <i class="fas fa-handshake text-success fa-3x"></i>
-              </div>
-              <div class="text-end">
-                <h3><?php
-$dbConnection = new PDO('mysql:dbname=ecemscoz_ecemsapp;host=127.0.0.1;charset=utf8', 'ecemscoz_ecemsapp', 'C3m3t3ry!@');
-$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-//The COUNT SQL statement that we will use.
-$sql = "SELECT COUNT(*) AS num FROM refurbs";
-
-//Prepare the COUNT SQL statement.
-$stmt = $dbConnection->prepare($sql);
-
-//Execute the COUNT statement.
-$stmt->execute();
-
-//Fetch the row that MySQL returned.
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-//The $row array will contain "num". Print it out.
-echo $row['num'];
-?></h3>
-                <p class="mb-0">Completed Refurbs</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
+			 <!-- first row starts here -->
 			 
            
             </div>
@@ -365,7 +242,7 @@ echo $row['num'];
               </div>
             </div>
           </footer>
-           <!-- partial -->
+          <!-- partial -->
         </div>
         <!-- main-panel ends -->
       </div>
@@ -394,6 +271,10 @@ echo $row['num'];
     <!-- Custom js for this page -->
     <script src="assets/js/dashboard.js"></script>
     <!-- End custom js for this page -->
-    
+     <script type="text/javascript">
+        jQuery(document).ready(function($){
+    $('#DataTable').DataTable();
+} );
+    </script>
   </body>
 </html>
