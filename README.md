@@ -26,3 +26,23 @@ Access URL = https://www.ecems.co.za
 
 ### ADD REFURBS
 - Here you can add a new refurb in the same way the technicians add refurbs. 
+
+### TAPIWA REPAIRS
+- This page lists all the repairs that have been assigned to Tapiwa by admin. Tapiwa has his own login and his own dashboard to add notes and change the status of repairs he is working on that has been assigned to him. Just like the repairs and refurbs page for techs, admin can view, edit, update, archive or delete any repairs on this page. Admin can also view how much Tapiwa has charged for each item and what his running total is for the month we are in.
+
+### TAPIWA REFURBS
+- This page lists all the refurbs that Tapiwa has completed. Tapiwa has his own login and his own dashboard to add notes and change the status of refurbs he is working on. Just like the repairs and refurbs page for techs, admin can view, edit, update, archive or delete any repairs on this page. Admin can also view how much Tapiwa has charged for each item and what his running total is for the month we are in.
+
+## WASTE MANAGEMENT MENU
+
+### DAILY RECYCLABLES
+- Daily recyclables page shows all recyclables ever entered into ECEMS in a table format by the floor staff and also shows stats based on what was recorded for the month we are in.
+
+### COLLECTIONS
+- This page has not been programmed yet so no info is available.
+
+### DROPOFFS
+- This page has not been programmed yet so no info is available.
+
+### CERTIFICATE OF SAFE DISPOSAL
+- This page has not been programmed yet so no info is available.
