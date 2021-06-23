@@ -10,6 +10,8 @@ Access URL = https://www.ecems.co.za
 ### ADMIN DASHBOARD
 - The admin dashboard gives admin users a complete overview of all operations at Electronic Cemetery. The first row of stats shows all pending, in progress, on hold and completed repairs. The remaining stats boxes show daily recyclables, refurbs, dropoffs and collections that have been processed in the current month we are in. These stats automatically reset to zero at the end of every month to start showing stats from the next month we transition into. The stats are NOT deleted, they are all viewable from the respective menu options available on ECEMS.
 
+## REPAIRS | REFURBS MENU
+
 ### VIEW REPAIRS
 - The view repairs page gives you a complete list of all repairs currently on ECEMS in a nice, easy on the eye table format. You can search repairs using the search box on this page by entering either a job card number, a customer name, contact number or email address and then clicking on the VIEW/EDIT green button next to that repair to view more information about the job card or to edit any of the captured information for that job card including changing the status. The ARCHIVE button, once pressed moves the repair to the archive database, this function os ONLY TO BE USED once the repair is completed, invoiced, the client has paid and the customer has fetched their item. The DELETE button completley deletes the repair off ECEMS and cannot be undone.
 
