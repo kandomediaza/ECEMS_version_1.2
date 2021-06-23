@@ -36,7 +36,7 @@ Access URL = https://www.ecems.co.za
 ## WASTE MANAGEMENT MENU
 
 ### DAILY RECYCLABLES
-- Daily recyclables page shows all recyclables ever entered into ECEMS in a table format by the floor staff and also shows stats based on what was recorded for the month we are in.
+- Daily recyclables page shows all recyclables ever entered into ECEMS in a table format by the floor staff and also shows stats based on what was recorded for the month we are in. Admin also has the ability to add recyclables too by using the ADD RECYCLABLES button on this page.
 
 ### COLLECTIONS
 - This page has not been programmed yet so no info is available.
@@ -46,3 +46,19 @@ Access URL = https://www.ecems.co.za
 
 ### CERTIFICATE OF SAFE DISPOSAL
 - This page has not been programmed yet so no info is available.
+
+## VENDOR MANAGEMENT MENU
+
+### VENDOR REGISTRATION
+- This page allows admin to view, edit, add and delete vendors on ECEMS.
+
+### VENDOR REGISTRATION
+- This page allows admin to view, edit, add and delete access information on ECEMS when a vendor comes to the warehouse to make purchases.
+
+## SYSTEM SETTINGS MENU
+
+### VIEW SYSTEM USERS
+- This page allows admin to view ECEMS system user access and their roles.
+
+### ADD USER
+- This page allows admin to add a new user and their role on ECEMS
