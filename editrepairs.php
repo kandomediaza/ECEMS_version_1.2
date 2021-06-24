@@ -218,7 +218,7 @@ if(isset($_REQUEST['btn_update'])){
                       <a class="nav-link" href="viewarchivedrepairs.php">View Archived Repairs</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="addnewrepair.php">Add New Repairs</a>
+                       <a class="nav-link" href="addnewrepairs.php">Add New Repairs</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="refurbs.php">View Refurbs</a>
@@ -354,7 +354,7 @@ if(isset($updateMsg)){
 <?php
 }
 ?> 
-<form method="post" name="form" id="form" class="form form-horizontal" action="">
+<form method="POST" class="form form-horizontal" action="">
  <div class="form-group">
  <label class="col-sm-3 control-label">Job Number</label>
  <div class="col-sm-12">
@@ -390,7 +390,7 @@ if(isset($updateMsg)){
 <div class="col-sm-12">
 <select name="item_for_repair" id="item_for_repair">
     <option value="Laptop" <?= $item_for_repair === 'Laptop' ? 'selected' : '' ?>>Laptop</option>
-    <option value="Deesktop" <?= $item_for_repair === 'Desktop' ? 'selected' : '' ?>>Desktop</option>
+    <option value="Desktop" <?= $item_for_repair === 'Desktop' ? 'selected' : '' ?>>Desktop</option>
     <option value="Television" <?= $item_for_repair === 'Television' ? 'selected' : '' ?>>Television</option>
     <option value="Washing Machine" <?= $item_for_repair === 'Washing Machine' ? 'selected' : '' ?>>Washing Machine</option>
     <option value="Tumble Dryer" <?= $item_for_repair === 'Tumble Dryer' ? 'selected' : '' ?>>Tumble Dryer</option>
@@ -464,7 +464,7 @@ if(isset($updateMsg)){
      <label class="col-sm-3 control-label">Invoice Status</label>
 <div class="col-sm-12">
 <select name="invoice_status" id="invoice_status">
-    <option value="Client Not Invoiced Yet" <?= $invoice_status === 'Client Not Invoiced Yet' ? 'selected' : '' ?>>Client Not Invoiced Yet</option>
+    <option value="Client Not Yet Invoiced" <?= $invoice_status === 'Client Not Yet Invoiced' ? 'selected' : '' ?>>Client Not Yet Invoiced</option>
     <option value="Client Invoiced" <?= $invoice_status === 'Client Invoiced' ? 'selected' : '' ?>>Client Invoiced</option>
    </select>
 

@@ -115,7 +115,7 @@ require_once 'connection.php';
                       <a class="nav-link" href="viewarchivedrepairs.php">View Archived Repairs</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="addnewrepair.php">Add New Repairs</a>
+                       <a class="nav-link" href="addnewrepairs.php">Add New Repairs</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="refurbs.php">View Refurbs</a>
@@ -238,7 +238,7 @@ require_once 'connection.php';
               </div>
             <!-- first row starts here -->
             <div class="row table-responsive col-md-12">
-               <form method="post" name="form" id="form" class="form form-horizontal" action="addnewrepairprocess.php">
+               <form method="POST" class="form form-horizontal" action="addnewrepairprocess.php">
    <div class="form-group">
       <label for="job_number">Job Number</label>
       <input type="job_number" name="job_number" id="job_number" class="form-control" value="<?php echo $max_id+1;?>" readonly>
@@ -267,113 +267,99 @@ require_once 'connection.php';
  <input type="text" name="client_phone" class="form-control">
  </div>
  </div>
-  <div class="form-group">
-      <?php
-      $item_for_repair = "Laptop"
-      ?>
-     <label class="col-sm-3 control-label">Item For Repair</label>
+<div class="form-group">
+          <label class="col-sm-3 control-label">Item for Repair</label>
 <div class="col-sm-12">
-<select name="item_for_repair" id="item_for_repair">
-    <option value="Laptop" <?= $item_for_repair === 'Laptop' ? 'selected' : '' ?>>Laptop</option>
-    <option value="Deesktop" <?= $item_for_repair === 'Desktop' ? 'selected' : '' ?>>Desktop</option>
-    <option value="Television" <?= $item_for_repair === 'Television' ? 'selected' : '' ?>>Television</option>
-    <option value="Washing Machine" <?= $item_for_repair === 'Washing Machine' ? 'selected' : '' ?>>Washing Machine</option>
-    <option value="Tumble Dryer" <?= $item_for_repair === 'Tumble Dryer' ? 'selected' : '' ?>>Tumble Dryer</option>
-    <option value="Dishwasher" <?= $item_for_repair === 'Dishwasher' ? 'selected' : '' ?>>Dishwasher</option>
-    <option value="Microwave" <?= $item_for_repair === 'Microwave' ? 'selected' : '' ?>>Microwave</option>
-    <option value="Fridge" <?= $item_for_repair === 'Fridge' ? 'selected' : '' ?>>Fridge</option>
-    <option value="Printer" <?= $item_for_repair === 'Printer' ? 'selected' : '' ?>>Printer</option>
-    <option value="Other" <?= $item_for_repair === 'Other' ? 'selected' : '' ?>>Other</option>
-</select>
+    <select class="form-select" name="item_for_repair" id="item_for_repair" aria-label="Default select example">
+   <option value="Laptop">Laptop</option>
+  <option value="Desktop">Desktop</option>
+  <option value="Television">Television</option>
+  <option value="Washing Machine">Washing Machine</option>
+  <option value="Tumble Dryer">Tumble Dryer</option>
+  <option value="Dishwasher">Dishwasher</option>
+  <option value="Microwave">Microwave</option>
+  <option value="Fridge">Fridge</option>
+  <option value="Printer">Printer</option>
+  <option value="Other">Other</option>
+  </select>
     </div>
     </div>
   <div class="form-group">
  <label class="col-sm-3 control-label">Repair Description</label>
  <div class="col-sm-12">
- <input type="text" name="repair_description" class="form-control" value="<?php echo $repair_description; ?>">
+ <input type="text" name="repair_description" class="form-control">
  </div>
  </div>
   <div class="form-group">
  <label class="col-sm-3 control-label">Hardware Details</label>
  <div class="col-sm-12">
- <input type="text" name="hardware_details" class="form-control" value="<?php echo $hardware_details; ?>">
+ <input type="text" name="hardware_details" class="form-control">
  </div>
  </div>
   <div class="form-group">
  <label class="col-sm-3 control-label">Diagnostic Fee</label>
  <div class="col-sm-12">
- <input type="text" name="diagnostic_fee" class="form-control" value="<?php echo $diagnostic_fee; ?>">
+ <input type="text" name="diagnostic_fee" class="form-control">
  </div>
  </div>
   <div class="form-group">
-       <?php
-      $tech_assigned = "Not Assigned Yet"
-      ?>
-     <label class="col-sm-3 control-label">Technician Assigned</label>
+          <label class="col-sm-3 control-label">Technician Assigned</label>
 <div class="col-sm-12">
-<select name="tech_assigned" id="tech_assigned">
-    <option value="Not Assigned Yet" <?= $tech_assigned === 'Not Assigned Yet' ? 'selected' : '' ?>>Not Assigned Yet</option>
-    <option value="Brendon" <?= $tech_assigned === 'Brendon' ? 'selected' : '' ?>>Brendon</option>
-    <option value="Gabriel" <?= $tech_assigned === 'Gabriel' ? 'selected' : '' ?>>Gabriel</option>
-    <option value="Jami" <?= $tech_assigned === 'Jami' ? 'selected' : '' ?>>Jami</option>
-    <option value="Lee-Roy" <?= $tech_assigned === 'Lee-Roy' ? 'selected' : '' ?>>Lee-Roy</option>
-    <option value="Conrad" <?= $tech_assigned === 'Conrad' ? 'selected' : '' ?>>Conrad</option>
-    <option value="Tapiwa" <?= $tech_assigned === 'Tapiwa' ? 'selected' : '' ?>>Tapiwa</option>
-    </select>
+    <select class="form-select" name="tech_assigned" id="tech_assigned" aria-label="Default select example">
+  <option value="Not Assigned Yet">Not Assigned Yet</option>
+  <option value="Brendon">Brendon</option>
+  <option value="Gabriel">Gabriel</option>
+  <option value="Jami">Jami</option>
+  <option value="Lee-Roy">Lee-Roy</option>
+  <option value="Conrad">Conrad</option>
+  <option value="Tapiwa">Tapiwa</option>
+</select>
     </div>
     </div>
 
-  <div class="form-group">
-       <?php
-      $current_status = "Pending"
-      ?>
-     <label class="col-sm-3 control-label">Current Status</label>
+   <div class="form-group">
+          <label class="col-sm-3 control-label">Current Status</label>
 <div class="col-sm-12">
-<select name="current_status" id="current_status">
-    <option value="Pending" <?= $current_status === 'Pending' ? 'selected' : '' ?>>Pending</option>
-    <option value="In Progress" <?= $current_status === 'In Progress' ? 'selected' : '' ?>>In Progress</option>
-      <option value="On Hold Spares Required" <?= $current_status === 'On Hold Spares Required' ? 'selected' : '' ?>>On Hold Spares Required</option>
-       <option value="On Hold Other Fault" <?= $current_status === 'On Hold Other Fault' ? 'selected' : '' ?>>On Hold Other Fault</option>
-         <option value="Repair Completed" <?= $current_status === 'Repair Completed' ? 'selected' : '' ?>>Repair Completed</option>
-   </select>
-
+    <select class="form-select" name="current_status" id="current_status" aria-label="Default select example">
+   <option value="Pending">Pending</option>
+  <option value="In Progress">In Progress</option>
+  <option value="On Hold Spares Required">On Hold Spares Required</option>
+  <option value="On Hold Other Fault">On Hold Other Fault</option>
+  <option value="Repair Completed">Repair Completed</option>
+ </select>
     </div>
     </div>
   <div class="form-group">
  <label class="col-sm-3 control-label">Technician Notes</label>
  <div class="col-sm-12">
- <input type="text" name="technician_notes" class="form-control" value="<?php echo $technician_notes; ?>">
+ <input type="text" name="technician_notes" class="form-control">
  </div>
  </div>
   <div class="form-group">
  <label class="col-sm-3 control-label">Admin Notes</label>
  <div class="col-sm-12">
- <input type="text" name="admin_notes" class="form-control" value="<?php echo $admin_notes; ?>">
+ <input type="text" name="admin_notes" class="form-control">
  </div>
  </div>
   <div class="form-group">
-       <?php
-      $invoice_status = "Client Not Invoiced Yet<"
-      ?>
-     <label class="col-sm-3 control-label">Invoice Status</label>
+          <label class="col-sm-3 control-label">Invoice Status</label>
 <div class="col-sm-12">
-<select name="invoice_status" id="invoice_status">
-    <option value="Client Not Invoiced Yet" <?= $invoice_status === 'Client Not Invoiced Yet' ? 'selected' : '' ?>>Client Not Invoiced Yet</option>
-    <option value="Client Invoiced" <?= $invoice_status === 'Client Invoiced' ? 'selected' : '' ?>>Client Invoiced</option>
-   </select>
-
+    <select class="form-select" name="invoice_status" id="invoice_status" aria-label="Default select example">
+   <option value="Client Not Yet Invoiced">Client Not Yet Invoiced</option>
+  <option value="Client Invoiced">Client Invoiced</option>
+  </select>
     </div>
     </div>
   <div class="form-group">
  <label class="col-sm-3 control-label">Invoice Number</label>
  <div class="col-sm-12">
- <input type="text" name="invoice_number" class="form-control" value="<?php echo $invoice_number; ?>">
+ <input type="text" name="invoice_number" class="form-control">
  </div>
  </div>
       
  <div class="form-group">
  <div class="col-sm-offset-3 col-sm-9 m-t-15">
- <input type="submit" name="btn_update" class="btn btn-primary" value="Update">
+ <input type="submit" name="btn_create" class="btn btn-primary" value="Create Job Card">
   <a href="repairs.php" class="btn btn-danger">Cancel</a>
  </div>
  </div>

@@ -1,24 +1,24 @@
 <?php
   session_start();
 
-  if(!isset($_SESSION['admin_login'])) //check unauthorize user not direct access in "admindashboard.php" page
+  if(!isset($_SESSION['admin_login']))
   {
    header("location: index.php");  
   }
 
-  if(isset($_SESSION['employee_login'])) //check employee login user not access in "admin_home.php" page
+  if(isset($_SESSION['employee_login']))
   {
    header("location: employeedashboard.php"); 
   }
 
-  if(isset($_SESSION['tech_login'])) //check user login user not access in "admin_home.php" page
+  if(isset($_SESSION['tech_login']))
   {
    header("location: techdashboard.php");
   }
   
   if(isset($_SESSION['admin_login']))
   {
-  ?>
+?>
  <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,6 +51,7 @@
     <div class="container-scroller">
       <!-- partial:partials/_horizontal-navbar.html -->
       <div class="horizontal-menu">
+          <!-- PHP Menu Nav Include Start -->
         <nav class="navbar top-navbar col-lg-12 col-12 p-0">
           <div class="container">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -102,7 +103,7 @@
           <div class="container">
             <ul class="nav page-navigation">
               <li class="nav-item">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="admindashboard.php">
                   <i class="mdi mdi-compass-outline menu-icon"></i>
                   <span class="menu-title">Dashboard</span>
                 </a>
@@ -123,7 +124,7 @@
                       <a class="nav-link" href="viewarchivedrepairs.php">View Archived Repairs</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="addnewrepairs.php">Add New Repair</a>
+                        <a class="nav-link" href="addnewrepairs.php">Add New Repairs</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="refurbs.php">View Refurbs</a>
@@ -212,6 +213,7 @@
             </ul>
           </div>
         </nav>
+         <!-- PHP Menu Nav Include END -->
       </div>
       <!-- TOP BODY -->
       <div class="container-fluid page-body-wrapper">

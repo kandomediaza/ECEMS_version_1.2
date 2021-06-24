@@ -1369,3 +1369,421 @@ Stack trace:
 #0 /home/ecemscoz/public_html/editrepairs.php(446): PDOStatement->execute()
 #1 {main}
   thrown in /home/ecemscoz/public_html/editrepairs.php on line 446
+[23-Jun-2021 17:18:16 UTC] PHP Warning:  extract() expects parameter 1 to be array, bool given in /home/ecemscoz/public_html/editrepairs.php on line 35
+[23-Jun-2021 17:27:16 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/admindashboard.php on line 664
+[23-Jun-2021 17:27:36 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/admindashboard.php on line 664
+[23-Jun-2021 17:30:15 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/ecemscoz/public_html/admindashboard.php on line 64
+[23-Jun-2021 17:31:04 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/ecemscoz/public_html/admindashboard.php on line 64
+[23-Jun-2021 17:31:48 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/ecemscoz/public_html/admindashboard.php on line 64
+[23-Jun-2021 17:32:43 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/ecemscoz/public_html/admindashboard.php on line 64
+[23-Jun-2021 17:33:04 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/ecemscoz/public_html/admindashboard.php on line 64
+[23-Jun-2021 17:34:37 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/ecemscoz/public_html/admindashboard.php on line 3
+[23-Jun-2021 17:34:37 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ecemscoz/public_html/admindashboard.php:1) in /home/ecemscoz/public_html/admindashboard.php on line 7
+[23-Jun-2021 19:17:51 UTC] PHP Warning:  require_once(dbection.php): failed to open stream: No such file or directory in /home/ecemscoz/public_html/repairstatus.php on line 3
+[23-Jun-2021 19:17:51 UTC] PHP Fatal error:  require_once(): Failed opening required 'dbection.php' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/ecemscoz/public_html/repairstatus.php on line 3
+[23-Jun-2021 19:18:20 UTC] PHP Warning:  require_once(dbection.php): failed to open stream: No such file or directory in /home/ecemscoz/public_html/repairstatus.php on line 3
+[23-Jun-2021 19:18:20 UTC] PHP Fatal error:  require_once(): Failed opening required 'dbection.php' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/ecemscoz/public_html/repairstatus.php on line 3
+[23-Jun-2021 19:18:28 UTC] PHP Warning:  require_once(dbection.php): failed to open stream: No such file or directory in /home/ecemscoz/public_html/repairstatus.php on line 3
+[23-Jun-2021 19:18:28 UTC] PHP Fatal error:  require_once(): Failed opening required 'dbection.php' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/ecemscoz/public_html/repairstatus.php on line 3
+[23-Jun-2021 19:47:51 UTC] PHP Parse error:  syntax error, unexpected 'Error' (T_STRING), expecting ')' in /home/ecemscoz/public_html/repairstatus.php on line 73
+[23-Jun-2021 20:30:36 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/repairstatus.php on line 99
+[23-Jun-2021 20:31:02 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/repairstatus.php on line 99
+[23-Jun-2021 20:33:33 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/repairstatus.php on line 102
+[23-Jun-2021 20:34:26 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/repairstatus.php on line 103
+[23-Jun-2021 20:34:39 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/repairstatus.php on line 104
+[23-Jun-2021 20:47:54 UTC] PHP Warning:  Use of undefined constant FILTER_SANITIZE_INT - assumed 'FILTER_SANITIZE_INT' (this will throw an Error in a future version of PHP) in /home/ecemscoz/public_html/repairstatus.php on line 44
+[23-Jun-2021 20:47:54 UTC] PHP Warning:  filter_var() expects parameter 2 to be int, string given in /home/ecemscoz/public_html/repairstatus.php on line 44
+[23-Jun-2021 21:30:09 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/repairstatus.php on line 114
+[23-Jun-2021 21:31:01 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/repairstatus.php on line 114
+[23-Jun-2021 21:31:14 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/repairstatus.php on line 114
+[24-Jun-2021 09:23:52 UTC] PHP Warning:  Use of undefined constant FILTER_SANITIZE_INT - assumed 'FILTER_SANITIZE_INT' (this will throw an Error in a future version of PHP) in /home/ecemscoz/public_html/addnewrepairprocess.php on line 7
+[24-Jun-2021 09:23:52 UTC] PHP Warning:  filter_var() expects parameter 2 to be int, string given in /home/ecemscoz/public_html/addnewrepairprocess.php on line 7
+[24-Jun-2021 10:46:58 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '5836' for key 'PRIMARY' in /home/ecemscoz/public_html/archiverepair.php:45
+Stack trace:
+#0 /home/ecemscoz/public_html/archiverepair.php(45): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/archiverepair.php on line 45
+[24-Jun-2021 10:51:54 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '5836' for key 'PRIMARY' in /home/ecemscoz/public_html/archiverepair.php:45
+Stack trace:
+#0 /home/ecemscoz/public_html/archiverepair.php(45): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/archiverepair.php on line 45
+[24-Jun-2021 10:52:01 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '5836' for key 'PRIMARY' in /home/ecemscoz/public_html/archiverepair.php:45
+Stack trace:
+#0 /home/ecemscoz/public_html/archiverepair.php(45): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/archiverepair.php on line 45
+[24-Jun-2021 10:52:59 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '5836' for key 'PRIMARY' in /home/ecemscoz/public_html/archiverepair.php:45
+Stack trace:
+#0 /home/ecemscoz/public_html/archiverepair.php(45): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ecemscoz/public_html/archiverepair.php on line 45
+[24-Jun-2021 12:45:30 UTC] PHP Warning:  extract() expects parameter 1 to be array, bool given in /home/ecemscoz/public_html/editrepairs.php on line 35
+[24-Jun-2021 15:40:01 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/ecemscoz/public_html/repairstatus.php on line 38
+[24-Jun-2021 16:01:38 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 38
+[24-Jun-2021 16:01:43 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 38
+[24-Jun-2021 16:04:50 UTC] PHP Fatal error:  Uncaught Error: Call to a member function bindParam() on null in /home/ecemscoz/public_html/repairstatus.php:39
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 39
+[24-Jun-2021 16:04:57 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatus.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 38
+[24-Jun-2021 16:05:00 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatus.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 38
+[24-Jun-2021 16:05:27 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatus.php:41
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 41
+[24-Jun-2021 16:05:32 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatus.php:41
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 41
+[24-Jun-2021 16:05:59 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/repairstatus.php on line 114
+[24-Jun-2021 16:07:57 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatus.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 43
+[24-Jun-2021 16:08:01 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatus.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 43
+[24-Jun-2021 16:09:08 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:41
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 41
+[24-Jun-2021 16:09:12 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:41
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 41
+[24-Jun-2021 16:09:25 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/repairstatus.php on line 106
+[24-Jun-2021 16:38:16 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/ecemscoz/public_html/repairstatus.php on line 93
+[24-Jun-2021 16:41:28 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/ecemscoz/public_html/repairstatus.php on line 91
+[24-Jun-2021 16:41:49 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/ecemscoz/public_html/repairstatus.php on line 90
+[24-Jun-2021 17:15:16 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method PDOStatement::query() in /home/ecemscoz/public_html/repairstatus.php:77
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 77
+[24-Jun-2021 17:15:22 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method PDOStatement::query() in /home/ecemscoz/public_html/repairstatus.php:77
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 77
+[24-Jun-2021 17:50:16 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on bool in /home/ecemscoz/public_html/repairstatus.php:88
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 88
+[24-Jun-2021 17:50:20 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on bool in /home/ecemscoz/public_html/repairstatus.php:88
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 88
+[24-Jun-2021 17:50:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on bool in /home/ecemscoz/public_html/repairstatus.php:88
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 88
+[24-Jun-2021 17:55:18 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 38
+[24-Jun-2021 17:55:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 38
+[24-Jun-2021 17:55:33 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:41
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 41
+[24-Jun-2021 17:55:35 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:41
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 41
+[24-Jun-2021 17:55:46 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 43
+[24-Jun-2021 17:55:50 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 43
+[24-Jun-2021 17:56:28 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 43
+[24-Jun-2021 17:56:32 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 43
+[24-Jun-2021 17:56:46 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on string in /home/ecemscoz/public_html/repairstatus.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 43
+[24-Jun-2021 17:56:48 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on string in /home/ecemscoz/public_html/repairstatus.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 43
+[24-Jun-2021 17:57:41 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 43
+[24-Jun-2021 17:57:44 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 43
+[24-Jun-2021 17:57:47 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 43
+[24-Jun-2021 17:58:16 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on string in /home/ecemscoz/public_html/repairstatus.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 43
+[24-Jun-2021 17:58:18 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on string in /home/ecemscoz/public_html/repairstatus.php:43
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 43
+[24-Jun-2021 17:59:37 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:95
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 95
+[24-Jun-2021 18:04:17 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/repairstatus.php:95
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 95
+[24-Jun-2021 18:04:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/repairstatus.php:95
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 95
+[24-Jun-2021 18:04:22 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/repairstatus.php:95
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 95
+[24-Jun-2021 18:04:59 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/repairstatus.php:95
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 95
+[24-Jun-2021 18:05:02 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/repairstatus.php:95
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 95
+[24-Jun-2021 18:11:05 UTC] PHP Fatal error:  Uncaught Error: Class 'TableRows' not found in /home/ecemscoz/public_html/repairstatus.php:55
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 55
+[24-Jun-2021 18:11:07 UTC] PHP Fatal error:  Uncaught Error: Class 'TableRows' not found in /home/ecemscoz/public_html/repairstatus.php:55
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 55
+[24-Jun-2021 18:11:13 UTC] PHP Fatal error:  Uncaught Error: Class 'TableRows' not found in /home/ecemscoz/public_html/repairstatus.php:55
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 55
+[24-Jun-2021 18:18:04 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:96
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 96
+[24-Jun-2021 18:19:37 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:96
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 96
+[24-Jun-2021 18:20:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function rowCount() on null in /home/ecemscoz/public_html/repairstatus.php:96
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 96
+[24-Jun-2021 18:22:46 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatus.php:96
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 96
+[24-Jun-2021 18:22:49 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatus.php:96
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 96
+[24-Jun-2021 18:22:53 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatus.php:96
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 96
+[24-Jun-2021 18:23:27 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatus.php:96
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 96
+[24-Jun-2021 18:23:30 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatus.php:96
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 96
+[24-Jun-2021 18:28:56 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatus.php:37
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 37
+[24-Jun-2021 18:28:58 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatus.php:37
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 37
+[24-Jun-2021 18:29:01 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatus.php:37
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 37
+[24-Jun-2021 18:29:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatus.php:39
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 39
+[24-Jun-2021 18:29:24 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatus.php:39
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 39
+[24-Jun-2021 18:29:52 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatus.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 40
+[24-Jun-2021 18:29:54 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatus.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 40
+[24-Jun-2021 18:35:53 UTC] PHP Fatal error:  Uncaught Error: Class 'TableRows' not found in /home/ecemscoz/public_html/repairstatus.php:74
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 74
+[24-Jun-2021 18:37:31 UTC] PHP Fatal error:  Uncaught Error: Class 'TableRows' not found in /home/ecemscoz/public_html/repairstatus.php:57
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatus.php on line 57
+[24-Jun-2021 18:56:03 UTC] PHP Fatal error:  Cannot use try without catch or finally in /home/ecemscoz/public_html/repairstatusdev.php on line 52
+[24-Jun-2021 19:11:59 UTC] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/ecemscoz/public_html/repairstatusdev.php on line 2
+[24-Jun-2021 19:17:23 UTC] PHP Parse error:  syntax error, unexpected 'catch' (T_CATCH) in /home/ecemscoz/public_html/repairstatusdev.php on line 79
+[24-Jun-2021 19:17:39 UTC] PHP Parse error:  syntax error, unexpected 'catch' (T_CATCH) in /home/ecemscoz/public_html/repairstatusdev.php on line 79
+[24-Jun-2021 19:23:57 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/repairstatusdev.php on line 102
+[24-Jun-2021 19:24:09 UTC] PHP Fatal error:  Uncaught Error: Class 'TableRows' not found in /home/ecemscoz/public_html/repairstatusdev.php:57
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 57
+[24-Jun-2021 19:24:12 UTC] PHP Fatal error:  Uncaught Error: Class 'TableRows' not found in /home/ecemscoz/public_html/repairstatusdev.php:57
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 57
+[24-Jun-2021 19:27:09 UTC] PHP Fatal error:  Uncaught Error: Class 'TableRows' not found in /home/ecemscoz/public_html/repairstatusdev.php:57
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 57
+[24-Jun-2021 19:29:32 UTC] PHP Fatal error:  Uncaught Error: Class 'TableRows' not found in /home/ecemscoz/public_html/repairstatusdev.php:57
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 57
+[24-Jun-2021 19:36:46 UTC] PHP Fatal error:  Cannot use try without catch or finally in /home/ecemscoz/public_html/repairstatusdev.php on line 55
+[24-Jun-2021 19:39:04 UTC] PHP Fatal error:  Uncaught Error: Call to a member function setAttribute() on null in /home/ecemscoz/public_html/repairstatusdev.php:54
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 54
+[24-Jun-2021 19:41:50 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatusdev.php:39
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 39
+[24-Jun-2021 19:41:52 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatusdev.php:39
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 39
+[24-Jun-2021 19:42:48 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatusdev.php:39
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 39
+[24-Jun-2021 19:42:51 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatusdev.php:39
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 39
+[24-Jun-2021 19:43:12 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatusdev.php:39
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 39
+[24-Jun-2021 19:43:24 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatusdev.php:39
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 39
+[24-Jun-2021 19:43:27 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatusdev.php:39
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 39
+[24-Jun-2021 20:09:08 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 2031  in /home/ecemscoz/public_html/repairstatusdev.php:52
+Stack trace:
+#0 /home/ecemscoz/public_html/repairstatusdev.php(52): PDO->query('SELECT DISTINCT...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 52
+[24-Jun-2021 20:09:42 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 2031  in /home/ecemscoz/public_html/repairstatusdev.php:52
+Stack trace:
+#0 /home/ecemscoz/public_html/repairstatusdev.php(52): PDO->query('SELECT DISTINCT...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 52
+[24-Jun-2021 20:09:44 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 2031  in /home/ecemscoz/public_html/repairstatusdev.php:52
+Stack trace:
+#0 /home/ecemscoz/public_html/repairstatusdev.php(52): PDO->query('SELECT DISTINCT...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 52
+[24-Jun-2021 20:10:14 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 2031  in /home/ecemscoz/public_html/repairstatusdev.php:52
+Stack trace:
+#0 /home/ecemscoz/public_html/repairstatusdev.php(52): PDO->query('SELECT job_numb...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 52
+[24-Jun-2021 20:11:10 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 2031  in /home/ecemscoz/public_html/repairstatusdev.php:52
+Stack trace:
+#0 /home/ecemscoz/public_html/repairstatusdev.php(52): PDO->query('SELECT job_numb...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 52
+[24-Jun-2021 20:11:20 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 2031  in /home/ecemscoz/public_html/repairstatusdev.php:52
+Stack trace:
+#0 /home/ecemscoz/public_html/repairstatusdev.php(52): PDO->query('SELECT job_numb...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 52
+[24-Jun-2021 20:11:26 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 2031  in /home/ecemscoz/public_html/repairstatusdev.php:52
+Stack trace:
+#0 /home/ecemscoz/public_html/repairstatusdev.php(52): PDO->query('SELECT job_numb...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 52
+[24-Jun-2021 20:12:38 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM repairs' at line 1 in /home/ecemscoz/public_html/repairstatusdev.php:52
+Stack trace:
+#0 /home/ecemscoz/public_html/repairstatusdev.php(52): PDO->query('SELECT  FROM re...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 52
+[24-Jun-2021 20:28:13 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatusdev.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 40
+[24-Jun-2021 20:28:14 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatusdev.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 40
+[24-Jun-2021 20:45:39 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/repairstatusdev.php on line 85
+[24-Jun-2021 20:46:20 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/repairstatusdev.php on line 86
+[24-Jun-2021 20:48:11 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/ecemscoz/public_html/repairstatusdev.php on line 65
+[24-Jun-2021 20:48:58 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ecemscoz/public_html/repairstatusdev.php on line 82
+[24-Jun-2021 20:51:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatusdev.php:53
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 53
+[24-Jun-2021 20:51:58 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/ecemscoz/public_html/repairstatusdev.php:53
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 53
+[24-Jun-2021 20:52:58 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 2031  in /home/ecemscoz/public_html/repairstatusdev.php:53
+Stack trace:
+#0 /home/ecemscoz/public_html/repairstatusdev.php(53): PDO->query('SELECT * FROM r...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 53
+[24-Jun-2021 20:53:01 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 2031  in /home/ecemscoz/public_html/repairstatusdev.php:53
+Stack trace:
+#0 /home/ecemscoz/public_html/repairstatusdev.php(53): PDO->query('SELECT * FROM r...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 53
+[24-Jun-2021 20:53:46 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 2031  in /home/ecemscoz/public_html/repairstatusdev.php:53
+Stack trace:
+#0 /home/ecemscoz/public_html/repairstatusdev.php(53): PDO->query('SELECT current_...')
+#1 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 53
+[24-Jun-2021 21:30:52 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ecemscoz/public_html/repairstatusdev.php:53
+Stack trace:
+#0 {main}
+  thrown in /home/ecemscoz/public_html/repairstatusdev.php on line 53
+[24-Jun-2021 21:43:09 UTC] PHP Parse error:  syntax error, unexpected '";' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/ecemscoz/public_html/repairstatusdev.php on line 72

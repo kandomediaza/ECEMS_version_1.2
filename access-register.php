@@ -145,7 +145,7 @@ require_once 'connection.php';
                       <a class="nav-link" href="viewarchivedrepairs.php">View Archived Repairs</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="addnewrepair.php">Add New Repairs</a>
+                      <a class="nav-link" href="addnewrepairs.php">Add New Repairs</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="refurbs.php">View Refurbs</a>

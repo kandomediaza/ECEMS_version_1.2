@@ -20,7 +20,7 @@ if(isset($_REQUEST['update_id']))
  
 }
 
-if(isset($_REQUEST['btn_update']))
+if(isset($_POST['btn_update']))
 {
  
                 $job_number = $_REQUEST['job_number'];
